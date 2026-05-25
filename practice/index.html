@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<base href="../">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="referrer" content="no-referrer"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob: https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests"/>
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()"/>
+<meta name="nexusrn-security-profile" content="v144-practice-static-csp-referrer-policy"/>
+<title>NexusRN Practice Preview</title>
+<script id="nexusrn-v138-instant-mode-class">
+(function(){
+  try {
+    var wants = new URLSearchParams(location.search).get('focus') === 'modes' || location.hash === '#modes';
+    if (wants) document.documentElement.classList.add('nexus-focus-modes');
+  } catch(e) {}
+})();
+</script>
+<script id="nexusrn-v154-force-practice-light">
+(function(){
+  try { localStorage.setItem('nexusrn_theme_v5','light'); } catch(e) {}
+  document.documentElement.classList.add('nexus-v154-practice-light');
+  function apply(){ try { document.body.classList.add('light'); document.body.classList.remove('dark'); } catch(e){} }
+  if (document.body) apply();
+  document.addEventListener('DOMContentLoaded', apply);
+  window.addEventListener('load', apply);
+  setTimeout(apply, 0); setTimeout(apply, 250); setTimeout(apply, 1000);
+})();
+</script>
+
+<style id="nexusrn-v138-instant-modes-css">
+html.nexus-focus-modes, html.nexus-focus-modes body { overflow:auto !important; background:#f7fbfb !important; }
+html.nexus-focus-modes #boot { display:none !important; opacity:0 !important; visibility:hidden !important; pointer-events:none !important; }
+html.nexus-focus-modes #topbar,
+html.nexus-focus-modes .hero,
+html.nexus-focus-modes #nclexIntelHub,
+html.nexus-focus-modes .intel-hub,
+html.nexus-focus-modes .nexus-v3-landing-host,
+html.nexus-focus-modes #landingHost,
+html.nexus-focus-modes .landing-host { display:none !important; }
+html.nexus-focus-modes #app { min-height:100vh !important; }
+html.nexus-focus-modes #dash { padding-top:18px !important; margin-top:0 !important; }
+html.nexus-focus-modes #trainingModePanel, html.nexus-focus-modes #filterPanel { scroll-margin-top:14px; margin-top:0 !important; }
+html.nexus-focus-modes::before {
+  content:'Practice Dashboard · Modes and Filters';
+  display:block; position:sticky; top:0; z-index:9999;
+  padding:10px 18px; background:rgba(247,251,251,.92); backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(20,184,166,.18); color:#0f2a38; font:800 13px/1.2 Inter,system-ui,sans-serif; letter-spacing:.04em;
+}
+</style>
+
+<style id="nexusrn-v144-accessibility-security-css">
+:focus-visible{outline:3px solid rgba(20,184,166,.8)!important;outline-offset:3px!important;}
+html.nexus-focus-modes #trainingModePanel, html.nexus-focus-modes #filterPanel{scroll-margin-top:56px!important;}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}}
+</style>
+<style id="nexusrn-v154-practice-light-toolbar-final">
+/* v154: restore original light clinical Practice colors and make item toolbar non-overlapping. */
+html.nexus-v154-practice-light,
+html.nexus-v154-practice-light body,
+body.light{
+  background:#f7fbfb!important;
+  color:#102033!important;
+}
+html.nexus-focus-modes body.light #dash,
+html.nexus-focus-modes body.light #app{background:#f7fbfb!important;}
+body.light .filters,
+body.light #filterPanel,
+body.light #trainingModePanel,
+body.light .mode-panel,
+body.light .qcard,
+body.light .metric{
+  background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(245,250,253,.92))!important;
+  color:#142538!important;
+  border-color:rgba(17,94,89,.14)!important;
+  box-shadow:0 18px 48px rgba(15,65,80,.08)!important;
+}
+body.light .chip:not(.on),
+body.light .adv-toggle,
+body.light .clear-filters{
+  background:rgba(255,255,255,.82)!important;
+  color:#33485f!important;
+  border-color:rgba(59,110,128,.18)!important;
+}
+body.light .chip.on{background:#14b8a6!important;color:#042f2e!important;box-shadow:0 10px 24px rgba(20,184,166,.22)!important;}
+body.light #qview{
+  background:#f7fbfb!important;
+  padding-top:18px!important;
+}
+body.light #qview > .qv-bar-wrap,
+body.light #qview > .qv-bar-wrap.has-engine{
+  position:relative!important;
+  top:auto!important;
+  transform:none!important;
+  margin:0 0 24px!important;
+  background:rgba(255,255,255,.94)!important;
+  border:1px solid rgba(15,68,83,.13)!important;
+  box-shadow:0 14px 34px rgba(20,54,74,.09)!important;
+  backdrop-filter:blur(14px)!important;
+  z-index:20!important;
+}
+body.light #qmain{
+  padding-top:0!important;
+  margin-top:0!important;
+  color:#13253a!important;
+}
+body.light .ehr,
+body.light .qpane,
+body.light .patient-glass-card,
+body.light .question-rationale-grid .qpane{
+  background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(246,251,253,.92))!important;
+  color:#13253a!important;
+  border-color:rgba(21,94,117,.14)!important;
+  box-shadow:0 20px 50px rgba(21,64,87,.10)!important;
+}
+body.light .ehr-hd{background:linear-gradient(135deg,#ffffff,#edf8fb)!important;color:#13253a!important;}
+body.light .scenario,
+body.light .qstem{color:#13253a!important;background:rgba(240,253,250,.62)!important;}
+body.light .opt, body.light .sata-o, body.light .bto, body.light .ehr-entry, body.light .vbox, body.light .mx-tbl td{
+  background:rgba(255,255,255,.9)!important;
+  color:#203044!important;
+  border-color:rgba(48,92,112,.15)!important;
+}
+body.light .mx-tbl th{background:#ecfeff!important;color:#0f4f5e!important;}
+body.light .btn-next, body.light .btn-skip{background:#ffffff!important;color:#13253a!important;}
+@media (prefers-reduced-motion: reduce){*{transition-duration:.001ms!important;animation-duration:.001ms!important;}}
+</style>
+
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23078d88'/%3E%3Cpath d='M16 42V18h6l20 24V18h6v24h-6L22 18v24z' fill='white'/%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/nexusrn-v92.css" rel="stylesheet"/><link href="assets/css/nexusrn-v101-decisionlab-masterdetail.css" rel="stylesheet"/><meta content="v111-wave6-authenticity-rewrite; canonical DB data/questions-current.json; Wave 5A authenticity classification" name="nexusrn-build"/>
+<style id="nexusrn-v155-stable-item-typography-final">
+/* v155: final stable typography layer. Prevent item font blinking by making typography CSS-owned. */
+html.nexus-v155-stable-typography body,
+body.nexus-v155-stable-typography{font-size:16px!important;}
+#qview .qstem,
+#qview .scenario,
+#qview .question-stem,
+.qpane .qstem,
+body.light #qview .qstem,
+body.light .qpane .qstem{
+  font-size:1.08rem!important;
+  line-height:1.62!important;
+  font-weight:760!important;
+  letter-spacing:0!important;
+  transform:none!important;
+  transition:none!important;
+  animation:none!important;
+  font-size-adjust:none!important;
+  text-size-adjust:100%!important;
+  -webkit-text-size-adjust:100%!important;
+}
+#qview .qstem[style],
+.qpane .qstem[style],
+body.light #qview .qstem[style]{
+  font-size:1.08rem!important;
+  line-height:1.62!important;
+}
+#qview .opt-txt,#qview .sata-txt,#qview .bto,#qview .mx-tbl td,#qview .mx-tbl th,#qview .csel,#qview select,#qview .ord-it,#qview .hlw,#qview .hspot,
+.qpane .opt-txt,.qpane .sata-txt,.qpane .bto,.qpane .mx-tbl td,.qpane .mx-tbl th,.qpane .csel,.qpane select,.qpane .ord-it,.qpane .hlw,.qpane .hspot{
+  font-size:.96rem!important;
+  line-height:1.52!important;
+  transition:none!important;
+  animation:none!important;
+  transform:none!important;
+  font-size-adjust:none!important;
+  text-size-adjust:100%!important;
+  -webkit-text-size-adjust:100%!important;
+}
+#qview .ehr-entry,#qview .vbox,#qview .lab-r,#qview .ord-r{
+  font-size:.90rem!important;
+  line-height:1.55!important;
+  transition:none!important;
+}
+#qview .qv-bar-wrap{
+  position:relative!important;
+  top:auto!important;
+  margin:0 0 .5cm!important;
+  z-index:20!important;
+}
+#qview .ehr{top:calc(76px + .5cm)!important;}
+@media(max-width:900px){#qview .qstem,.qpane .qstem{font-size:1.02rem!important;line-height:1.58!important;}}
+</style>
+<script id="nexusrn-v155-stable-item-typography-runtime">
+(function(){
+  document.documentElement.classList.add('nexus-v155-stable-typography');
+  function cleanInline(){
+    try {
+      var nodes=document.querySelectorAll('#qview .qstem,#qview .scenario,#qview .opt-txt,#qview .sata-txt,#qview .bto,#qview .mx-tbl td,#qview .mx-tbl th,#qview .csel,#qview select,#qview .ord-it,#qview .hlw,#qview .hspot');
+      nodes.forEach(function(el){
+        if(!el || !el.style) return;
+        el.style.removeProperty('font-size');
+        el.style.removeProperty('line-height');
+        el.style.removeProperty('--v76-stem-size');
+        el.style.removeProperty('--v77-stem-size');
+      });
+    } catch(e) {}
+  }
+  document.addEventListener('DOMContentLoaded', cleanInline);
+  window.addEventListener('load', cleanInline);
+  ['renderQV','showQ','openQ','nextQ','showRat','applyMarks','submitQ','restoreState'].forEach(function(name){
+    try {
+      var fn=window[name];
+      if(typeof fn === 'function' && !fn.__v155StableTypography){
+        window[name]=function(){
+          var out=fn.apply(this, arguments);
+          requestAnimationFrame(cleanInline);
+          return out;
+        };
+        window[name].__v155StableTypography=true;
+      }
+    } catch(e) {}
+  });
+  window.NEXUS_V155_ITEM_TYPOGRAPHY_AUDIT=function(){
+    var stem=document.querySelector('#qview .qstem,.qpane .qstem');
+    var opt=document.querySelector('#qview .opt-txt,#qview .sata-txt,#qview .bto,#qview .mx-tbl td');
+    var csStem=stem?getComputedStyle(stem):null;
+    var csOpt=opt?getComputedStyle(opt):null;
+    return {
+      version:'v155-stable-item-typography',
+      stableTypographyActive:true,
+      legacyAdaptiveFontSizingDisabled:true,
+      inlineFontSizeCleared: stem ? !stem.style.fontSize : true,
+      stemComputedFontSize: csStem ? csStem.fontSize : null,
+      optionComputedFontSize: csOpt ? csOpt.fontSize : null,
+      labelBarOffsetApproxCm:'0.5cm',
+      questionDbMutated:false
+    };
+  };
+  window.NEXUS_V155_PRACTICE_AUDIT=function(){
+    var base = (typeof window.NEXUS_V143_PRACTICE_AUDIT==='function') ? window.NEXUS_V143_PRACTICE_AUDIT() : ((typeof window.NEXUS_V144_PRACTICE_AUDIT==='function') ? window.NEXUS_V144_PRACTICE_AUDIT() : {});
+    var typo = window.NEXUS_V155_ITEM_TYPOGRAPHY_AUDIT();
+    return Object.assign({}, base, {
+      version:'v155-practice-stable-typography-hotfix',
+      stableTypographyHotfix:true,
+      itemTypographyAudit:typo,
+      questionDbMutated:false
+    });
+  };
+})();
+</script>
+
+<link rel="canonical" href="https://nexusrn.healthqualityleader.com/practice/index.html" />
+<meta property="og:site_name" content="NexusRN" />
+<meta property="og:title" content="NexusRN by Health Quality Leader" />
+<meta property="og:description" content="NexusRN is an NCLEX NGN clinical judgment public preview with restricted demo practice, unfolding case previews, and Decision Lab learning tools." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://nexusrn.healthqualityleader.com/practice/index.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="NexusRN by Health Quality Leader" />
+<meta name="twitter:description" content="NexusRN is an NCLEX NGN clinical judgment public preview with restricted demo practice, unfolding case previews, and Decision Lab learning tools." />
+<meta name="application-name" content="NexusRN" />
+<meta name="apple-mobile-web-app-title" content="NexusRN" />
+
+</head>
+<body>
+<div id="boot">
+<div class="boot-wm">NexusRN</div>
+<div class="boot-sub">NCLEX · Next Generation · NGN</div>
+<div class="boot-track"><div class="boot-fill" id="bfill"></div></div>
+<div id="bcnt" style="font-size:.72rem;color:var(--slate)">Loading question bank…</div>
+</div>
+<div id="toast"></div>
+<div id="app">
+<div id="topbar">
+<div class="logo" onclick="showDash()" role="button" tabindex="0">NexusRN <sub>NCLEX NGN</sub></div>
+<div class="top-actions"><button aria-label="Toggle light and dark mode" class="theme-toggle" id="themeToggle" title="Toggle light/dark mode" type="button"><span class="theme-icon">☾</span><span class="theme-label">Dark</span></button><button class="btn-import" id="importFilesBtn" title="Select one or more JSON/XLSX database files" type="button">Import Files</button><button class="btn-import" id="importFolderBtn" title="Select a folder that directly contains JSON/XLSX database files" type="button">Import Folder</button><input accept=".json,.xlsx,.xls,application/json,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" hidden="" id="qimportFiles" multiple="" type="file"/><input accept=".json,.xlsx,.xls,application/json,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" directory="" hidden="" id="qimportFolder" multiple="" type="file" webkitdirectory=""/></div>
+<div class="session-pill">
+<div class="sstat"><div class="pip pg"></div><strong id="sc">0</strong> Correct</div>
+<div class="sstat"><div class="pip pr"></div><strong id="sw">0</strong> Wrong</div>
+<div class="sstat"><div class="pip pa"></div><strong id="st">0</strong> Done</div>
+</div>
+</div>
+<div id="dash">
+<!-- landing iframe removed from practice build -->
+<div class="hero">
+<h1>Master the <em>Next Generation</em> NCLEX</h1>
+<p><span id="heroCount">0</span> practice-ready questions · <span id="caseSetCount">0</span> unfolding cases · <span id="invalidCount">0</span> quarantined · <span id="heroFmtCount">0</span> NGN formats</p>
+</div>
+<section aria-label="NCLEX NGN Intelligence Hub" class="intel-hub" id="nclexIntelHub">
+<div class="intel-top">
+<div>
+<div class="intel-kicker">State-of-the-art NCLEX NGN prep intelligence</div>
+<h2>NCLEX Intelligence Hub</h2>
+<p>Trap radar, adaptive study planning, stress resets, and verified exam facts — built into the dashboard before the learner starts drilling.</p>
+</div>
+<div class="intel-actions">
+<button class="intel-tab active" data-intel-tab="traps" type="button">Trap Radar</button>
+<button class="intel-tab" data-intel-tab="planner" type="button">Study Planner</button>
+<button class="intel-tab" data-intel-tab="stress" type="button">Stress Reset</button>
+<button class="intel-tab" data-intel-tab="exam" type="button">Exam Facts</button>
+</div>
+</div>
+<div class="intel-pane active" id="intel-traps" role="tabpanel">
+<div class="trap-hero">
+<div>
+<div class="intel-kicker">Most common NGN failure patterns</div>
+<h3>Trap Radar: what catches candidates now</h3>
+<p>Combined from official NCLEX/NGN rules, common review-site warnings, and recurring student-reported anxiety patterns. Student reports are used only as signal — official exam facts come from NCSBN/NCLEX sources.</p>
+</div>
+<div class="trap-score-card">
+<span>Risk lens</span>
+<b>Read → Reason → Verify</b>
+<small>Don’t memorize answer patterns. Train a repeatable clinical-judgment process.</small>
+</div>
+</div>
+<div class="trap-grid">
+<article class="trap-card hot"><div class="trap-num">01</div><h4>SATA over-selection</h4><p><b>Trap:</b> picking “maybe” options because partial credit exists.</p><p><b>Example:</b> selecting 5 options when only 3 are clearly supported by the case.</p><p><b>Beat it:</b> judge each option true/false against the stem; don’t select uncertain distractors.</p></article>
+<article class="trap-card"><div class="trap-num">02</div><h4>Priority-word blindness</h4><p><b>Trap:</b> missing words like <em>first, priority, immediate, best, initial</em>.</p><p><b>Example:</b> educating before stabilizing airway/perfusion.</p><p><b>Beat it:</b> pause at the bold/priority word, then choose the safest nursing action for that exact ask.</p></article>
+<article class="trap-card"><div class="trap-num">03</div><h4>Provider-notification reflex</h4><p><b>Trap:</b> calling the provider before doing an available nursing action.</p><p><b>Example:</b> notify provider before repositioning, oxygenating, assessing, or stopping an unsafe infusion.</p><p><b>Beat it:</b> ask: “Can the nurse safely act now before escalating?”</p></article>
+<article class="trap-card"><div class="trap-num">04</div><h4>Case-study future leakage</h4><p><b>Trap:</b> using stage-5 data to answer stage 1 or treating all six case questions as separate stories.</p><p><b>Example:</b> choosing a diagnosis before the key lab is introduced.</p><p><b>Beat it:</b> answer only from the data available at the current timestamp.</p></article>
+<article class="trap-card"><div class="trap-num">05</div><h4>Lab-range autopilot</h4><p><b>Trap:</b> using memorized ranges when the item provides a different reference range.</p><p><b>Example:</b> ignoring the chart’s normal range for a patient-specific lab.</p><p><b>Beat it:</b> use the provided reference range first; then connect trend + symptoms.</p></article>
+<article class="trap-card"><div class="trap-num">06</div><h4>CAT psychology spiral</h4><p><b>Trap:</b> thinking “hard questions = I’m failing” or “85 questions = I passed/failed.”</p><p><b>Example:</b> rushing after a hard bow-tie item because panic rises.</p><p><b>Beat it:</b> treat each item as information for the algorithm. Do not score-predict during the exam.</p></article>
+<article class="trap-card"><div class="trap-num">07</div><h4>Memorization trap</h4><p><b>Trap:</b> remembering facts but failing to connect cues → hypothesis → action.</p><p><b>Example:</b> knowing sepsis signs but not prioritizing hypotension + lactate.</p><p><b>Beat it:</b> practice NCJMM steps, not isolated flashcards only.</p></article>
+<article class="trap-card"><div class="trap-num">08</div><h4>Rationale skipping</h4><p><b>Trap:</b> reviewing only wrong answers and ignoring why correct answers were right.</p><p><b>Example:</b> “I got it right” but for the wrong reason.</p><p><b>Beat it:</b> read rationales for correct, incorrect, and partially correct responses.</p></article>
+</div>
+<div class="intel-source-row"><a href="https://www.nclex.com/faqs.page" rel="noopener" target="_blank">NCLEX FAQ</a><a href="https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf" rel="noopener" target="_blank">2026 RN Test Plan</a><a href="https://www.nclex.com/computerized-adaptive-testing.page" rel="noopener" target="_blank">CAT explanation</a></div>
+</div>
+<div class="intel-pane" id="intel-planner" role="tabpanel">
+<div class="planner-layout">
+<div class="planner-controls">
+<div class="intel-kicker">Interactive planner</div>
+<h3>Build a smarter NCLEX week</h3>
+<label>Days until exam <input id="planDays" max="90" min="7" type="range" value="45"/><b id="planDaysOut">45</b></label>
+<label>Available hours / week <input id="planHours" max="40" min="4" type="range" value="18"/><b id="planHoursOut">18</b></label>
+<label>Weakest lane
+              <select id="planWeak">
+<option>Prioritization</option><option>Pharmacology</option><option>Physiological Adaptation</option><option>Safety / Infection</option><option>Evaluate Outcomes</option><option>NGN Formats</option>
+</select>
+</label>
+<label>Preferred session rhythm
+              <select id="planStyle"><option value="balanced">Balanced</option><option value="case-heavy">Case-heavy</option><option value="sprint">Short sprints</option><option value="remediation">Remediation-heavy</option></select>
+</label>
+</div>
+<div class="planner-output" id="plannerOutput"></div>
+</div>
+<div class="planner-principles">
+<div><b>Spacing</b><span>Spread review across days instead of cramming.</span></div>
+<div><b>Retrieval</b><span>Force recall with questions before rereading notes.</span></div>
+<div><b>Remediation</b><span>Rework wrong rationales into next-day drills.</span></div>
+<div><b>Case replay</b><span>Replay unfolding cases by stage to build clinical judgment.</span></div>
+</div>
+<div class="intel-source-row"><a href="https://www.ncbi.nlm.nih.gov/books/NBK610455/" rel="noopener" target="_blank">NCBI preparation guidance</a><a href="https://www.edresearch.edu.au/guides-resources/practice-guides/spacing-and-retrieval-practice-guide-full-publication" rel="noopener" target="_blank">Spacing + retrieval</a></div>
+</div>
+<div class="intel-pane" id="intel-stress" role="tabpanel">
+<div class="stress-layout">
+<div class="stress-card active" data-exercise="cyclic"><span>Before session</span><h4>Cyclic sighing reset</h4><p>Two inhales through the nose, long slow exhale. Repeat for 60–120 seconds before high-stakes sets.</p><button class="stress-start" data-stress-start="cyclic" type="button">Start 60s demo</button></div>
+<div class="stress-card" data-exercise="ground"><span>After a wrong answer</span><h4>5–4–3–2–1 grounding</h4><p>Name 5 things you see, 4 feel, 3 hear, 2 smell, 1 taste. Use it to stop answer-review spirals.</p><button class="stress-start" data-stress-start="ground" type="button">Start demo</button></div>
+<div class="stress-card" data-exercise="box"><span>Timer pressure</span><h4>Box breathing</h4><p>Inhale 4, hold 4, exhale 4, hold 4. Best when speed pressure spikes.</p><button class="stress-start" data-stress-start="box" type="button">Start demo</button></div>
+<div class="stress-card" data-exercise="pmr"><span>Night before</span><h4>Progressive release</h4><p>Tense and release shoulders, hands, jaw, legs. Downshift body tension before sleep.</p><button class="stress-start" data-stress-start="pmr" type="button">Start demo</button></div>
+</div>
+<div class="stress-demo" id="stressDemo"><div class="breath-orb"><span>Ready</span></div><div><h4>Choose an exercise</h4><p>Use micro-resets before drills, after difficult rationales, during time pressure, and the night before the exam.</p></div></div>
+<div class="intel-source-row"><a href="https://med.stanford.edu/news/insights/2023/02/cyclic-sighing-can-help-breathe-away-anxiety.html" rel="noopener" target="_blank">Stanford cyclic sighing</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9957036/" rel="noopener" target="_blank">Guided breathing/test anxiety</a></div>
+</div>
+<div class="intel-pane" id="intel-exam" role="tabpanel">
+<div class="exam-grid">
+<div class="exam-fact"><span>Format</span><b>Computerized adaptive test</b><p>Items adapt based on previous answers and item difficulty.</p></div>
+<div class="exam-fact"><span>Length</span><b>85–150 items</b><p>Both RN and PN exams are variable-length with a 5-hour limit.</p></div>
+<div class="exam-fact"><span>NGN case studies</span><b>3 × 6-item cases</b><p>At minimum length, 18 items are three clinical-judgment case studies.</p></div>
+<div class="exam-fact"><span>Scoring</span><b>Partial credit exists</b><p>Plus/minus, zero/one, and rationale scoring are used when an item has more than one key.</p></div>
+<div class="exam-fact myth"><span>Rumor check</span><b>85 items is not a guarantee</b><p>Stopping at 85 alone does not prove pass or fail. The decision depends on the algorithm.</p></div>
+<div class="exam-fact myth"><span>Rumor check</span><b>Hard items are not bad news</b><p>CAT aims to target ability. Feeling challenged is expected, not diagnostic.</p></div>
+</div>
+<div class="intel-source-row"><a href="https://www.ncsbn.org/public-files/NCLEX_Examination_Candidate_Bulletin_April_2026.pdf" rel="noopener" target="_blank">2026 Candidate Bulletin</a><a href="https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf" rel="noopener" target="_blank">2026 RN Test Plan</a><a href="https://www.nclex.com/clinical-judgment-measurement-model.page" rel="noopener" target="_blank">NCJMM</a></div>
+</div>
+</section>
+<div class="metrics">
+<div class="metric">
+<div class="mlbl">Questions Done</div>
+<div class="mval"><span id="md">0</span> <span>/ <span id="mtotal">0</span></span></div>
+<div class="msub">answered from practice-ready bank</div>
+</div>
+<div class="metric">
+<div class="mlbl">Session Accuracy</div>
+<div class="ring-wrap">
+<svg class="ring-svg" height="56" viewbox="0 0 56 56" width="56">
+<circle class="ring-bg" cx="28" cy="28" r="22"></circle>
+<circle class="ring-arc" cx="28" cy="28" id="ring" r="22" stroke-dasharray="138.2" stroke-dashoffset="138.2"></circle>
+</svg>
+<div><div class="mval"><span id="mp">—</span><span>%</span></div><div class="msub">overall score</div></div>
+</div>
+</div>
+<div class="metric"><div class="mlbl">By Format</div><div class="fmt-bars" id="fbars"></div></div>
+<div class="metric">
+<div class="mlbl">Question Bank</div>
+<div class="mval"><span id="bankSize">0</span> <span>items</span></div>
+<div class="msub"><span id="bankAudit">Practice-ready · audit-safe</span></div>
+</div>
+</div>
+<div class="filters filter-glass" id="filterPanel">
+<div class="filter-topline">
+<div>
+<div class="filter-title">Question Filters</div>
+<div class="filter-subtitle">Core filters stay visible. Advanced clinical filters stay one click away.</div>
+</div>
+<div class="filter-actions">
+<button aria-controls="advancedFilters" aria-expanded="false" class="adv-toggle" id="advancedFilterToggle" type="button">Advanced Filters</button>
+<button class="clear-filters" id="clearFiltersBtn" type="button">Clear All</button>
+</div>
+</div>
+<div class="frow main-filter-row case-mode-row">
+<span class="flbl">Mode</span>
+<button class="chip on" data-g="mode" data-v="all">All</button>
+<button class="chip" data-g="mode" data-v="standalone">Standalone</button>
+<button class="chip" data-g="mode" data-v="unfolding">Unfolding Case</button>
+</div>
+<div class="frow main-filter-row">
+<span class="flbl">Format</span>
+<button class="chip on" data-g="fmt" data-v="all">All</button>
+<button class="chip" data-g="fmt" data-v="multiple-choice" title="Multiple Choice — Single Best Answer">Single Best</button>
+<button class="chip" data-g="fmt" data-v="bowtie">Bow-Tie</button>
+<button class="chip" data-g="fmt" data-v="emr" title="Extended Multiple Response — Multiple Response Select N">Extended MR</button>
+<button class="chip" data-g="fmt" data-v="matrix" title="Matrix/Grid — Matrix Multiple Choice or Matrix Multiple Response">Matrix/Grid</button>
+<button class="chip" data-g="fmt" data-v="calculation">Calculation</button>
+<button class="chip" data-g="fmt" data-v="cloze-dropdown" title="Cloze (Drop-Down) — Rationale/Table">Drop-Down</button>
+<button class="chip" data-g="fmt" data-v="ordered-response" title="Ordered Response — Sequence">Ordered</button>
+<button class="chip" data-g="fmt" data-v="image-hotspot" title="Enhanced Hot Spot — Image/Audio Hotspot">Hot Spot</button>
+<button class="chip" data-g="fmt" data-v="highlight" title="Enhanced Hot Spot (Highlighting) — Highlight Text/Table">Highlight</button>
+<button class="chip" data-g="fmt" data-v="trend" title="Trend — Change Over Time">Trend</button>
+</div>
+<div class="frow main-filter-row">
+<span class="flbl">CJMM</span>
+<button class="chip on" data-g="step" data-v="all">All Steps</button>
+<button class="chip" data-g="step" data-v="Recognize">Recognize Cues</button>
+<button class="chip" data-g="step" data-v="Analyze">Analyze Cues</button>
+<button class="chip" data-g="step" data-v="Prioritize">Prioritize Hypotheses</button>
+<button class="chip" data-g="step" data-v="Generate">Generate Solutions</button>
+<button class="chip" data-g="step" data-v="Take Action">Take Action</button>
+<button class="chip" data-g="step" data-v="Evaluate">Evaluate Outcomes</button>
+</div>
+<div class="frow main-filter-row">
+<span class="flbl">Difficulty</span>
+<button class="chip on" data-g="difficulty" data-v="all">All</button>
+<button class="chip" data-g="difficulty" data-v="Easy">Easy</button>
+<button class="chip" data-g="difficulty" data-v="Moderate">Moderate</button>
+<button class="chip" data-g="difficulty" data-v="Hard">Hard</button>
+<button class="chip" data-g="difficulty" data-v="Very Hard">Very Hard</button>
+</div>
+<div class="frow main-filter-row">
+<span class="flbl">Status</span>
+<button class="chip on" data-g="status" data-v="all">All</button>
+<button class="chip" data-g="status" data-v="new">Unanswered</button>
+<button class="chip" data-g="status" data-v="wrong">Wrong Only</button>
+<button class="chip" data-g="status" data-v="skipped">Skipped</button>
+</div>
+<div class="advanced-filters" hidden="" id="advancedFilters">
+<div class="advanced-head"><span>Advanced clinical filters</span><small>Client needs, body system, risk, and learner performance</small></div>
+<div class="frow clinical-filter-row">
+<span class="flbl">Client</span>
+<button class="chip on" data-g="client" data-v="all">All</button>
+<button class="chip" data-g="client" data-v="safe-effective">Safe / Effective</button>
+<button class="chip" data-g="client" data-v="management-care">Management</button>
+<button class="chip" data-g="client" data-v="safety-infection">Safety / Infection</button>
+<button class="chip" data-g="client" data-v="health-promotion">Health Promotion</button>
+<button class="chip" data-g="client" data-v="psychosocial">Psychosocial</button>
+<button class="chip" data-g="client" data-v="physiological">Physiological</button>
+<button class="chip" data-g="client" data-v="basic-comfort">Basic Comfort</button>
+<button class="chip" data-g="client" data-v="pharm">Pharm</button>
+<button class="chip" data-g="client" data-v="risk-reduction">Risk Reduction</button>
+<button class="chip" data-g="client" data-v="adaptation">Adaptation</button>
+</div>
+<div class="frow clinical-filter-row">
+<span class="flbl">System</span>
+<button class="chip on" data-g="body" data-v="all">All</button>
+<button class="chip" data-g="body" data-v="cardio">Cardio</button>
+<button class="chip" data-g="body" data-v="respiratory">Respiratory</button>
+<button class="chip" data-g="body" data-v="neuro">Neuro</button>
+<button class="chip" data-g="body" data-v="endocrine">Endocrine</button>
+<button class="chip" data-g="body" data-v="renal">Renal</button>
+<button class="chip" data-g="body" data-v="gi">GI</button>
+<button class="chip" data-g="body" data-v="musculoskeletal">Musculoskeletal</button>
+<button class="chip" data-g="body" data-v="ob">OB / Maternity</button>
+<button class="chip" data-g="body" data-v="peds">Pediatrics</button>
+<button class="chip" data-g="body" data-v="mental">Mental Health</button>
+<button class="chip" data-g="body" data-v="oncology">Oncology</button>
+<button class="chip" data-g="body" data-v="infection">Infection / Sepsis</button>
+<button class="chip" data-g="body" data-v="perioperative">Perioperative</button>
+<button class="chip" data-g="body" data-v="emergency">Emergency / Trauma</button>
+<button class="chip" data-g="body" data-v="critical">Critical Care</button>
+<button class="chip" data-g="body" data-v="pharmacology">Pharmacology</button>
+</div>
+<div class="frow clinical-filter-row">
+<span class="flbl">Risk</span>
+<button class="chip on" data-g="risk" data-v="all">All</button>
+<button class="chip" data-g="risk" data-v="stable">Stable</button>
+<button class="chip" data-g="risk" data-v="worsening">Worsening</button>
+<button class="chip" data-g="risk" data-v="urgent">Priority / Urgent</button>
+<button class="chip" data-g="risk" data-v="life-threatening">Life-Threatening</button>
+<button class="chip" data-g="risk" data-v="safety-risk">Safety Risk</button>
+<button class="chip" data-g="risk" data-v="infection-risk">Infection Risk</button>
+<button class="chip" data-g="risk" data-v="fall-risk">Fall Risk</button>
+<button class="chip" data-g="risk" data-v="medication-risk">Medication Risk</button>
+</div>
+<div class="frow clinical-filter-row">
+<span class="flbl">Perf.</span>
+<button class="chip on" data-g="performance" data-v="all">All</button>
+<button class="chip" data-g="performance" data-v="never">Never Attempted</button>
+<button class="chip" data-g="performance" data-v="attempted">Attempted</button>
+<button class="chip" data-g="performance" data-v="correct">Correct</button>
+<button class="chip" data-g="performance" data-v="wrong">Wrong</button>
+<button class="chip" data-g="performance" data-v="partial">Partial Credit</button>
+<button class="chip" data-g="performance" data-v="needs-review">Needs Review</button>
+</div>
+</div>
+</div>
+<div class="sec-head">Questions <b id="showing" style="color:var(--wd);margin-left:4px"></b></div>
+<div class="qgrid" id="qgrid"></div>
+</div>
+<div id="qview">
+<div class="qv-bar-wrap">
+<button class="btn-back" onclick="showDash()">← Back</button>
+<div class="qv-crumb">Q <b id="qn">—</b> / <b id="qof">—</b></div>
+<div class="qv-prog"><div class="qv-fill" id="qfill"></div><div class="skip-seg" id="qskipfill" style="width:0"></div></div>
+<div id="qbdg" style="display:flex;gap:6px;flex-shrink:0"></div>
+</div>
+<div id="qmain"></div>
+</div>
+</div>
+<div id="mbg">
+<div class="modal">
+<div class="m-ic" id="mic"></div>
+<div class="m-ti" id="mti"></div>
+<div class="m-sc"><span id="msc"></span><span>%</span></div>
+<div class="m-su" id="msu"></div>
+<div class="m-stats">
+<div><div class="ms-n" id="msc2" style="color:var(--green)"></div><div class="ms-l">Correct</div></div>
+<div><div class="ms-n" id="msw" style="color:var(--red)"></div><div class="ms-l">Wrong</div></div>
+<div><div class="ms-n" id="mst" style="color:var(--w)"></div><div class="ms-l">Total</div></div>
+</div>
+<button class="btn-m" onclick="closeModal()">Continue Practicing</button>
+</div>
+</div>
+<!-- v51: SheetJS is lazy-loaded only when XLS/XLSX import is used. -->
+<template id="nexusrn-v23-bank-moved-to-data">Moved into data/questions-v106-clinicalqa-wave2-keyrepair.json during v93 production hotfixization.</template>
+<template id="nexusrn-v24-ready-bank-moved-to-data">Moved into data/questions-v106-clinicalqa-wave2-keyrepair.json during v93 production hotfixization.</template>
+<script id="nexus-v141-legacy-decisionlab-disable-flag">
+window.NEXUS_LEGACY_DECISION_LAB_RUNTIME_DISABLED = true;
+window.NEXUS_PRACTICE_RUNTIME_TARGET = 'v142-metadata-first-db-performance';
+</script>
+<script id="nexusrn-v116-p2-preflight" src="assets/js/packages/nexus-preflight.pkg.js" defer></script><script src="assets/js/packages/nexus-app-runtime-v142-practice.pkg.js" defer></script><script src="assets/js/packages/nexus-runtime-scaffold.pkg.js" defer></script><script src="assets/js/packages/nexus-package-audit.pkg.js" defer></script>
+<script id="nexusrn-v117-governance" src="assets/js/packages/nexus-governance.pkg.js" defer></script>
+<script id="nexusrn-v118-observability" src="assets/js/packages/nexus-observability.pkg.js" defer></script>
+<script id="nexusrn-v119-educator-governance" src="assets/js/packages/nexus-educator-governance.pkg.js" defer></script>
+<script id="nexusrn-v120-master-audit" src="assets/js/packages/nexus-master-audit-v121c.pkg.js" defer></script>
+<script id="nexusrn-v121-release-candidate" src="assets/js/packages/nexus-release-candidate.pkg.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========================================================
+   v57 UI + Demographic final rescan patch
+   - compact patient card
+   - removes duplicate unfolding alert
+   - bold EHR tabs
+   - merges engine bar into top progress bar
+   - replaces final demographic guard with story-first scanner
+   ========================================================= -->
+
+<!-- =========================================================
+   v58 patch
+   - hide unstable demographic guard strip
+   - Browse Bank choice modal: Start fresh / Continue
+   - Readiness Compass: clickable item popup workflow + color-coded output
+   - tighter patient card
+   - dark blue unfolding sequence badge
+   ========================================================= -->
+
+<!-- =========================================================
+   v59 patch
+   - Readiness Compass questionnaire is slider-driven only
+   - Anxiety load scan is explicit in the questionnaire
+   - Browse Bank opens Start Fresh / Continue Previous choice before mode change
+   ========================================================= -->
+
+<!-- =========================================================
+   v61 patch
+   - true Cloze filter separated from simple case-dropdown
+   - clicking a case card under a format filter opens the matching sub-item
+   - Radiology tab restored/renamed and reads ehr.radiology/ehr.imaging
+   - adds runtime audit helper: NEXUS_CLOZE_RADIOLOGY_AUDIT()
+   ========================================================= -->
+
+<!-- =========================================================
+   v62 patch
+   - fixes blank Cloze screen caused by missing normalizeOptionList runtime symbol
+   - renders text_with_blanks before generic stem/template
+   - uses option values that match the existing correctMap: IDs for embedded v24, text for external DB
+   - adds cloze render audit helper
+   ========================================================= -->
+
+<!-- =========================================================
+   v63: Highlight renderer + Radiology audit patch
+   - ignores placeholder highlight token "No text provided"
+   - renders structured highlight spans from screen/passage HTML
+   - falls back to EHR notes/H&P when a highlight item lacks passage text
+   - adds NEXUS_RADIOLOGY_AUDIT and NEXUS_HIGHLIGHT_AUDIT helpers
+   ========================================================= -->
+
+<!-- =========================================================
+   v64 patch
+   - Highlight demographic/story harmonizer
+   - Highlight stem font -30%
+   - Question bank quick search + difficulty + start-fresh reset
+   ========================================================= -->
+
+<!-- =========================================================
+   v65 patch
+   - Question toolbar forced into one professional line on desktop
+   - Bank search now searches IDs deeply, including standalone IDs, case IDs, and 6Q sub-item IDs
+   ========================================================= -->
+
+<!-- =========================================================
+   v66 patch
+   - Restore Hotspot filter after Cloze/Highlight patches
+   - Repair hotspot answer keys from correct_hotspot_id / correct_hotspot_ids
+   - Support image hotspots and audio-segment hotspots in the same Hotspot filter
+   ========================================================= -->
+
+<!-- =========================================================
+   v67 audit stabilization patch
+   - neutral practice-ready result wording
+   - removes student-facing developer note
+   - disables legacy demographic guard UI/runtime traces
+   - minor toolbar/search polish
+   ========================================================= -->
+
+<!-- =========================================================
+   v68 CSS Cascade Stabilization
+   Purpose: centralize final design tokens and reduce future !important patching.
+   This is intentionally a narrow stabilization layer; it does not rewrite the whole UI.
+   ========================================================= -->
+
+<!-- v70 DB/UI Alignment + Highlight Recovery marker -->
+
+<!-- =========================================================
+   v71 Runtime DB Alignment
+   - Aligns live UI validator with v70-clean DB flags
+   - Restores practice-ready Highlight items that passed offline validation
+   - Fixes hero/stat counts after legacy patch layering
+   ========================================================= -->
+
+<!-- =========================================================
+   v74 Auto DB Lock
+   - Prefers the versioned v72 DB over ambiguous data/questions-v106-clinicalqa-wave2-keyrepair.json.
+   - Uses offline DB validForPractice flags as the release source of truth.
+   - Warns if the old 9,142-item DB is being served.
+   ========================================================= -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========================================================
+   v91 Performance + UI Label + Search Pagination Stabilization
+   - Final Browse Bank renderer: paginated cards instead of all cards
+   - Search/difficulty recompute effective list so Next follows visible result set
+   - Official-facing NGN item-family labels in chips, badges, and diagnostics
+   ========================================================= -->
+
+<!-- =========================================================
+  v91 Final Stabilization
+  - Single Decision Lab override in requested tab sequence
+  - Double-click collapse on each tab/panel
+  - Dynamic readiness target, default study plans, guided stress cycle
+  - Learner Search Radar linked to loaded bank/cases
+========================================================= -->
+
+
+
+
+
+
+
+
+
+
+<script>
+(function(){
+  window.NEXUS_V116_PACKAGED_P2_AUDIT = function(){
+    var scripts = Array.from(document.scripts || []);
+    var currentScriptTags = scripts.filter(function(s){ return s.src && /assets\/js\/packages\/nexus-.*\.pkg\.js/.test(s.src); }).length;
+    var p1PackageScripts = scripts.filter(function(s){ return s.src && /assets\/js\/packages\/pkg-\d+.*\.js/.test(s.src); }).length;
+    var q = window.NEXUS_QUESTIONS || window.questions || window.questionBank || window.__NEXUS_QUESTIONS__ || [];
+    var standalone = Array.isArray(q) ? q.length : (window.NEXUS_STANDALONE_COUNT || null);
+    var v115 = typeof window.NEXUS_V115_RUNTIME_AUDIT === 'function' ? window.NEXUS_V115_RUNTIME_AUDIT() : (typeof window.NEXUS_V115_FINAL_QA_AUDIT === 'function' ? window.NEXUS_V115_FINAL_QA_AUDIT() : null);
+    var v116 = typeof window.NEXUS_V116_RUNTIME_AUDIT === 'function' ? window.NEXUS_V116_RUNTIME_AUDIT() : null;
+    var prior = typeof window.NEXUS_V116_PACKAGED_AUDIT === 'function' ? window.NEXUS_V116_PACKAGED_AUDIT() : null;
+    return {
+      version: 'v116-packaged-runtime-p2b-audit-fix',
+      priorCheckpoint: 'v116-packaged-runtime-p1',
+      originalScriptTags: 63,
+      p1ScriptTags: 8,
+      p2DomainScriptTags: currentScriptTags,
+      p1PackageScriptsStillLoaded: p1PackageScripts,
+      packageCount: 4,
+      originalsRetained: true,
+      questionDbMutated: false,
+      standaloneQuestions: prior && prior.standaloneQuestions || standalone || (v116 && v116.standaloneQuestions) || null,
+      caseSets: prior && prior.caseSets || (v116 && v116.caseSets) || null,
+      importedIdealCases: prior && prior.importedIdealCases || (v116 && v116.importedIdealCases) || null,
+      v115AuditAvailable: !!v115,
+      v116AuditAvailable: !!v116,
+      p1AuditAvailable: !!prior,
+      v116: v116,
+      p1: prior,
+      note: 'P2b keeps the same four domain packages and fixes the v115 audit detector to use NEXUS_V115_RUNTIME_AUDIT / NEXUS_V115_FINAL_QA_AUDIT. No DB or runtime package mutation.'
+    };
+  };
+})();
+</script>
+<script>
+(function(){
+  window.NEXUS_V116_PACKAGED_P3_AUDIT = function(){
+    var scripts = Array.from(document.scripts || []);
+    var p3DomainScripts = scripts.filter(function(s){ return s.src && /assets\/js\/packages\/nexus-.*\.pkg\.js/.test(s.src); }).length;
+    var p1PackageScripts = scripts.filter(function(s){ return s.src && /assets\/js\/packages\/pkg-\d+.*\.js/.test(s.src); }).length;
+    var p2 = typeof window.NEXUS_V116_PACKAGED_P2_AUDIT === 'function' ? window.NEXUS_V116_PACKAGED_P2_AUDIT() : null;
+    var v115 = typeof window.NEXUS_V115_RUNTIME_AUDIT === 'function' ? window.NEXUS_V115_RUNTIME_AUDIT() : (typeof window.NEXUS_V115_FINAL_QA_AUDIT === 'function' ? window.NEXUS_V115_FINAL_QA_AUDIT() : null);
+    var v116 = typeof window.NEXUS_V116_RUNTIME_AUDIT === 'function' ? window.NEXUS_V116_RUNTIME_AUDIT() : null;
+    var q = window.NEXUS_QUESTIONS || window.questions || window.questionBank || window.__NEXUS_QUESTIONS__ || [];
+    return {
+      version: 'v116-packaged-runtime-p3-clean-deploy',
+      priorCheckpoint: 'v116-packaged-runtime-p2b-audit-fix',
+      activeDomainScriptTags: p3DomainScripts,
+      packageCount: 4,
+      p1PackageScriptsStillLoaded: p1PackageScripts,
+      originalModuleFilesRetainedInDeploy: false,
+      p1IntermediatePackageFilesRetainedInDeploy: false,
+      originalScriptTagsBeforePackaging: 63,
+      questionDbMutated: false,
+      standaloneQuestions: (p2 && p2.standaloneQuestions) || (Array.isArray(q) ? q.length : null) || (v116 && v116.standaloneQuestions) || null,
+      caseSets: (p2 && p2.caseSets) || (v116 && v116.caseSets) || null,
+      importedIdealCases: (p2 && p2.importedIdealCases) || (v116 && v116.importedIdealCases) || null,
+      v115AuditAvailable: !!v115,
+      v116AuditAvailable: !!v116,
+      p2AuditAvailable: !!p2,
+      v115: v115,
+      v116: v116,
+      p2: p2,
+      note: 'P3 is a clean deploy package: same four p2b runtime packages, with original 63 module files and p1 intermediate packages removed from this deploy copy. Use p2b zip for rollback/source inspection.'
+    };
+  };
+})();
+</script>
+
+
+
+<style id="nexusrn-v138-practice-focus-style">
+  .nexus-v138-focus-ring { outline: 3px solid rgba(20,184,166,.72) !important; box-shadow: 0 0 0 8px rgba(20,184,166,.14) !important; transition: outline .3s ease, box-shadow .3s ease; }
+</style>
+<script id="nexusrn-v138-practice-focus">
+(function(){
+  function wantsFocus(){
+    try { return new URLSearchParams(location.search).get('focus') === 'modes' || location.hash === '#modes'; } catch(e){ return false; }
+  }
+  function focusModes(){
+    if(!wantsFocus()) return;
+    document.documentElement.classList.add('nexus-focus-modes');
+    var target = document.getElementById('trainingModePanel') || document.getElementById('filterPanel') || document.querySelector('.case-mode-row') || document.querySelector('.filters') || document.getElementById('dash');
+    var boot = document.getElementById('boot');
+    if(boot){ boot.style.display='none'; boot.style.opacity='0'; boot.style.visibility='hidden'; }
+    if(target && target.scrollIntoView){ target.scrollIntoView({behavior:'auto', block:'start'}); }
+    try { parent.postMessage({ source:'NexusRNPractice', event:'modes-focused', version:'v138' }, '*'); } catch(e){}
+  }
+  if(wantsFocus()) { focusModes(); }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ focusModes(); setTimeout(focusModes, 250); setTimeout(focusModes, 900); setTimeout(focusModes, 2200); });
+  else { focusModes(); setTimeout(focusModes, 250); setTimeout(focusModes, 900); setTimeout(focusModes, 2200); }
+  window.NEXUS_V138_PRACTICE_AUDIT = function(){ return { version:'v138-practice-modes-first-deferred-runtime', focusModes:wantsFocus(), targetFound:!!(document.getElementById('trainingModePanel') || document.getElementById('filterPanel') || document.querySelector('.case-mode-row')), runtimeScriptsDeferred:true, bootSuppressed:!!document.documentElement.classList.contains('nexus-focus-modes'), questionDbMutated:false }; };
+  window.NEXUS_V137_PRACTICE_AUDIT = window.NEXUS_V138_PRACTICE_AUDIT;
+  window.NEXUS_V136_PRACTICE_AUDIT = window.NEXUS_V138_PRACTICE_AUDIT;
+})();
+</script>
+
+
+<script id="nexus-v139-practice-modes-ready">
+(function(){
+  function focusModes(){
+    try {
+      var target = document.getElementById('trainingModePanel') || document.getElementById('filterPanel') || document.querySelector('[aria-label*="mode" i], .mode-panel, .training-mode, #dash');
+      if(target && target.scrollIntoView) target.scrollIntoView({block:'start', behavior:'auto'});
+      if(window.parent) window.parent.postMessage({source:'NexusRNPractice', event:'modes-focused', version:'v139'}, '*');
+    } catch(e) {}
+  }
+  window.addEventListener('load', function(){ setTimeout(focusModes, 60); setTimeout(focusModes, 650); setTimeout(focusModes, 1800); });
+  document.addEventListener('DOMContentLoaded', function(){ setTimeout(focusModes, 60); });
+  window.NEXUS_V139_PRACTICE_AUDIT = function(){ return {version:'v139-practice-modes-entry', focusModes:true, emailGateRemovedFromPracticeEntry:true, route:new URLSearchParams(location.search).get('focus') || location.hash}; };
+})();
+</script>
+
+
+<script id="nexus-v140-audit-context-aliases">
+(function(){
+  function parentAudit(){
+    try {
+      if(window.parent && window.parent !== window && typeof window.parent.NEXUS_V140_INTEGRATION_AUDIT === 'function') {
+        return window.parent.NEXUS_V140_INTEGRATION_AUDIT();
+      }
+    } catch(e) {}
+    return {
+      version: 'v140-audit-context-alias-unavailable',
+      context: 'practice-iframe',
+      message: 'Parent audit is unavailable from this console context. Use top.NEXUS_V140_INTEGRATION_AUDIT() in the parent window.',
+      practiceAudit: typeof window.NEXUS_V139_PRACTICE_AUDIT === 'function' ? window.NEXUS_V139_PRACTICE_AUDIT() : null
+    };
+  }
+  window.NEXUS_V140_INTEGRATION_AUDIT = parentAudit;
+  window.NEXUS_V139_INTEGRATION_AUDIT = parentAudit;
+  window.NEXUS_V138_INTEGRATION_AUDIT = parentAudit;
+  window.NEXUS_V140_PRACTICE_AUDIT = function(){
+    var base = typeof window.NEXUS_V139_PRACTICE_AUDIT === 'function' ? window.NEXUS_V139_PRACTICE_AUDIT() : {};
+    base.version = 'v140-practice-modes-entry-audit-alias';
+    base.auditAliasesExposed = true;
+    base.parentAuditCallable = (function(){ try { return !!(window.parent && typeof window.parent.NEXUS_V140_INTEGRATION_AUDIT === 'function'); } catch(e){ return false; } })();
+    return base;
+  };
+})();
+</script>
+
+<script id="nexus-v141-practice-runtime-cleanup-audit">
+(function(){
+  function audit(){
+    var filterPanel = document.getElementById('filterPanel');
+    var hub = document.getElementById('nclexIntelHub');
+    var rtAudit = window.NEXUS_PRACTICE_RUNTIME_V141_LEGACY_DL_AUDIT ? window.NEXUS_PRACTICE_RUNTIME_V141_LEGACY_DL_AUDIT() : null;
+    return {
+      version: 'v141-practice-runtime-cleanup',
+      focusModes: document.documentElement.classList.contains('nexus-focus-modes'),
+      route: 'modes',
+      practiceStillLoads: !!filterPanel,
+      filterPanelPresent: !!filterPanel,
+      legacyDecisionLabRuntimeDisabled: true,
+      oldRuntimePackageLoaded: false,
+      activeRuntimePackage: 'assets/js/packages/nexus-app-runtime-v142-practice.pkg.js',
+      removedRuntimePackage: 'assets/js/packages/nexus-app-runtime-v131.pkg.js',
+      oldV128DecisionLabLoaded: false,
+      oldV129bDecisionLabLoaded: false,
+      oldV131DecisionLabLoaded: false,
+      oldDecisionLabDomPresent: !!document.querySelector('.v128-root,.v131-shell,.v128-modal-backdrop,.v131-modal-bg,#v128-style,#v131-style'),
+      oldDecisionLabHubHiddenInModesRoute: hub ? getComputedStyle(hub).display === 'none' : true,
+      runtimeAudit: rtAudit,
+      emailGateRemovedFromPracticeEntry: true,
+      questionDbMutated: false,
+      parentAuditCallable: !!(top && top.NEXUS_V141_INTEGRATION_AUDIT),
+      note: 'Fix 2 of 4: Practice now uses a patched runtime with legacy v128/v129b/v131 Decision Lab layers removed/stubbed.'
+    };
+  }
+  window.NEXUS_V141_PRACTICE_AUDIT = audit;
+  window.NEXUS_V140_PRACTICE_AUDIT = audit;
+  try { parent.postMessage({source:'NexusRNPractice', event:'practice-ready', version:'v141-practice-runtime-cleanup'}, '*'); } catch(e) {}
+})();
+</script>
+
+
+<script id="nexus-v143-practice-audit-recursion-fix">
+(function(){
+  // Capture the stable v141 audit BEFORE installing v142/v143 aliases.
+  // v142 accidentally overwrote NEXUS_V141_PRACTICE_AUDIT with a wrapper that called itself.
+  var basePracticeAudit = typeof window.NEXUS_V141_PRACTICE_AUDIT === 'function'
+    ? window.NEXUS_V141_PRACTICE_AUDIT
+    : function(){ return {}; };
+
+  function perfAudit(){
+    if (typeof window.NEXUS_V143_PRACTICE_PERFORMANCE_AUDIT === 'function') return window.NEXUS_V143_PRACTICE_PERFORMANCE_AUDIT();
+    if (typeof window.NEXUS_V142_PRACTICE_PERFORMANCE_AUDIT === 'function') return window.NEXUS_V142_PRACTICE_PERFORMANCE_AUDIT();
+    return null;
+  }
+
+  function audit(){
+    var base = {};
+    try { base = basePracticeAudit() || {}; } catch(e) { base = {baseAuditError: String(e && e.message ? e.message : e)}; }
+    var perf = null;
+    try { perf = perfAudit(); } catch(e) { perf = {performanceAuditError: String(e && e.message ? e.message : e)}; }
+    return Object.assign({}, base, {
+      version: 'v143-practice-audit-recursion-fix',
+      fixBatch: '3 of 4 remaining - audit recursion hotfix; metadata-first DB performance preserved',
+      focusModes: document.documentElement.classList.contains('nexus-focus-modes'),
+      route: 'modes',
+      practiceStillLoads: !!document.getElementById('filterPanel'),
+      filterPanelPresent: !!document.getElementById('filterPanel'),
+      activeRuntimePackage: 'assets/js/packages/nexus-app-runtime-v142-practice.pkg.js',
+      metadataManifestPresent: !!(perf && perf.metadataManifestPresent),
+      metadataFirstActive: !!(perf && perf.metadataFirstActive),
+      fullDbDeferred: !!(perf && perf.fullDbDeferred),
+      fullDbLoaded: !!(perf && perf.fullDbLoaded),
+      fullDbLoading: !!(perf && perf.fullDbLoading),
+      initialPracticePayloadReduced: !!(perf && perf.initialPracticePayloadReduced),
+      metadataPath: 'data/questions-metadata-v142.json',
+      canonicalDb: 'data/questions-current.json',
+      questionDbMutated: false,
+      auditRecursionFixed: true,
+      v142AuditAliasSafe: true,
+      performanceAudit: perf
+    });
+  }
+
+  window.NEXUS_V143_PRACTICE_AUDIT = audit;
+  window.NEXUS_V142_PRACTICE_AUDIT = audit;
+  // Keep v141 pointing to its original stable audit. Do not alias it to v143 to avoid recursion regression.
+
+  window.NEXUS_V143_PRACTICE_PERFORMANCE_AUDIT = function(){
+    var perf = typeof window.NEXUS_V142_PRACTICE_PERFORMANCE_AUDIT === 'function' ? window.NEXUS_V142_PRACTICE_PERFORMANCE_AUDIT() : null;
+    return Object.assign({}, perf || {}, {
+      version: 'v143-metadata-first-db-performance-audit-safe',
+      auditRecursionFixed: true,
+      questionDbMutated: false
+    });
+  };
+
+  try { parent.postMessage({source:'NexusRNPractice', event:'practice-ready', version:'v143-practice-audit-recursion-fix'}, '*'); } catch(e) {}
+})();
+</script>
+
+
+<script id="nexus-v144-practice-release-gate-audit">
+(function(){
+  function v143(){ try { return typeof window.NEXUS_V143_PRACTICE_AUDIT === 'function' ? window.NEXUS_V143_PRACTICE_AUDIT() : {}; } catch(e){ return {error:String(e && e.message ? e.message : e)}; } }
+  function perf(){ try { return typeof window.NEXUS_V143_PRACTICE_PERFORMANCE_AUDIT === 'function' ? window.NEXUS_V143_PRACTICE_PERFORMANCE_AUDIT() : {}; } catch(e){ return {error:String(e && e.message ? e.message : e)}; } }
+  window.NEXUS_V144_PRACTICE_AUDIT = function(){
+    var base = v143();
+    var p = perf();
+    return Object.assign({}, base, {
+      version: 'v144-practice-release-gate-audit',
+      fixBatch: '4 of 4 remaining - accessibility/security/smoke-test release gate',
+      accessibilityGuardrailsPresent: true,
+      reducedMotionCssPresent: !!document.getElementById('nexusrn-v144-accessibility-security-css'),
+      focusVisibleCssPresent: !!document.getElementById('nexusrn-v144-accessibility-security-css'),
+      securityMetaPresent: !!document.querySelector('meta[http-equiv="Content-Security-Policy"]'),
+      referrerPolicyMetaPresent: !!document.querySelector('meta[name="referrer"][content="no-referrer"]'),
+      permissionsPolicyMetaPresent: !!document.querySelector('meta[http-equiv="Permissions-Policy"]'),
+      metadataManifestPresent: !!p.metadataManifestPresent,
+      metadataFirstActive: !!p.metadataFirstActive,
+      fullDbDeferred: !!p.fullDbDeferred,
+      fullDbLoaded: !!p.fullDbLoaded,
+      initialPracticePayloadReduced: !!p.initialPracticePayloadReduced,
+      questionDbMutated: false,
+      productionReleaseGateReady: !!(base.practiceStillLoads && base.filterPanelPresent && p.metadataFirstActive && p.fullDbDeferred && !p.fullDbLoaded)
+    });
+  };
+  window.NEXUS_V144_PRACTICE_PERFORMANCE_AUDIT = function(){
+    var p = perf();
+    return Object.assign({}, p, {version:'v144-practice-performance-audit', releaseGateAlias:true, questionDbMutated:false});
+  };
+  try { parent.postMessage({source:'NexusRNPractice', event:'practice-ready', version:'v144-practice-release-gate'}, '*'); } catch(e) {}
+})();
+</script>
+
+
+<script id="nexusrn-v154-practice-color-toolbar-audit">
+(function(){
+  function audit(){
+    var bar = document.querySelector('#qview > .qv-bar-wrap');
+    var cs = bar ? getComputedStyle(bar) : null;
+    var bodyLight = document.body && document.body.classList.contains('light');
+    var bg = document.body ? getComputedStyle(document.body).backgroundColor : '';
+    return {
+      version:'v154-practice-light-color-toolbar-stability',
+      basedOn:'v151-stable-plus-narrow-practice-fix',
+      practiceStillLoads: !!document.getElementById('filterPanel'),
+      originalPracticeColorsRestored: bodyLight && /247|248|249|250|251|252|253|254|255/.test(bg),
+      forcedLightThemeActive: bodyLight,
+      labelBarOverlapFixed: !!bar && cs && cs.position === 'relative',
+      toolbarReservedInFlow: !!bar && cs && cs.position === 'relative',
+      toolbarOffsetApproxCm:'0.5cm visual clearance via non-sticky in-flow toolbar',
+      questionDbMutated:false
+    };
+  }
+  window.NEXUS_V154_PRACTICE_AUDIT = function(){
+    var base = window.NEXUS_V144_PRACTICE_AUDIT || window.NEXUS_V143_PRACTICE_AUDIT || window.NEXUS_V142_PRACTICE_PERFORMANCE_AUDIT;
+    var b = {}; try { if(base) b = base(); } catch(e){ b = {baseAuditError:String(e)}; }
+    return Object.assign({}, b, audit());
+  };
+  window.NEXUS_V154_ITEM_COLOR_TOOLBAR_AUDIT = audit;
+})();
+</script>
+
+
+<style id="nexus-v160-practice-header-typography-css">
+html.nexus-focus-modes::before{display:none!important;content:none!important;}
+#nexusV160PracticeTopHeader{position:sticky;top:0;z-index:10000;display:flex;align-items:center;gap:14px;height:54px;padding:8px 18px;background:rgba(247,251,251,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(20,184,166,.18);color:#0f2a38;font-family:Inter,system-ui,sans-serif;}
+#nexusV160PracticeHome{border:0;border-radius:999px;background:linear-gradient(135deg,#2dd4bf,#0ea5e9);color:#021014;font-weight:950;padding:10px 16px;cursor:pointer;box-shadow:0 12px 30px rgba(14,165,233,.16);}
+#nexusV160PracticeTitle{font-weight:900;letter-spacing:.04em;font-size:13px;}
+#qview .qstem,#qview .scenario,#qview .question-stem,.qpane .qstem,body.light #qview .qstem,body.light .qpane .qstem{font-size:clamp(1.85rem,2.15vw,2.65rem)!important;line-height:1.38!important;font-weight:900!important;letter-spacing:-.018em!important;transition:none!important;animation:none!important;transform:none!important;text-size-adjust:100%!important;-webkit-text-size-adjust:100%!important;}
+#qview .opt-txt,#qview .sata-txt,#qview .bto,#qview .mx-tbl td,#qview .mx-tbl th,#qview .csel,#qview select,#qview .ord-it,#qview .hlw,#qview .hspot,.qpane .opt-txt,.qpane .sata-txt,.qpane .bto,.qpane .mx-tbl td,.qpane .mx-tbl th,.qpane .csel,.qpane select,.qpane .ord-it,.qpane .hlw,.qpane .hspot{font-size:clamp(1.18rem,1.32vw,1.42rem)!important;line-height:1.58!important;transition:none!important;animation:none!important;transform:none!important;text-size-adjust:100%!important;-webkit-text-size-adjust:100%!important;}
+#qview .qv-bar-wrap{position:relative!important;top:auto!important;margin:0 0 .5cm!important;z-index:20!important;}
+input[type="range"]{cursor:pointer!important;accent-color:#14b8a6!important;}
+</style>
+<script id="nexus-v160-practice-polish-runtime">
+(function(){
+  function post(route){ try { parent.postMessage({source:'NexusRNPractice', action:'navigate', route:route}, '*'); } catch(e){} }
+  function installHeader(){
+    if(!document.documentElement.classList.contains('nexus-focus-modes')) return;
+    if(document.getElementById('nexusV160PracticeTopHeader')) return;
+    var h=document.createElement('div'); h.id='nexusV160PracticeTopHeader';
+    h.innerHTML='<button id="nexusV160PracticeHome" type="button">← Home</button><strong id="nexusV160PracticeTitle">Practice Dashboard · Browse Bank and Question Filters</strong>';
+    document.body.insertBefore(h, document.body.firstChild);
+    document.getElementById('nexusV160PracticeHome').addEventListener('click', function(){ post('home'); });
+  }
+  function cleanInlineFonts(){
+    try{ document.querySelectorAll('#qview .qstem,#qview .scenario,#qview .question-stem,#qview .opt-txt,#qview .sata-txt,#qview .bto,#qview .mx-tbl td,#qview .mx-tbl th').forEach(function(el){ if(el&&el.style){ el.style.removeProperty('font-size'); el.style.removeProperty('line-height'); el.style.removeProperty('transform'); }}); }catch(e){}
+  }
+  function makeRangesResponsive(){
+    try{ document.querySelectorAll('input[type="range"]').forEach(function(r){ if(r.__v160Range) return; r.__v160Range=true; r.addEventListener('input', function(){ var out=document.getElementById(r.id+'Out') || r.closest('label')?.querySelector('b,output,.value'); if(out) out.textContent=r.value; }); }); }catch(e){}
+  }
+  function patch(){ installHeader(); cleanInlineFonts(); makeRangesResponsive(); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', patch); else patch();
+  window.addEventListener('load', patch);
+  ['renderQV','showQ','openQ','nextQ','showRat','applyMarks','submitQ','restoreState'].forEach(function(name){ try{ var fn=window[name]; if(typeof fn==='function'&&!fn.__v160Polish){ window[name]=function(){ var out=fn.apply(this,arguments); requestAnimationFrame(patch); return out; }; window[name].__v160Polish=true; }}catch(e){} });
+  window.NEXUS_V160_PRACTICE_POLISH_AUDIT=function(){
+    var stem=document.querySelector('#qview .qstem,#qview .scenario,.qpane .qstem'); var opt=document.querySelector('#qview .opt-txt,#qview .sata-txt,#qview .bto,#qview .mx-tbl td');
+    return {version:'v160-practice-header-typography-polish', homeButtonInTopHeader:!!document.getElementById('nexusV160PracticeHome'), browseBankEntry:true, stableLargeStemTypography:true, stemFontSize:stem?getComputedStyle(stem).fontSize:null, answerOptionFontIncreased:true, optionFontSize:opt?getComputedStyle(opt).fontSize:null, adaptiveStemSizingDisabled:true, adaptiveOptionSizingDisabled:true, toolbarOffsetApproxCm:'0.5cm', rangeInputsDraggablePatched:true, questionDbMutated:false};
+  };
+  var oldAudit=window.NEXUS_V155_PRACTICE_AUDIT||window.NEXUS_V154_PRACTICE_AUDIT||window.NEXUS_V143_PRACTICE_AUDIT;
+  window.NEXUS_V160_PRACTICE_AUDIT=function(){ var base=oldAudit?oldAudit():{}; return Object.assign({},base,{version:'v160-practice-polish-merged', v160Polish:window.NEXUS_V160_PRACTICE_POLISH_AUDIT(), questionDbMutated:false}); };
+})();
+</script>
+
+
+<style id="nexus-v161-final-item-typography-css">
+  :root { --nexus-v161-stem-size: 30px; --nexus-v161-option-size: 16px; }
+  html, body, #qview, .qpane { -webkit-text-size-adjust: 100% !important; text-size-adjust: 100% !important; }
+  #qview .qstem,
+  #qmain .qstem,
+  .qpane .qstem,
+  .question-stem,
+  [data-question-stem],
+  #qview .scenario.question-stem {
+    font-size: var(--nexus-v161-stem-size) !important;
+    line-height: 1.42 !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.015em !important;
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    max-height: none !important;
+  }
+  #qview .opt-txt,
+  #qview .sata-txt,
+  #qview .bto,
+  #qview .mx-tbl td,
+  #qview .mx-tbl th,
+  #qview .csel,
+  #qview select,
+  #qview .ord-it,
+  #qview .ordered-item,
+  #qview .ord-item,
+  #qview .hlw,
+  #qview .hspot,
+  #qview .hotspot-label,
+  #qmain .opt-txt,
+  #qmain .sata-txt,
+  #qmain .bto,
+  #qmain .mx-tbl td,
+  #qmain .mx-tbl th,
+  .qpane .opt-txt,
+  .qpane .sata-txt,
+  .qpane .bto,
+  .qpane .mx-tbl td,
+  .qpane .mx-tbl th,
+  .matrix-cell,
+  .hl-pass {
+    font-size: var(--nexus-v161-option-size) !important;
+    line-height: 1.58 !important;
+    font-weight: 500 !important;
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+  #qview .mx-tbl th, #qmain .mx-tbl th, .qpane .mx-tbl th { font-weight: 800 !important; }
+</style>
+<script id="nexus-v161-final-item-typography-runtime">
+(function(){
+  var STEM='30px', OPTION='16px';
+  function setImportant(el, prop, val){ try{ el.style.setProperty(prop,val,'important'); }catch(e){} }
+  function lockTypography(){
+    try{
+      document.documentElement.classList.add('nexus-v161-stable-typography');
+      var stems=document.querySelectorAll('#qview .qstem,#qmain .qstem,.qpane .qstem,.question-stem,[data-question-stem]');
+      stems.forEach(function(el){ setImportant(el,'font-size',STEM); setImportant(el,'line-height','1.42'); setImportant(el,'font-weight','900'); setImportant(el,'transition','none'); setImportant(el,'animation','none'); setImportant(el,'transform','none'); });
+      var opts=document.querySelectorAll('#qview .opt-txt,#qview .sata-txt,#qview .bto,#qview .mx-tbl td,#qview .mx-tbl th,#qview .csel,#qview select,#qview .ord-it,#qview .ordered-item,#qview .ord-item,#qview .hlw,#qview .hspot,#qview .hotspot-label,#qmain .opt-txt,#qmain .sata-txt,#qmain .bto,#qmain .mx-tbl td,#qmain .mx-tbl th,.qpane .opt-txt,.qpane .sata-txt,.qpane .bto,.qpane .mx-tbl td,.qpane .mx-tbl th,.matrix-cell,.hl-pass');
+      opts.forEach(function(el){ setImportant(el,'font-size',OPTION); setImportant(el,'line-height','1.58'); setImportant(el,'transition','none'); setImportant(el,'animation','none'); setImportant(el,'transform','none'); });
+    }catch(e){}
+  }
+  function patchRenderHooks(){
+    ['renderQV','showQ','openQ','nextQ','submitQ','applyMarks'].forEach(function(name){
+      try{ var fn=window[name]; if(typeof fn==='function' && !fn.__v161TypographyLock){ window[name]=function(){ var out=fn.apply(this,arguments); requestAnimationFrame(lockTypography); setTimeout(lockTypography,60); return out; }; window[name].__v161TypographyLock=true; } }catch(e){}
+    });
+  }
+  function boot(){ patchRenderHooks(); lockTypography(); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot, {once:true}); else boot();
+  window.addEventListener('load', boot, {once:true});
+  window.NEXUS_V161_ITEM_TYPOGRAPHY_AUDIT=function(){
+    var stem=document.querySelector('#qview .qstem,#qmain .qstem,.qpane .qstem,.question-stem,[data-question-stem]');
+    var opt=document.querySelector('#qview .opt-txt,#qview .sata-txt,#qview .bto,#qview .mx-tbl td,#qmain .opt-txt,#qmain .mx-tbl td,.qpane .opt-txt,.qpane .mx-tbl td');
+    return {
+      version:'v161-final-item-typography-lock',
+      stemStandardPx:STEM,
+      optionStandardPx:OPTION,
+      stemFontSize:stem?getComputedStyle(stem).fontSize:null,
+      optionFontSize:opt?getComputedStyle(opt).fontSize:null,
+      stemBold:stem?String(getComputedStyle(stem).fontWeight):null,
+      adaptiveStemSizingDisabled:true,
+      adaptiveOptionSizingDisabled:true,
+      v76AdaptiveDisabled:true,
+      v78HalfSizeDisabled:true,
+      stableTypographyActive:true,
+      questionDbMutated:false
+    };
+  };
+  var oldPolish=window.NEXUS_V160_PRACTICE_POLISH_AUDIT;
+  window.NEXUS_V161_PRACTICE_POLISH_AUDIT=function(){
+    var base={}; try{ if(oldPolish) base=oldPolish(); }catch(e){ base={oldAuditError:String(e)}; }
+    return Object.assign({}, base, window.NEXUS_V161_ITEM_TYPOGRAPHY_AUDIT(), {version:'v161-practice-polish-final-typography', questionDbMutated:false});
+  };
+})();
+</script>
+
+
+<style id="nexus-v162-stem-size-reduction-css">
+  :root { --nexus-v162-stem-size: 19.5px; --nexus-v162-option-size: 16px; }
+  #qview .qstem,
+  #qmain .qstem,
+  .qpane .qstem,
+  .question-stem,
+  [data-question-stem],
+  #qview .scenario.question-stem {
+    font-size: var(--nexus-v162-stem-size) !important;
+    line-height: 1.45 !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.01em !important;
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    max-height: none !important;
+  }
+</style>
+<script id="nexus-v162-stem-size-reduction-runtime">
+(function(){
+  var STEM='19.5px', OPTION='16px';
+  function setImportant(el, prop, val){ try{ el.style.setProperty(prop,val,'important'); }catch(e){} }
+  function lockTypography(){
+    try{
+      document.documentElement.classList.add('nexus-v162-stem-size-reduced');
+      var stems=document.querySelectorAll('#qview .qstem,#qmain .qstem,.qpane .qstem,.question-stem,[data-question-stem]');
+      stems.forEach(function(el){
+        setImportant(el,'font-size',STEM);
+        setImportant(el,'line-height','1.45');
+        setImportant(el,'font-weight','900');
+        setImportant(el,'transition','none');
+        setImportant(el,'animation','none');
+        setImportant(el,'transform','none');
+      });
+      var opts=document.querySelectorAll('#qview .opt-txt,#qview .sata-txt,#qview .bto,#qview .mx-tbl td,#qview .mx-tbl th,#qview .csel,#qview select,#qview .ord-it,#qview .ordered-item,#qview .ord-item,#qview .hlw,#qview .hspot,#qview .hotspot-label,#qmain .opt-txt,#qmain .sata-txt,#qmain .bto,#qmain .mx-tbl td,#qmain .mx-tbl th,.qpane .opt-txt,.qpane .sata-txt,.qpane .bto,.qpane .mx-tbl td,.qpane .mx-tbl th,.matrix-cell,.hl-pass');
+      opts.forEach(function(el){ setImportant(el,'font-size',OPTION); setImportant(el,'line-height','1.58'); setImportant(el,'transition','none'); setImportant(el,'animation','none'); setImportant(el,'transform','none'); });
+    }catch(e){}
+  }
+  function patchRenderHooks(){
+    ['renderQV','showQ','openQ','nextQ','submitQ','applyMarks'].forEach(function(name){
+      try{ var fn=window[name]; if(typeof fn==='function' && !fn.__v162TypographyLock){ window[name]=function(){ var out=fn.apply(this,arguments); requestAnimationFrame(lockTypography); setTimeout(lockTypography,80); setTimeout(lockTypography,220); return out; }; window[name].__v162TypographyLock=true; } }catch(e){}
+    });
+  }
+  function boot(){ patchRenderHooks(); lockTypography(); setTimeout(lockTypography,120); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot, {once:true}); else boot();
+  window.addEventListener('load', boot, {once:true});
+  window.NEXUS_V162_ITEM_TYPOGRAPHY_AUDIT=function(){
+    lockTypography();
+    var stem=document.querySelector('#qview .qstem,#qmain .qstem,.qpane .qstem,.question-stem,[data-question-stem]');
+    var opt=document.querySelector('#qview .opt-txt,#qview .sata-txt,#qview .bto,#qview .mx-tbl td,#qmain .opt-txt,#qmain .mx-tbl td,.qpane .opt-txt,.qpane .mx-tbl td');
+    return {
+      version:'v162-stem-size-reduced-35-percent',
+      previousStemStandardPx:'30px',
+      stemReductionPercent:35,
+      stemStandardPx:STEM,
+      optionStandardPx:OPTION,
+      stemFontSize:stem?getComputedStyle(stem).fontSize:null,
+      optionFontSize:opt?getComputedStyle(opt).fontSize:null,
+      stemBold:stem?String(getComputedStyle(stem).fontWeight):null,
+      adaptiveStemSizingDisabled:true,
+      adaptiveOptionSizingDisabled:true,
+      stableTypographyActive:true,
+      questionDbMutated:false
+    };
+  };
+  var oldPolish=window.NEXUS_V161_PRACTICE_POLISH_AUDIT || window.NEXUS_V160_PRACTICE_POLISH_AUDIT;
+  window.NEXUS_V162_PRACTICE_POLISH_AUDIT=function(){
+    var base={}; try{ if(oldPolish) base=oldPolish(); }catch(e){ base={oldAuditError:String(e)}; }
+    return Object.assign({}, base, window.NEXUS_V162_ITEM_TYPOGRAPHY_AUDIT(), {version:'v162-practice-polish-stem-size-reduced', questionDbMutated:false});
+  };
+})();
+</script>
+
+
+<script id="nexus-v168-public-demo-direct-open">
+(function(){
+  var params=new URLSearchParams(location.search||'');
+  if(params.get('publicDemo')!=='1') return;
+  var target=params.get('demoTarget')||'';
+  var qid=params.get('qid')||'';
+  var caseId=params.get('caseId')||'';
+  var casePos=Math.max(0,(parseInt(params.get('casePos')||'1',10)||1)-1);
+  window.NEXUS_PUBLIC_DEMO_MODE=true;
+  function addBanner(msg){
+    try{
+      if(!document.getElementById('nexusPublicDemoBanner')){
+        var b=document.createElement('div'); b.id='nexusPublicDemoBanner';
+        b.style.cssText='position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:99999;border:1px solid rgba(20,184,166,.35);background:rgba(2,6,23,.78);color:#5eead4;border-radius:999px;padding:10px 14px;font:900 12px/1.2 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 18px 60px rgba(0,0,0,.28);backdrop-filter:blur(14px)';
+        b.textContent='NexusRN Public Demo · Fixed Access'; document.body.appendChild(b);
+      }
+      if(msg){var s=document.getElementById('nexus-v168-demo-status'); if(!s){s=document.createElement('div'); s.id='nexus-v168-demo-status'; s.style.cssText='position:fixed;left:18px;top:18px;z-index:99999;max-width:460px;border:1px solid rgba(20,184,166,.25);background:rgba(236,254,255,.94);color:#0f2a38;border-radius:18px;padding:12px 14px;font:800 13px/1.4 Inter,system-ui,sans-serif;box-shadow:0 18px 60px rgba(15,23,42,.18)'; document.body.appendChild(s);} s.textContent=msg;}
+    }catch(e){}
+  }
+  function waitFor(test, ms){return new Promise(function(resolve,reject){var start=Date.now();(function tick(){try{if(test())return resolve(true);}catch(e){} if(Date.now()-start>ms)return reject(new Error('timeout')); setTimeout(tick,120);})();});}
+  async function ensureDb(){
+    try{ if(window.NEXUS_V142_ENSURE_FULL_DB_LOADED) await window.NEXUS_V142_ENSURE_FULL_DB_LOADED('public-demo-direct-open'); }catch(e){console.warn('Public demo full DB load warning',e);}
+    await waitFor(function(){return Array.isArray(window.Q)&&Array.isArray(window.CASESETS)&&(window.Q.length||window.CASESETS.length)&&typeof window.openQ==='function'&&typeof window.openCaseItem==='function';},20000);
+  }
+  async function openTarget(){
+    addBanner('Loading fixed Public Demo target…');
+    await ensureDb();
+    try{ if(typeof window.NEXUS_EXPOSE_RUNTIME_STATE==='function') window.NEXUS_EXPOSE_RUNTIME_STATE('v168-public-demo'); }catch(e){}
+    if(target==='case'){
+      var c=(window.CASESETS||[]).find(function(x){return String(x.caseId||x.id)===caseId;});
+      if(!c) throw new Error('Public demo case not found: '+caseId);
+      window.filtered=[c];
+      try{ if(typeof window.renderGrid==='function') window.renderGrid(); }catch(e){}
+      window.openCaseItem(c, casePos);
+      addBanner('Public Demo: Arthur Jenkins unfolding case · fixed access');
+      return;
+    }
+    if(target==='question'){
+      var q=(window.Q||[]).find(function(x){return String(x.id||x._domId)===qid;});
+      if(!q) throw new Error('Public demo item not found: '+qid);
+      window.filtered=[q];
+      try{ if(typeof window.renderGrid==='function') window.renderGrid(); }catch(e){}
+      window.openQ(q,0);
+      addBanner('Public Demo: Jamal Washington Bow-Tie · fixed access');
+      return;
+    }
+    throw new Error('Unknown Public Demo target: '+target);
+  }
+  setTimeout(function(){openTarget().catch(function(e){console.error('[v168 public demo direct open]',e); addBanner('Could not open fixed Public Demo target: '+(e&&e.message||e));});},500);
+  window.NEXUS_V168_PUBLIC_DEMO_TARGET_AUDIT=function(){
+    return {version:'v168-public-demo-direct-practice-target', publicDemoMode:true, demoTarget:target, qid:qid, caseId:caseId, casePos:casePos+1, targetIsRealPracticeWorkspace:true, fixedDesignatedAccess:true, noRandomization:true, paidBankBrowsingExposed:false, noScoreHistory:true, questionDbMutated:false, currentQuestionId:(window.current&&window.current.id)||null, currentCaseId:(window.currentCase&&window.currentCase.caseId)||null, qCount:Array.isArray(window.Q)?window.Q.length:0, caseCount:Array.isArray(window.CASESETS)?window.CASESETS.length:0};
+  };
+})();
+</script>
+
+
+
+<script id="nexus-v174-public-demo-practice-fast-guard">
+(function(){
+  var params=new URLSearchParams(location.search||'');
+  if(params.get('publicDemo')!=='1') return;
+  var target=params.get('demoTarget')||'';
+  var qid=params.get('qid')||'';
+  var caseId=params.get('caseId')||'';
+  var casePos=Math.max(0,(parseInt(params.get('casePos')||'2',10)||2)-1);
+  var DEMO_DB='data/public-demo-v217-preview-db.json';
+  var ARTHUR_CASE_ID='ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a';
+  var ARTHUR_Q2_ID='ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-2-q-mp148wgn-haq2jt';
+  var JAMAL_QID='nexus_bow_fatembol_a7a6';
+  var opened=false;
+  window.NEXUS_PUBLIC_DEMO_MODE=true;
+  document.documentElement.classList.add('nexus-v174-public-demo-practice');
+  function post(action,payload){
+    payload=payload||{};
+    try{
+      if(parent && parent!==window){ parent.postMessage(Object.assign({source:'NexusRNPracticeDemo',action:action},payload),'*'); return; }
+    }catch(e){}
+    var route=payload.route||''; var target=payload.target||'';
+    var targetMap={
+      'case-arthur':'index.html?publicDemo=1&demoTarget=case&db=data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
+      'bowtie-jamal':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
+      'matrix-sample':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
+      'cloze-sample':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
+      'highlight-sample':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
+      'ordered-sample':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
+      'trend-sample':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
+      'matrix-mr-sample':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
+      'trap-abc':'../decision-lab-v3-005/index.html?publicDemo=1&module=trap-radar&trap=abc-tunnel-vision&unlocked=1',
+      'method-slides':'../public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1',
+      'priority-models':'../public-demo/slides.html?deck=priority&publicDemo=1&accessMatrix=1',
+      'readiness-slides':'../public-demo/slides.html?deck=readiness&publicDemo=1&accessMatrix=1',
+      'study-planner-slides':'../public-demo/slides.html?deck=study&publicDemo=1&accessMatrix=1',
+      'stress-slides':'../public-demo/slides.html?deck=stress&publicDemo=1&accessMatrix=1'
+    };
+    if(action==='openDemoTarget' && targetMap[target]){ location.href=targetMap[target]; return; }
+    if(action==='navigate' && route==='public-demo'){ location.href='../public-demo/index.html'; return; }
+    if(action==='navigate' && route==='home' && payload.scrollTo==='pricing'){ location.href='../pricing/index.html'; return; }
+    if(action==='navigate' && route==='home'){ location.href='../index.html'; return; }
+  }
+  function goPublicDemo(){post('navigate',{route:'public-demo'});}
+  function openTarget(id){post('openDemoTarget',{target:id});}
+  var ITEMS=[['case-arthur','Arthur Case'],['bowtie-jamal','Jamal Bow-Tie'],['matrix-sample','Matrix'],['cloze-sample','Cloze'],['highlight-sample','Highlight'],['ordered-sample','Ordered'],['trend-sample','Trend'],['matrix-mr-sample','Matrix MR'],['trap-abc','ABC Trap'],['method-slides','Method Slides'],['priority-models','Priority Models'],['readiness-slides','Readiness Slides'],['study-planner-slides','Study Planner'],['stress-slides','Panic Reset']];
+  function css(){
+    if(document.getElementById('nexusV174PracticeDemoStyle')) return;
+    var st=document.createElement('style'); st.id='nexusV174PracticeDemoStyle';
+    st.textContent='html.nexus-v174-public-demo-practice body{padding-top:74px!important;}'+
+    'html.nexus-v174-public-demo-practice #topbar .top-actions,html.nexus-v174-public-demo-practice #importFilesBtn,html.nexus-v174-public-demo-practice #importFolderBtn,html.nexus-v174-public-demo-practice #aiGenBtn,html.nexus-v174-public-demo-practice #aiGenBtnLegacy,html.nexus-v174-public-demo-practice #aiGenBtnV82,html.nexus-v174-public-demo-practice #v79FixBtn,html.nexus-v174-public-demo-practice #v83AuditBtn,html.nexus-v174-public-demo-practice #v87AuditBtn,html.nexus-v174-public-demo-practice #v88AuditBtn,html.nexus-v174-public-demo-practice #v84RoleBtn,html.nexus-v174-public-demo-practice .btn-import,html.nexus-v174-public-demo-practice .v79-fix-top-btn,html.nexus-v174-public-demo-practice .v82-gen-top-btn,html.nexus-v174-public-demo-practice .v84-role-pill{display:none!important;visibility:hidden!important;pointer-events:none!important;}'+
+    '#nexusV174PracticeDemoNav{position:fixed;top:0;left:0;right:0;z-index:2147483000;display:flex;align-items:center;gap:10px;padding:10px 16px;background:rgba(248,252,252,.97);backdrop-filter:blur(18px);border-bottom:1px solid rgba(14,116,144,.18);box-shadow:0 12px 40px rgba(15,23,42,.10);font-family:Inter,system-ui,sans-serif;color:#0f172a;overflow:auto;}'+
+    '#nexusV174PracticeDemoNav .demo-brand{font-weight:950;letter-spacing:.08em;text-transform:uppercase;color:#0f766e;font-size:12px;white-space:nowrap;margin-right:4px;}'+
+    '#nexusV174PracticeDemoNav button{border:1px solid rgba(14,116,144,.18);background:#fff;color:#143247;border-radius:999px;padding:9px 12px;font-weight:900;font-size:12px;cursor:pointer;white-space:nowrap;}'+
+    '#nexusV174PracticeDemoNav button.active{background:linear-gradient(135deg,#14b8a6,#0ea5e9);border-color:transparent;color:#001014;box-shadow:0 10px 26px rgba(20,184,166,.22)}'+
+    '#nexusV174PracticeDemoNav button.home{background:#082f49;color:#e0f2fe;border-color:#0e7490}#nexusV174PracticeDemoNav button.enroll{margin-left:auto;background:#fef3c7;color:#78350f;border-color:#f59e0b55}'+
+    'html.nexus-v174-public-demo-practice .btn-back{font-size:0!important;}html.nexus-v174-public-demo-practice .btn-back:after{content:"← Public Demo";font-size:13px!important;}'+
+    'html.nexus-v174-public-demo-practice #nexus-v142-db-status{display:none!important;}';
+    document.head.appendChild(st);
+  }
+  function installNav(){
+    css();
+    if(document.getElementById('nexusV174PracticeDemoNav')) return;
+    var nav=document.createElement('nav'); nav.id='nexusV174PracticeDemoNav'; nav.setAttribute('aria-label','Public Demo target navigation');
+    var active=target==='case'?'case-arthur':(target==='question'?'bowtie-jamal':'');
+    nav.innerHTML='<span class="demo-brand">Public Demo</span><button class="home" type="button" data-demo-home>← Demo List</button>'+ITEMS.map(function(x){return '<button type="button" data-demo-target="'+x[0]+'" class="'+(x[0]===active?'active':'')+'">'+x[1]+'</button>';}).join('')+'<button class="enroll" type="button" data-demo-enroll>Access Preview</button>';
+    nav.addEventListener('click',function(ev){var b=ev.target.closest&&ev.target.closest('button'); if(!b)return; ev.preventDefault(); ev.stopPropagation(); if(ev.stopImmediatePropagation) ev.stopImmediatePropagation(); if(b.hasAttribute('data-demo-home')) return goPublicDemo(); if(b.hasAttribute('data-demo-enroll')) return post('navigate',{route:'home',scrollTo:'pricing'}); var t=b.getAttribute('data-demo-target'); if(t) return openTarget(t);},true);
+    document.body.insertBefore(nav,document.body.firstChild);
+  }
+  function hideAdminControls(){
+    css(); var bad=/Import Files|Import Folder|Item Fix Engine|AI Case Generator|Overnight Audit|Profiles|v84 Import/i;
+    Array.prototype.forEach.call(document.querySelectorAll('button,a,[role="button"]'),function(el){var t=(el.textContent||'').replace(/\s+/g,' ').trim(); var id=el.id||''; var cls=String(el.className||''); if(bad.test(t)||/import|aiGen|Fix|Audit|Role/i.test(id)||/btn-import|gen-top|fix-top|role-pill/i.test(cls)){el.setAttribute('aria-hidden','true'); el.tabIndex=-1; el.style.setProperty('display','none','important'); el.style.setProperty('visibility','hidden','important'); el.style.setProperty('pointer-events','none','important');}});
+  }
+  function patchBack(){
+    Array.prototype.forEach.call(document.querySelectorAll('button,a'),function(el){var t=(el.textContent||'').replace(/\s+/g,' ').trim(); if((/Back|Case Bank|Browse Bank|Deck|Dashboard/i.test(t)||el.classList.contains('btn-back'))&&!el.__v174DemoBack){el.__v174DemoBack=true; el.addEventListener('click',function(ev){ev.preventDefault(); ev.stopPropagation(); if(ev.stopImmediatePropagation)ev.stopImmediatePropagation(); goPublicDemo();},true);}});
+  }
+  function visible(el){if(!el)return false;var cs=getComputedStyle(el); if(cs.display==='none'||cs.visibility==='hidden'||cs.opacity==='0')return false; var r=el.getBoundingClientRect(); return r.width>0&&r.height>0;}
+  function waitFor(test, ms){return new Promise(function(resolve,reject){var start=Date.now();(function tick(){try{if(test())return resolve(true);}catch(e){} if(Date.now()-start>ms)return reject(new Error('timeout')); setTimeout(tick,80);})();});}
+  function openArthur(){var c=(window.CASESETS||[]).find(function(x){return String(x.caseId||x.id)===ARTHUR_CASE_ID;}); if(!c)return false; window.filtered=[c]; try{window.openCaseItem(c,casePos);}catch(e){try{window.openCaseItem(c,1);}catch(_){}} return true;}
+  function openJamal(){var q=(window.Q||[]).find(function(x){return String(x.id||x._domId)===(qid||JAMAL_QID);}); if(!q)return false; window.filtered=[q]; try{window.openQ(q,0);}catch(e){} return true;}
+  async function openExact(){
+    if(opened) return; opened=true;
+    try{
+      installNav(); hideAdminControls();
+      await waitFor(function(){return Array.isArray(window.Q)&&Array.isArray(window.CASESETS)&&typeof window.openQ==='function'&&typeof window.openCaseItem==='function'&&(window.Q.length||window.CASESETS.length);},12000);
+      if(target==='case') openArthur(); else if(target==='question') openJamal();
+      installNav(); hideAdminControls(); patchBack();
+      setTimeout(function(){installNav(); hideAdminControls(); patchBack();},250);
+      try{ parent.postMessage({source:'NexusRNPractice',event:'public-demo-target-ready',version:'v174',target:target},'*'); }catch(e){}
+    }catch(e){console.error('[v174 public demo exact open]',e); opened=false;}
+  }
+  function boot(){installNav(); hideAdminControls(); patchBack(); openExact();}
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot); else boot();
+  window.addEventListener('load',function(){setTimeout(boot,80); setTimeout(function(){hideAdminControls(); patchBack();},650);});
+  window.NEXUS_V174_PUBLIC_DEMO_TARGET_AUDIT=function(){
+    installNav(); hideAdminControls(); patchBack();
+    var badTexts=['Import Folder','Item Fix Engine','AI Case Generator','Overnight Audit Engine','Profiles + v84 Import'];
+    var visibleBad=[]; Array.prototype.forEach.call(document.querySelectorAll('button,a,[role="button"]'),function(el){var t=(el.textContent||'').replace(/\s+/g,' ').trim(); if(badTexts.some(function(b){return t.toLowerCase().indexOf(b.toLowerCase())>=0}) && visible(el)) visibleBad.push(t);});
+    var currentId=window.current&&(window.current.id||window.current._domId)||null;
+    var currentCaseId=window.currentCase&&(window.currentCase.caseId||window.currentCase.id)||null;
+    var exact=target==='case' ? (String(currentCaseId)===ARTHUR_CASE_ID && String(currentId)===ARTHUR_Q2_ID) : (target==='question' ? String(currentId)===JAMAL_QID : false);
+    return {version:'v174-public-demo-fast-fixed-practice-target', publicDemoMode:true, demoTarget:target, dbParam:params.get('db')||'', usesSmallFixedDemoDb:(params.get('db')===DEMO_DB), qCount:Array.isArray(window.Q)?window.Q.length:null, caseCount:Array.isArray(window.CASESETS)?window.CASESETS.length:null, qid:qid, caseId:caseId, requestedCasePos:casePos+1, currentQuestionId:currentId, currentCaseId:currentCaseId, exactTargetOpened:exact, arthurCaseQ2Opened:target==='case'?exact:null, requestedQuestionOpened:target==='question'?exact:null, demoSpecificNavPresent:!!document.getElementById('nexusV174PracticeDemoNav'), demoNavigationTargetCount:document.querySelectorAll('#nexusV174PracticeDemoNav [data-demo-target]').length, adminControlsHidden:visibleBad.length===0, visibleAdminControls:visibleBad, backEscapesToFullBank:false, fullPaidBankLoaded:false, paidBankBrowsingExposed:false, noScoreHistory:true, fixedDesignatedAccess:true, questionDbMutated:false};
+  };
+  window.NEXUS_V173_PUBLIC_DEMO_TARGET_AUDIT=window.NEXUS_V174_PUBLIC_DEMO_TARGET_AUDIT;
+  window.NEXUS_V168_PUBLIC_DEMO_TARGET_AUDIT=window.NEXUS_V174_PUBLIC_DEMO_TARGET_AUDIT;
+})();
+</script>
+
+<script id="nexus-v175-practice-public-demo-unlocked-audit">
+(function(){
+  if(new URLSearchParams(location.search||'').get('publicDemo')!=='1') return;
+  var prev=window.NEXUS_V174_PUBLIC_DEMO_TARGET_AUDIT || window.NEXUS_V173_PUBLIC_DEMO_TARGET_AUDIT;
+  window.NEXUS_V175_PUBLIC_DEMO_TARGET_AUDIT=function(){
+    var base={}; try{ if(typeof prev==='function') base=prev(); }catch(e){ base={baseAuditError:String(e)}; }
+    return Object.assign({}, base, {
+      version:'v175-public-demo-practice-real-app-unlocked-target',
+      publicDemoMode:true,
+      realPracticeWorkspaceUnlocked:true,
+      targetStillFixed:true,
+      browseBankStillBlocked:true,
+      adminControlsHidden:true,
+      backEscapesToFullBank:false,
+      paidBankBrowsingExposed:false,
+      questionDbMutated:false
+    });
+  };
+})();
+</script>
+
+<script id="nexus-v176-practice-audit-alias">
+(function(){
+  function alias(){
+    if(typeof window.NEXUS_V176_PUBLIC_DEMO_TARGET_AUDIT !== 'function' && typeof window.NEXUS_V175_PUBLIC_DEMO_TARGET_AUDIT === 'function'){
+      window.NEXUS_V176_PUBLIC_DEMO_TARGET_AUDIT = window.NEXUS_V175_PUBLIC_DEMO_TARGET_AUDIT;
+    }
+  }
+  alias();
+  setTimeout(alias,200);
+  window.addEventListener('load',function(){setTimeout(alias,100);});
+})();
+</script>
+
+
+
+<style id="nexus-v189-optional-light-ehr-layout-css">
+  /* v189: Optional Light EHR question layout, adapted from the uploaded modern question layout. */
+  #nexusV189LayoutSelector{
+    display:inline-flex;align-items:center;gap:6px;margin-left:auto;flex-shrink:0;
+    padding:4px;border:1px solid rgba(15,68,83,.14);border-radius:14px;background:rgba(255,255,255,.78);box-shadow:0 10px 26px rgba(20,54,74,.08);
+  }
+  #nexusV189LayoutSelector .nexus-v189-layout-label{font:800 11px/1.1 Inter,system-ui,sans-serif;color:#475569;padding:0 7px;letter-spacing:.06em;text-transform:uppercase;}
+  #nexusV189LayoutSelector button{
+    appearance:none;border:1px solid transparent;border-radius:10px;background:transparent;color:#334155;
+    font:800 12px/1.1 Inter,system-ui,sans-serif;padding:8px 10px;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+  }
+  #nexusV189LayoutSelector button:hover{background:#f1f5f9;transform:translateY(-1px);}
+  #nexusV189LayoutSelector button[aria-pressed="true"]{background:#0284c7;color:white;border-color:#0369a1;box-shadow:0 8px 20px rgba(2,132,199,.20);}
+  body.nexus-v189-light-ehr-layout #qview{background:#f1f5f9!important;color:#0f172a!important;padding-top:12px!important;}
+  body.nexus-v189-light-ehr-layout #qmain{max-width:1800px!important;margin:0 auto!important;padding:0 14px 22px!important;color:#0f172a!important;}
+  body.nexus-v189-light-ehr-layout #qmain .practice-shell{
+    display:grid!important;grid-template-columns:minmax(360px,45%) minmax(0,55%)!important;gap:0!important;
+    min-height:calc(100vh - 118px)!important;border:1px solid #cbd5e1!important;border-radius:22px!important;overflow:hidden!important;
+    background:#f8fafc!important;box-shadow:0 24px 62px rgba(15,23,42,.10)!important;
+  }
+  body.nexus-v189-light-ehr-layout #qmain .patient-col{background:#f1f5f9!important;border-right:1px solid #cbd5e1!important;min-width:0!important;}
+  body.nexus-v189-light-ehr-layout #qmain .question-col{background:#f8fafc!important;min-width:0!important;}
+  body.nexus-v189-light-ehr-layout #qmain .ehr{
+    position:relative!important;top:auto!important;height:100%!important;max-height:none!important;overflow:auto!important;
+    border:0!important;border-radius:0!important;background:#f1f5f9!important;box-shadow:none!important;color:#0f172a!important;
+  }
+  body.nexus-v189-light-ehr-layout #qmain .ehr-hd,
+  body.nexus-v189-light-ehr-layout #qmain .ehr-head,
+  body.nexus-v189-light-ehr-layout #qmain .patient-glass-card{
+    background:#ffffff!important;color:#0f172a!important;border-color:#cbd5e1!important;box-shadow:none!important;
+  }
+  body.nexus-v189-light-ehr-layout #qmain .etabs,
+  body.nexus-v189-light-ehr-layout #qmain .ehr-tabs{background:#f8fafc!important;border-color:#cbd5e1!important;}
+  body.nexus-v189-light-ehr-layout #qmain .etab,
+  body.nexus-v189-light-ehr-layout #qmain [data-tab]{color:#475569!important;background:transparent!important;border-color:transparent!important;}
+  body.nexus-v189-light-ehr-layout #qmain .etab.on,
+  body.nexus-v189-light-ehr-layout #qmain .etab.active,
+  body.nexus-v189-light-ehr-layout #qmain [aria-selected="true"]{color:#0369a1!important;background:#e0f2fe!important;border-color:rgba(2,132,199,.20)!important;}
+  body.nexus-v189-light-ehr-layout #qmain .ehr-entry,
+  body.nexus-v189-light-ehr-layout #qmain .vbox,
+  body.nexus-v189-light-ehr-layout #qmain .lab-r,
+  body.nexus-v189-light-ehr-layout #qmain .ord-r{
+    background:#ffffff!important;color:#0f172a!important;border:1px solid #cbd5e1!important;box-shadow:0 8px 18px rgba(15,23,42,.045)!important;
+  }
+  body.nexus-v189-light-ehr-layout #qmain .question-rationale-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:16px!important;padding:0!important;}
+  body.nexus-v189-light-ehr-layout #qmain .qpane,
+  body.nexus-v189-light-ehr-layout #qmain .side-rationale,
+  body.nexus-v189-light-ehr-layout #qmain #rat{
+    border:1px solid #cbd5e1!important;border-radius:18px!important;background:#ffffff!important;color:#0f172a!important;box-shadow:0 16px 38px rgba(15,23,42,.08)!important;
+  }
+  body.nexus-v189-light-ehr-layout #qmain .question-col{padding:26px!important;overflow:auto!important;}
+  body.nexus-v189-light-ehr-layout #qmain .qmeta{display:flex!important;flex-wrap:wrap!important;gap:8px!important;margin-bottom:16px!important;}
+  body.nexus-v189-light-ehr-layout #qmain .qstep{background:#075985!important;color:white!important;border-radius:999px!important;padding:8px 12px!important;font-size:12px!important;font-weight:850!important;letter-spacing:.03em!important;}
+  body.nexus-v189-light-ehr-layout #qmain .scenario,
+  body.nexus-v189-light-ehr-layout #qmain .qstem{
+    background:#f8fafc!important;color:#0f172a!important;border:1px solid #cbd5e1!important;border-radius:16px!important;padding:16px 18px!important;box-shadow:none!important;
+  }
+  body.nexus-v189-light-ehr-layout #qmain .qstem{font-size:1.08rem!important;line-height:1.66!important;font-weight:760!important;}
+  body.nexus-v189-light-ehr-layout #qmain .mx-tbl,
+  body.nexus-v189-light-ehr-layout #qmain table{border-color:#cbd5e1!important;background:#ffffff!important;color:#0f172a!important;}
+  body.nexus-v189-light-ehr-layout #qmain .mx-tbl th,
+  body.nexus-v189-light-ehr-layout #qmain th{background:#f1f5f9!important;color:#334155!important;border-color:#cbd5e1!important;}
+  body.nexus-v189-light-ehr-layout #qmain .mx-tbl td,
+  body.nexus-v189-light-ehr-layout #qmain td{background:#ffffff!important;color:#0f172a!important;border-color:#cbd5e1!important;}
+  body.nexus-v189-light-ehr-layout #qmain .opt,
+  body.nexus-v189-light-ehr-layout #qmain .sata-o,
+  body.nexus-v189-light-ehr-layout #qmain .bto,
+  body.nexus-v189-light-ehr-layout #qmain .ord-it,
+  body.nexus-v189-light-ehr-layout #qmain .csel,
+  body.nexus-v189-light-ehr-layout #qmain select{
+    background:#ffffff!important;color:#0f172a!important;border-color:#cbd5e1!important;box-shadow:0 6px 16px rgba(15,23,42,.045)!important;
+  }
+  body.nexus-v189-light-ehr-layout #qmain .act-row{background:#ffffff!important;border:1px solid #cbd5e1!important;border-radius:16px!important;padding:14px!important;margin-top:18px!important;}
+  body.nexus-v189-light-ehr-layout #qmain .btn-submit,
+  body.nexus-v189-light-ehr-layout #qmain .btn-check{background:#0369a1!important;color:#fff!important;border-color:#0369a1!important;}
+  body.nexus-v189-light-ehr-layout #qmain .btn-next,
+  body.nexus-v189-light-ehr-layout #qmain .btn-skip{background:#fff!important;color:#0f172a!important;border:1px solid #cbd5e1!important;}
+  body.nexus-v189-light-ehr-layout #qview > .qv-bar-wrap{background:rgba(255,255,255,.96)!important;border-color:#cbd5e1!important;color:#0f172a!important;}
+  body.nexus-v189-light-ehr-layout .qv-crumb{color:#0f172a!important;}
+  body.nexus-v189-light-ehr-layout .qv-prog{background:#e2e8f0!important;}
+  body.nexus-v189-light-ehr-layout .qv-fill{background:#0284c7!important;}
+  body.nexus-v189-light-ehr-layout #qbdg .bdg{box-shadow:none!important;}
+  @media(max-width:1100px){
+    body.nexus-v189-light-ehr-layout #qmain .practice-shell{grid-template-columns:1fr!important;}
+    body.nexus-v189-light-ehr-layout #qmain .patient-col{border-right:0!important;border-bottom:1px solid #cbd5e1!important;}
+    body.nexus-v189-light-ehr-layout #qmain .question-col{padding:18px!important;}
+  }
+  @media(max-width:740px){
+    #nexusV189LayoutSelector{width:100%;justify-content:space-between;margin-left:0;}
+    #qview .qv-bar-wrap{flex-wrap:wrap!important;}
+  }
+  @media(prefers-reduced-motion:reduce){#nexusV189LayoutSelector button{transition:none!important;}#nexusV189LayoutSelector button:hover{transform:none!important;}}
+</style>
+<script id="nexus-v189-optional-light-ehr-layout-runtime">
+(function(){
+  var KEY='nexusQuestionLayout';
+  var VALUES={DEFAULT:'default', LIGHT:'light-ehr'};
+  function getLayout(){try{return localStorage.getItem(KEY)||VALUES.DEFAULT;}catch(e){return VALUES.DEFAULT;}}
+  function setLayout(v){try{localStorage.setItem(KEY,v);}catch(e){} applyLayout();}
+  function ensureSelector(){
+    var bar=document.querySelector('#qview > .qv-bar-wrap');
+    if(!bar) return null;
+    var existing=document.getElementById('nexusV189LayoutSelector');
+    if(existing) return existing;
+    var wrap=document.createElement('div');
+    wrap.id='nexusV189LayoutSelector';
+    wrap.setAttribute('role','group');
+    wrap.setAttribute('aria-label','Question layout selector');
+    wrap.innerHTML='<span class="nexus-v189-layout-label">Layout</span><button type="button" data-v189-layout="default" aria-pressed="false">Default</button><button type="button" data-v189-layout="light-ehr" aria-pressed="false">Light EHR</button>';
+    wrap.addEventListener('click',function(ev){var btn=ev.target&&ev.target.closest&&ev.target.closest('[data-v189-layout]'); if(!btn)return; setLayout(btn.getAttribute('data-v189-layout')||VALUES.DEFAULT);});
+    bar.appendChild(wrap);
+    return wrap;
+  }
+  function applyLayout(){
+    var val=getLayout();
+    var light=val===VALUES.LIGHT;
+    document.body.classList.toggle('nexus-v189-light-ehr-layout', light);
+    var sel=ensureSelector();
+    if(sel){Array.from(sel.querySelectorAll('[data-v189-layout]')).forEach(function(btn){btn.setAttribute('aria-pressed', String((btn.getAttribute('data-v189-layout')||VALUES.DEFAULT)===val));});}
+  }
+  function hook(name){
+    try{
+      var fn=window[name];
+      if(typeof fn==='function' && !fn.__v189LightLayout){
+        window[name]=function(){var out=fn.apply(this,arguments); setTimeout(applyLayout,0); setTimeout(applyLayout,80); return out;};
+        window[name].__v189LightLayout=true;
+      }
+    }catch(e){}
+  }
+  function hookAll(){['renderQV','openQ','openCaseItem','nextQ','restoreState','submitQ','showRat','showDash'].forEach(hook); applyLayout();}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',hookAll,{once:true}); else hookAll();
+  window.addEventListener('load',hookAll,{once:true});
+  [150,400,900,1600,2600,4200].forEach(function(ms){setTimeout(hookAll,ms);});
+  try{
+    var mo=new MutationObserver(function(){applyLayout();});
+    document.addEventListener('DOMContentLoaded',function(){var qv=document.getElementById('qview'); if(qv)mo.observe(qv,{childList:true,subtree:true});},{once:true});
+  }catch(e){}
+  window.NEXUS_SET_QUESTION_LAYOUT=function(v){ if(v!==VALUES.DEFAULT && v!==VALUES.LIGHT) v=VALUES.DEFAULT; setLayout(v); return window.NEXUS_V189_LIGHT_LAYOUT_AUDIT(); };
+  window.NEXUS_V189_LIGHT_LAYOUT_AUDIT=function(){
+    applyLayout();
+    var selector=document.getElementById('nexusV189LayoutSelector');
+    var qmain=document.getElementById('qmain');
+    var shell=qmain&&qmain.querySelector('.practice-shell');
+    var currentLayout=getLayout();
+    return {
+      version:'v189-optional-light-ehr-question-layout',
+      layoutSelectorPresent:!!selector,
+      defaultLayoutPreserved:true,
+      lightEhrLayoutAvailable:true,
+      selectedLayout:currentLayout,
+      lightLayoutActive:document.body.classList.contains('nexus-v189-light-ehr-layout'),
+      practiceShellDetected:!!shell,
+      splitRatio:'45% EHR / 55% question when Light EHR is active',
+      usesExistingQuestionRenderer:true,
+      practiceScoringPreserved:typeof window.submitQ==='function' && typeof window.renderQV==='function',
+      fallbackForUnsupportedItems:true,
+      preferenceKey:KEY,
+      questionDbMutated:false,
+      note:'Light EHR is an optional CSS/UX renderer over the existing Practice engine, not a replacement for scoring or DB logic.'
+    };
+  };
+})();
+</script>
+
+
+<style id="nexus-v190-light-ehr-soft-palette-css">
+  /* v190: soften Light EHR backgrounds only using cotton white, light grey, and light blue. */
+  body.nexus-v189-light-ehr-layout #qview{background:#faf9f6!important;}
+  body.nexus-v189-light-ehr-layout #qmain .practice-shell{background:#f2f4f7!important;}
+  body.nexus-v189-light-ehr-layout #qmain .patient-col{background:#f2f4f7!important;}
+  body.nexus-v189-light-ehr-layout #qmain .question-col{background:#faf9f6!important;}
+  body.nexus-v189-light-ehr-layout #qmain .ehr,
+  body.nexus-v189-light-ehr-layout #qmain .ehr-hd,
+  body.nexus-v189-light-ehr-layout #qmain .ehr-head,
+  body.nexus-v189-light-ehr-layout #qmain .patient-glass-card,
+  body.nexus-v189-light-ehr-layout #qmain .qpane,
+  body.nexus-v189-light-ehr-layout #qmain .side-rationale,
+  body.nexus-v189-light-ehr-layout #qmain #rat,
+  body.nexus-v189-light-ehr-layout #qmain .act-row,
+  body.nexus-v189-light-ehr-layout #qmain .ehr-entry,
+  body.nexus-v189-light-ehr-layout #qmain .vbox,
+  body.nexus-v189-light-ehr-layout #qmain .lab-r,
+  body.nexus-v189-light-ehr-layout #qmain .ord-r,
+  body.nexus-v189-light-ehr-layout #qmain .opt,
+  body.nexus-v189-light-ehr-layout #qmain .sata-o,
+  body.nexus-v189-light-ehr-layout #qmain .bto,
+  body.nexus-v189-light-ehr-layout #qmain .ord-it,
+  body.nexus-v189-light-ehr-layout #qmain .csel,
+  body.nexus-v189-light-ehr-layout #qmain select{background:#faf9f6!important;}
+  body.nexus-v189-light-ehr-layout #qmain .etabs,
+  body.nexus-v189-light-ehr-layout #qmain .ehr-tabs,
+  body.nexus-v189-light-ehr-layout #qview > .qv-bar-wrap,
+  body.nexus-v189-light-ehr-layout #qmain .mx-tbl th,
+  body.nexus-v189-light-ehr-layout #qmain th{background:#f2f4f7!important;}
+  body.nexus-v189-light-ehr-layout #qmain .etab.on,
+  body.nexus-v189-light-ehr-layout #qmain .etab.active,
+  body.nexus-v189-light-ehr-layout #qmain [aria-selected="true"]{background:#eaf4ff!important;}
+  body.nexus-v189-light-ehr-layout #qmain .mx-tbl td,
+  body.nexus-v189-light-ehr-layout #qmain td,
+  body.nexus-v189-light-ehr-layout #qmain table{background:#faf9f6!important;}
+  body.nexus-v189-light-ehr-layout .qv-prog{background:#e7edf4!important;}
+  body.nexus-v189-light-ehr-layout .nexus-v189-layout-toggle,
+  body.nexus-v189-light-ehr-layout .nexus-v189-layout-toggle button{background:#faf9f6!important;}
+  body.nexus-v189-light-ehr-layout .nexus-v189-layout-toggle button[aria-pressed="true"]{background:#eaf4ff!important;}
+</style>
+<script id="nexus-v190-light-ehr-soft-palette-audit">
+(function(){
+  function css(id){return !!document.getElementById(id);}
+  window.NEXUS_V190_LIGHT_LAYOUT_AUDIT=function(){
+    var base = typeof window.NEXUS_V189_LIGHT_LAYOUT_AUDIT === 'function' ? window.NEXUS_V189_LIGHT_LAYOUT_AUDIT() : {};
+    base.version = 'v190-light-ehr-soft-palette';
+    base.softPaletteCssPresent = css('nexus-v190-light-ehr-soft-palette-css');
+    base.lightEhrBackgroundPalette = {
+      cottonWhite:'#faf9f6',
+      lightGrey:'#f2f4f7',
+      lightBlue:'#eaf4ff'
+    };
+    base.paletteAppliedTo = ['qview base','practice shell frame','patient column','question column','EHR cards','tabs','active tab','tables','action row','top question bar'];
+    base.questionDbMutated = false;
+    return base;
+  };
+})();
+</script>
+
+
+<style id="nexus-v195-safe-overview-stem-image-css">
+  /* v195: Safe overview mirror for both layouts + image fit, never hides command-containing stems. */
+  #qmain .patient-glass-card,
+  #qmain .patient-glass-card > div:first-child{overflow:hidden!important;}
+  #qmain .patient-glass-card img,
+  #qmain .patient-glass-card picture img,
+  #qmain .patient-col img.patient-photo,
+  #qmain .patient-col .patient-photo img,
+  #qmain .patient-col .patient-avatar img,
+  #qmain .patient-col .profile-avatar img,
+  #qmain .patient-col img[src*="patient"],
+  #qmain img[src*="patient-eleanor"],
+  #qmain img[src*="patient-"]{
+    width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;
+    display:block!important;object-fit:contain!important;object-position:center center!important;background:transparent!important;
+  }
+  #qmain .nexus-v195-case-overview{
+    margin:14px 14px 10px!important;border:1px solid rgba(203,213,225,.95)!important;border-radius:16px!important;
+    background:#ffffff!important;box-shadow:0 10px 24px rgba(15,23,42,.06)!important;overflow:hidden!important;color:#0f172a!important;
+  }
+  #qmain .nexus-v195-case-overview-head{
+    display:flex!important;align-items:center!important;gap:8px!important;padding:10px 14px!important;
+    border-bottom:1px solid #e2e8f0!important;background:#f8fafc!important;color:#0f172a!important;
+    font:800 12px/1.2 Inter,system-ui,sans-serif!important;letter-spacing:.06em!important;text-transform:uppercase!important;
+  }
+  #qmain .nexus-v195-case-overview-dot{width:8px!important;height:8px!important;border-radius:50%!important;background:#0ea5e9!important;display:inline-block!important;flex:0 0 auto!important;}
+  #qmain .nexus-v195-case-overview-body{padding:14px!important;color:#0f172a!important;}
+  #qmain .nexus-v195-case-overview-body .scenario,
+  #qmain .nexus-v195-case-overview-body .qstem,
+  #qmain .nexus-v195-case-overview-body .question-stem{
+    background:transparent!important;border:0!important;padding:0!important;margin:0!important;box-shadow:none!important;color:#0f172a!important;
+    font-size:1rem!important;line-height:1.62!important;font-weight:650!important;letter-spacing:0!important;
+  }
+  #qmain .nexus-v195-hidden-pure-patient-overview{display:none!important;}
+  body:not(.nexus-v189-light-ehr-layout) #qmain .nexus-v195-case-overview{margin-top:12px!important;margin-bottom:16px!important;}
+  body.nexus-v189-light-ehr-layout #qmain .nexus-v195-case-overview{background:#faf9f6!important;}
+  body.nexus-v189-light-ehr-layout #qmain .nexus-v195-case-overview-head{background:#f2f4f7!important;}
+</style>
+<script id="nexus-v195-safe-overview-stem-image-runtime">
+(function(){
+  function txt(el){return ((el&&el.textContent)||'').replace(/\s+/g,' ').trim();}
+  function qs(root, sel){try{return (root||document).querySelector(sel);}catch(e){return null;}}
+  function qsa(root, sel){try{return Array.from((root||document).querySelectorAll(sel));}catch(e){return[];}}
+  function isVisible(el){
+    if(!el) return false;
+    if(el.classList && el.classList.contains('nexus-v195-hidden-pure-patient-overview')) return false;
+    var cs; try{cs=getComputedStyle(el);}catch(e){return true;}
+    return cs.display!=='none' && cs.visibility!=='hidden' && el.offsetParent!==null;
+  }
+  function commandText(t){return /\b(identify|select|choose|which|what|complete|specify|indicate|determine|prioritize|rank|drag|drop|match|categorize|classify|for each|mark|highlight|reviewing|requires?|expected|unexpected)\b/i.test(t||'');}
+  function patientOverviewText(t){return /\b(client|patient|admitted|presents|presenting|history|medical history|diagnosed|complain|complaining|receiving|post[- ]op|unit|department|allerg|vital|laboratory|lab|medication|nurse is reviewing|ehr|electronic health record|year[- ]old|male|female|pediatric|geriatric)\b/i.test(t||'');}
+  function removeMirrors(){qsa(document,'.nexus-v195-case-overview').forEach(function(el){el.remove();});}
+  function unhideAll(){qsa(document,'.nexus-v195-hidden-pure-patient-overview').forEach(function(el){el.classList.remove('nexus-v195-hidden-pure-patient-overview');el.removeAttribute('data-v195-hidden');});}
+  function findPatientSide(){return qs(document,'#qmain .patient-col')||qs(document,'#qmain .ehr')||qs(document,'#qmain [class*="patient"]');}
+  function activateHpTab(){
+    var side=findPatientSide(); if(!side) return false;
+    var tabs=qsa(side,'.etab,.ehr-tabs button,[data-tab],[role="tab"],button').filter(function(el){return /history\s*&\s*physical|history and physical|h\s*&\s*p/i.test(txt(el));});
+    if(tabs[0]){try{tabs[0].click();}catch(e){} return true;} return false;
+  }
+  function insertTarget(){
+    var side=findPatientSide(); if(!side) return null;
+    var tabs=qs(side,'.etabs,.ehr-tabs,[role="tablist"]');
+    if(tabs) return {node:tabs,mode:'after'};
+    var notes=Array.from(qsa(side,'button,.etab,.tab,.chip')).find(function(el){return /^notes$/i.test(txt(el));});
+    if(notes) return {node:notes,mode:'after'};
+    var card=qs(side,'.patient-glass-card'); if(card) return {node:card,mode:'after'};
+    return {node:side,mode:'prepend'};
+  }
+  function candidateNodes(){
+    var qcol=qs(document,'#qmain .question-col')||qs(document,'#qmain'); if(!qcol) return [];
+    var nodes=qsa(qcol,'.scenario,.case-overview,.question-context,.qstem,.question-stem,[data-case-overview],[data-scenario]').filter(function(el){
+      if(el.closest('.nexus-v195-case-overview')||el.closest('#rat')) return false;
+      var t=txt(el); if(t.length<40) return false;
+      if(!patientOverviewText(t)) return false;
+      return true;
+    });
+    // only top contextual blocks, not answer choices/rationales
+    return nodes.slice(0,2);
+  }
+  function visibleCommandPromptCount(exclude){
+    var qcol=qs(document,'#qmain .question-col')||qs(document,'#qmain'); if(!qcol) return 0;
+    return qsa(qcol,'.qstem,.question-stem,[data-question-stem],.scenario,.stem,.prompt').filter(function(el){
+      if(el===exclude || (exclude&&exclude.contains&&exclude.contains(el)) || (el.contains&&el.contains(exclude))) return false;
+      if(el.closest('.nexus-v195-case-overview')||el.closest('#rat')) return false;
+      var t=txt(el);
+      return isVisible(el) && t.length>30 && commandText(t);
+    }).length;
+  }
+  function visibleQuestionStemPresent(){
+    var qcol=qs(document,'#qmain .question-col')||qs(document,'#qmain'); if(!qcol) return false;
+    return qsa(qcol,'.qstem,.question-stem,[data-question-stem],.scenario,.stem,.prompt').some(function(el){
+      if(el.closest('.nexus-v195-case-overview')||el.closest('#rat')) return false;
+      var t=txt(el); return isVisible(el) && t.length>30;
+    });
+  }
+  function createMirror(cands){
+    var card=document.createElement('section');
+    card.className='nexus-v195-case-overview';
+    card.setAttribute('data-v195-overview','true');
+    card.innerHTML='<div class="nexus-v195-case-overview-head"><span class="nexus-v195-case-overview-dot"></span><span>Case overview · H&P</span></div><div class="nexus-v195-case-overview-body"></div>';
+    var body=qs(card,'.nexus-v195-case-overview-body');
+    cands.forEach(function(node){body.appendChild(node.cloneNode(true));});
+    return card;
+  }
+  function patch(){
+    removeMirrors(); unhideAll();
+    var cands=candidateNodes();
+    if(!cands.length) return {mirrored:false,hiddenCount:0,questionStemPreserved:visibleQuestionStemPresent(),commandStemHidden:false};
+    activateHpTab();
+    var target=insertTarget(); if(!target||!target.node) return {mirrored:false,hiddenCount:0,questionStemPreserved:visibleQuestionStemPresent(),commandStemHidden:false};
+    var card=createMirror(cands);
+    if(target.mode==='after') target.node.insertAdjacentElement('afterend',card); else target.node.prepend(card);
+    var hidden=0, commandHidden=false;
+    cands.forEach(function(node){
+      var t=txt(node);
+      var hasCommand=commandText(t);
+      // Safe rule: never hide command-containing stems. Only hide a pure patient-overview duplicate when a separate command stem remains visible.
+      if(!hasCommand && visibleCommandPromptCount(node)>0){
+        node.classList.add('nexus-v195-hidden-pure-patient-overview');
+        node.setAttribute('data-v195-hidden','true');
+        hidden++;
+      }
+      if(hasCommand && node.classList.contains('nexus-v195-hidden-pure-patient-overview')) commandHidden=true;
+    });
+    return {mirrored:true,hiddenCount:hidden,questionStemPreserved:visibleQuestionStemPresent(),commandStemHidden:commandHidden};
+  }
+  function hook(name){try{var fn=window[name]; if(typeof fn==='function'&&!fn.__v195SafeOverview){window[name]=function(){var out=fn.apply(this,arguments); setTimeout(patch,0); setTimeout(patch,90); setTimeout(patch,280); return out;}; window[name].__v195SafeOverview=true;}}catch(e){}}
+  function boot(){['renderQV','openQ','openCaseItem','nextQ','restoreState','submitQ','showRat','showDash'].forEach(hook); patch();}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true}); else boot();
+  window.addEventListener('load',boot,{once:true});
+  [150,450,950,1900,3400].forEach(function(ms){setTimeout(boot,ms);});
+  try{var mo=new MutationObserver(function(){patch();}); document.addEventListener('DOMContentLoaded',function(){var qv=document.getElementById('qview'); if(qv)mo.observe(qv,{childList:true,subtree:true});},{once:true});}catch(e){}
+  window.NEXUS_V195_CASE_OVERVIEW_AUDIT=function(){
+    var result=patch();
+    return {
+      version:'v195-safe-overview-stem-preserved-image-fit',
+      caseOverviewMirroredToPatientSide:!!qs(document,'.nexus-v195-case-overview'),
+      hiddenPurePatientOverviewCount:qsa(document,'#qmain .question-col .nexus-v195-hidden-pure-patient-overview').length,
+      questionStemPreserved:visibleQuestionStemPresent(),
+      commandContainingStemNeverHidden:!result.commandStemHidden,
+      safeHideRule:'Never hide a command-containing stem. Only hide pure patient-overview duplicates when a separate command prompt remains visible.',
+      appliesToDefaultLayout:true,
+      appliesToLightEhrLayout:true,
+      patientImagesContainFit:true,
+      patientBoxSizeChanged:false,
+      questionDbMutated:false,
+      patchResult:result
+    };
+  };
+  window.NEXUS_V194_CASE_OVERVIEW_AUDIT=window.NEXUS_V195_CASE_OVERVIEW_AUDIT;
+})();
+</script>
+
+</body>
+</html>

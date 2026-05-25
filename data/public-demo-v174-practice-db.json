@@ -1,0 +1,988 @@
+{
+  "meta": {
+    "version": "v174-public-demo-fixed-extracted-app-content",
+    "source": "Exact fixed copies extracted from data/questions-current.json; no new clinical items created.",
+    "access": "public-demo-designated-only",
+    "questionDbMutated": false,
+    "containsPaidBank": false,
+    "targets": {
+      "arthurCaseId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a",
+      "arthurCaseQuestionId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-2-q-mp148wgn-haq2jt",
+      "jamalBowtieQid": "nexus_bow_fatembol_a7a6"
+    }
+  },
+  "questions": [
+    {
+      "id": "nexus_bow_fatembol_a7a6",
+      "format": "bowtie",
+      "cjmm_step": "Take Action",
+      "difficulty": "Very Hard",
+      "clinical_focus": "Fat Embolism Syndrome (FES) post-fracture",
+      "client_needs": "Physiological Integrity: Physiological Adaptation",
+      "patient": {
+        "name": "Jamal Washington",
+        "gender": "M",
+        "age_unit": "years",
+        "location": "Medical-Surgical Unit",
+        "age_value": "24",
+        "allergies": "NKA (No Known Allergies)",
+        "weight_kg": "80",
+        "code_status": "Full Code"
+      },
+      "ehr": {
+        "notes": [
+          {
+            "type": "Nurse note",
+            "note": "Patient resting comfortably, oriented to person, place, and time. Reports mild pain at surgical site, rated 3/10 on a 0-10 scale. Lungs clear to auscultation bilaterally. No skin lesions noted. Surgical dressing to right femur dry and intact."
+          },
+          {
+            "type": "Nurse note",
+            "note": "Patient observed to be restless and confused, disoriented to time. Verbalized, 'difficulty catching my breath.' Respiratory rate 30 breaths/min, shallow. Auscultation revealed crackles in bilateral lung bases. Fine, non-blanching petechiae noted on chest and axillae. Skin pale and clammy. SpO2 88% on room air."
+          }
+        ],
+        "vitals": [
+          {
+            "rr": "30",
+            "spo2": "88%"
+          }
+        ],
+        "labs": [],
+        "orders": [
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Stat ABGs."
+          },
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Stat Portable Chest X-Ray."
+          },
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Continuous Pulse Oximetry monitoring."
+          },
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Cardiac Monitor."
+          },
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Neurological checks every 1 hour and PRN."
+          },
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Initiate IV fluids: Normal Saline at 100 mL/hr."
+          },
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Administer 100% O2 via non-rebreather mask."
+          }
+        ],
+        "hp": {
+          "chief_complaint": "Difficulty catching my breath.",
+          "hpi": "Patient is 24 hours post-operative for a comminuted right femur fracture. He was stable overnight but developed sudden onset of restlessness, confusion, and dyspnea this morning.",
+          "pmh": "No significant past medical history. Non-smoker. No known allergies.",
+          "social_history": {
+            "occupation": "Construction worker.",
+            "living_situation": "Lives alone in a rural area, approximately 45 minutes from the nearest rehabilitation facility.",
+            "social_determinants_of_health": "Limited access to public transportation, which may pose challenges for follow-up appointments and consistent rehabilitation post-discharge."
+          },
+          "patient_demographics": {
+            "age": "32 years",
+            "gender": "Male"
+          },
+          "impression": "Suspected Fat Embolism Syndrome (FES) secondary to comminuted right femur fracture, presenting with respiratory distress, neurological impairment, and petechial rash.",
+          "past_medical_history": "No significant past medical history. Non-smoker. No known allergies.",
+          "history_of_present_illness": "Patient is 24 hours post-operative for a comminuted right femur fracture. He was stable overnight but developed sudden onset of restlessness, confusion, and dyspnea this morning.",
+          "physical_examination_findings": {
+            "skin": "Fine, non-blanching petechiae visible on chest and axillae. No rashes or lesions elsewhere.",
+            "extremities": "Right lower extremity in immobilizer, surgical dressing dry and intact. No signs of infection or excessive swelling at surgical site. Peripheral pulses palpable and strong bilaterally.",
+            "respiratory": "Tachypneic (RR 30 breaths/min), shallow respirations. Auscultation reveals crackles in bilateral lung bases. Reports 'difficulty catching my breath.'",
+            "neurological": "Disoriented to time, restless, confused. Pupils equal, round, reactive to light and accommodation.",
+            "cardiovascular": "Tachycardic (HR 118 bpm). Blood pressure 102/68 mmHg. Capillary refill <3 seconds.",
+            "general_appearance": "Appears restless, confused, and anxious. Skin pale and clammy."
+          }
+        },
+        "imaging": [
+          {
+            "time": "08:15",
+            "type": "Imaging",
+            "report": "CHEST X-RAY (PORTABLE): Findings: Diffuse bilateral patchy infiltrates, most prominent in the peripheral lung fields. No evidence of pneumothorax or pleural effusion. Impression: Findings are consistent with acute lung injury, possibly related to fat embolism syndrome, though non-specific. Clinical correlation recommended.",
+            "text": "CHEST X-RAY (PORTABLE): Findings: Diffuse bilateral patchy infiltrates, most prominent in the peripheral lung fields. No evidence of pneumothorax or pleural effusion. Impression: Findings are consistent with acute lung injury, possibly related to fat embolism syndrome, though non-specific. Clinical correlation recommended."
+          }
+        ],
+        "nurses_notes": [
+          {
+            "type": "Nurse note",
+            "note": "Patient resting comfortably, oriented to person, place, and time. Reports mild pain at surgical site, rated 3/10 on a 0-10 scale. Lungs clear to auscultation bilaterally. No skin lesions noted. Surgical dressing to right femur dry and intact."
+          },
+          {
+            "type": "Nurse note",
+            "note": "Patient observed to be restless and confused, disoriented to time. Verbalized, 'difficulty catching my breath.' Respiratory rate 30 breaths/min, shallow. Auscultation revealed crackles in bilateral lung bases. Fine, non-blanching petechiae noted on chest and axillae. Skin pale and clammy. SpO2 88% on room air."
+          }
+        ],
+        "providerOrders": [
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Stat ABGs."
+          },
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Stat Portable Chest X-Ray."
+          },
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Continuous Pulse Oximetry monitoring."
+          },
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Cardiac Monitor."
+          },
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Neurological checks every 1 hour and PRN."
+          },
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Initiate IV fluids: Normal Saline at 100 mL/hr."
+          },
+          {
+            "time": "08:05",
+            "type": "Order",
+            "text": "Administer 100% O2 via non-rebreather mask."
+          }
+        ],
+        "radiology": [
+          {
+            "time": "08:15",
+            "type": "Imaging",
+            "report": "CHEST X-RAY (PORTABLE): Findings: Diffuse bilateral patchy infiltrates, most prominent in the peripheral lung fields. No evidence of pneumothorax or pleural effusion. Impression: Findings are consistent with acute lung injury, possibly related to fat embolism syndrome, though non-specific. Clinical correlation recommended.",
+            "text": "CHEST X-RAY (PORTABLE): Findings: Diffuse bilateral patchy infiltrates, most prominent in the peripheral lung fields. No evidence of pneumothorax or pleural effusion. Impression: Findings are consistent with acute lung injury, possibly related to fat embolism syndrome, though non-specific. Clinical correlation recommended."
+          }
+        ],
+        "history_physical": {
+          "chief_complaint": "Difficulty catching my breath.",
+          "hpi": "Patient is 24 hours post-operative for a comminuted right femur fracture. He was stable overnight but developed sudden onset of restlessness, confusion, and dyspnea this morning.",
+          "pmh": "No significant past medical history. Non-smoker. No known allergies.",
+          "social_history": {
+            "occupation": "Construction worker.",
+            "living_situation": "Lives alone in a rural area, approximately 45 minutes from the nearest rehabilitation facility.",
+            "social_determinants_of_health": "Limited access to public transportation, which may pose challenges for follow-up appointments and consistent rehabilitation post-discharge."
+          },
+          "patient_demographics": {
+            "age": "32 years",
+            "gender": "Male"
+          },
+          "impression": "Suspected Fat Embolism Syndrome (FES) secondary to comminuted right femur fracture, presenting with respiratory distress, neurological impairment, and petechial rash.",
+          "past_medical_history": "No significant past medical history. Non-smoker. No known allergies.",
+          "history_of_present_illness": "Patient is 24 hours post-operative for a comminuted right femur fracture. He was stable overnight but developed sudden onset of restlessness, confusion, and dyspnea this morning.",
+          "physical_examination_findings": {
+            "skin": "Fine, non-blanching petechiae visible on chest and axillae. No rashes or lesions elsewhere.",
+            "extremities": "Right lower extremity in immobilizer, surgical dressing dry and intact. No signs of infection or excessive swelling at surgical site. Peripheral pulses palpable and strong bilaterally.",
+            "respiratory": "Tachypneic (RR 30 breaths/min), shallow respirations. Auscultation reveals crackles in bilateral lung bases. Reports 'difficulty catching my breath.'",
+            "neurological": "Disoriented to time, restless, confused. Pupils equal, round, reactive to light and accommodation.",
+            "cardiovascular": "Tachycardic (HR 118 bpm). Blood pressure 102/68 mmHg. Capillary refill <3 seconds.",
+            "general_appearance": "Appears restless, confused, and anxious. Skin pale and clammy."
+          }
+        }
+      },
+      "prompt": "The 24-year-old male client in the Medical-Surgical Unit is being evaluated for Fat Embolism Syndrome (FES) post-fracture. Current chart cue: vital signs show rr 30, spo2 88% Select the action the nurse should implement now based on the documented cues. Link the priority condition, actions, and monitoring parameters.",
+      "structure": {
+        "type": "bowtie",
+        "prompt": "The 24-year-old male client in the Medical-Surgical Unit is being evaluated for Fat Embolism Syndrome (FES) post-fracture. Current chart cue: vital signs show rr 30, spo2 88% Select the action the nurse should implement now based on the documented cues. Link the priority condition, actions, and monitoring parameters.",
+        "conditions": [
+          {
+            "id": "pneumonia",
+            "text": "Pneumonia",
+            "isCorrect": false
+          },
+          {
+            "id": "pulmonary_embolism",
+            "text": "Pulmonary embolism.",
+            "isCorrect": false
+          },
+          {
+            "id": "fat_embolism",
+            "text": "Fat embolism syndrome.",
+            "isCorrect": true
+          },
+          {
+            "id": "acute_respiratory_distress",
+            "text": "Acute respiratory distress syndrome (ARDS).",
+            "isCorrect": false
+          }
+        ],
+        "actions": [
+          {
+            "id": "oxygen",
+            "text": "Administer oxygen.",
+            "isCorrect": true
+          },
+          {
+            "id": "notify_provider",
+            "text": "Notify healthcare provider.",
+            "isCorrect": true
+          },
+          {
+            "id": "high_fowlers",
+            "text": "Position in high-fowlers.",
+            "isCorrect": false
+          },
+          {
+            "id": "iv_fluids",
+            "text": "Initiate IV fluids.",
+            "isCorrect": false
+          },
+          {
+            "id": "pain_medication",
+            "text": "Administer pain medication.",
+            "isCorrect": false
+          }
+        ],
+        "parameters": [
+          {
+            "id": "neurological_status",
+            "text": "Neurological status.",
+            "isCorrect": true
+          },
+          {
+            "id": "respiratory_status",
+            "text": "Respiratory status.",
+            "isCorrect": true
+          },
+          {
+            "id": "abgs",
+            "text": "Arterial blood gases (ABGs).",
+            "isCorrect": false
+          },
+          {
+            "id": "cardiac_status",
+            "text": "Cardiac status.",
+            "isCorrect": false
+          },
+          {
+            "id": "urine_output",
+            "text": "Urine output.",
+            "isCorrect": false
+          }
+        ],
+        "correct": {
+          "condition": [
+            "fat_embolism"
+          ],
+          "actions": [
+            "oxygen",
+            "notify_provider"
+          ],
+          "parameters": [
+            "neurological_status",
+            "respiratory_status"
+          ]
+        },
+        "stem": "The 24-year-old male client in the Medical-Surgical Unit is being evaluated for Fat Embolism Syndrome (FES) post-fracture. Current chart cue: vital signs show rr 30, spo2 88% Select the action the nurse should implement now based on the documented cues. Link the priority condition, actions, and monitoring parameters."
+      },
+      "media": [],
+      "rationale": {
+        "trap": "Do not be trapped into prioritizing less urgent interventions like pain management or documentation when a client exhibits acute respiratory distress and hypoxemia, as these signs demand immediate physiological support.",
+        "golden_rule": "Immediate recognition and intervention for life-threatening complications are paramount. Prioritize airway, breathing, and circulation.",
+        "core_concept": "Clinical Judgment: Prioritization and Recognition of Complications.",
+        "answer_analysis": "The client's presentation of sudden onset dyspnea, tachypnea, tachycardia, confusion, hypoxemia (SpO2 88%), crackles, and petechiae on the chest and axillae 24 hours post-femur fracture is highly indicative of Fat Embolism Syndrome (FES). FES is a serious complication of long bone fractures, characterized by a triad of respiratory distress, neurological impairment, and petechial rash. The fat globules released from the bone marrow enter the bloodstream, travel to the lungs, and cause pulmonary inflammation, edema, and impaired gas exchange, leading to hypoxemia. They can also travel to the brain and skin.\nThe *first* priority for a client experiencing acute respiratory distress and hypoxemia is to improve oxygenation. Elevating the head of the bed facilitates lung expansion, and applying oxygen (e.g., high-flow nasal cannula or non-rebreather mask) directly addresses the hypoxemia. Subsequent actions would include notifying the healthcare provider, initiating continuous pulse oximetry, and preparing for potential intubation and mechanical ventilation if respiratory status deteriorates further. Administering analgesics (A) is not the priority in acute respiratory distress. Immediate surgical intervention (C) is not the primary treatment for FES; management is supportive. Documenting and monitoring (D) without intervention is inappropriate for a rapidly deteriorating client with life-threatening symptoms."
+      },
+      "mnemonic": {
+        "title": "FES: The \"RAPID\" Signs",
+        "content": "R - Respiratory Distress (dyspnea, tachypnea, hypoxemia)\nA - Altered Mental Status (confusion, restlessness, agitation)\nP - Petechial Rash (non-blanching, on chest, axillae, conjunctiva)\nI - Increased Heart Rate (tachycardia)\nD - Decreased Oxygen Saturation (hypoxemia)"
+      },
+      "answerKey": {
+        "type": "bowtie",
+        "correctCondition": "fat_embolism",
+        "correctActions": [
+          "oxygen",
+          "notify_provider"
+        ],
+        "correctParameters": [
+          "neurological_status",
+          "respiratory_status"
+        ],
+        "correctIds": [
+          "fat_embolism",
+          "oxygen",
+          "notify_provider",
+          "neurological_status",
+          "respiratory_status"
+        ],
+        "correctSet": [
+          "fat_embolism",
+          "oxygen",
+          "notify_provider",
+          "neurological_status",
+          "respiratory_status"
+        ],
+        "maxScore": 5,
+        "scoring": "partial"
+      },
+      "metadata": {
+        "v69_repaired": true,
+        "v69_quality_issues": [],
+        "v69_final_issues": [],
+        "v112_bulk_authenticity_cleanup": true,
+        "v112_original_prompt_hash": "bbc73c1d7b1a"
+      },
+      "validForPractice": true
+    }
+  ],
+  "cases": [
+    {
+      "caseId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a",
+      "topicPlanId": "T30-V5-medication-reconciliation-polypharmacy-in-older-adults",
+      "topic": "Medication reconciliation/polypharmacy in older adults",
+      "title": "Arthur Jenkins: Polypharmacy and Confusion",
+      "clinical_focus": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+      "client_needs": "Pharmacological and Parenteral Therapies, Reduction of Risk Potential, Safety and Infection Control",
+      "difficulty": "Moderate",
+      "patient": {
+        "name": "Arthur Jenkins",
+        "age_value": "82",
+        "age_unit": "years",
+        "gender": "M",
+        "location": "Emergency Department",
+        "allergies": "NKDA",
+        "code_status": "Full Code"
+      },
+      "progress": 0,
+      "items": [
+        {
+          "id": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-1-q-mp148wgm-q4hfpt",
+          "caseId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a",
+          "caseSequence": 1,
+          "caseTotal": 6,
+          "caseType": "unfolding",
+          "validForPractice": true,
+          "responseFormat": "highlight",
+          "format": "highlight",
+          "cjmm_step": "Recognize cues",
+          "difficulty": "Moderate",
+          "clinical_focus": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+          "client_needs": "Pharmacological and Parenteral Therapies, Reduction of Risk Potential, Safety and Infection Control",
+          "caseStem": "Arthur Jenkins, an 82-year-old male, is brought to the Emergency Department by his daughter. He was recently discharged from a skilled nursing facility (SNF) two days ago after a fall. His daughter reports, 'He's been more confused and dizzy since he came home, and I noticed his hands shaking more than usual.' She states he takes 'a lot of pills' for his heart, blood pressure, and 'to help him relax.' She provides a discharge medication list from the SNF. Vital signs: BP 108/62 mmHg, HR 68 bpm, RR 18 breaths/min, Temp 36.8°C (98.2°F), SpO2 96% on room air. Physical assessment reveals a fine tremor in both hands, unsteady gait, and disorientation to time and place. Capillary refill is <3 seconds, skin turgor is elastic. Urine output has been adequate according to his daughter.",
+          "stem": "Highlight the findings that are most concerning for Arthur's current condition.",
+          "prompt": "Highlight the findings that are most concerning for Arthur's current condition.",
+          "patient": {
+            "name": "Arthur Jenkins",
+            "age_value": "82",
+            "age_unit": "years",
+            "gender": "M",
+            "location": "Emergency Department",
+            "allergies": "NKDA",
+            "code_status": "Full Code"
+          },
+          "source": "Gemini 2.5 Flash AI generator v24.3 advanced 100",
+          "topicPlanId": "T30-V5-medication-reconciliation-polypharmacy-in-older-adults",
+          "_domId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-1",
+          "structure": {
+            "type": "highlight",
+            "prompt": "Highlight the findings that are most concerning for Arthur's current condition.",
+            "options": [],
+            "tokens": [
+              {
+                "id": "H1",
+                "text": "82-year-old male",
+                "isHighlightable": false
+              },
+              {
+                "id": "H2",
+                "text": "more confused",
+                "isHighlightable": true
+              },
+              {
+                "id": "H3",
+                "text": "dizzy",
+                "isHighlightable": true
+              },
+              {
+                "id": "H4",
+                "text": "hands shaking more than usual",
+                "isHighlightable": true
+              },
+              {
+                "id": "H5",
+                "text": "takes 'a lot of pills'",
+                "isHighlightable": true
+              },
+              {
+                "id": "H6",
+                "text": "disorientation to time and place",
+                "isHighlightable": true
+              },
+              {
+                "id": "H7",
+                "text": "fine tremor in both hands",
+                "isHighlightable": true
+              },
+              {
+                "id": "H8",
+                "text": "unsteady gait",
+                "isHighlightable": true
+              },
+              {
+                "id": "H9",
+                "text": "BP 108/62 mmHg",
+                "isHighlightable": false
+              },
+              {
+                "id": "H10",
+                "text": "HR 68 bpm",
+                "isHighlightable": false
+              },
+              {
+                "id": "H11",
+                "text": "RR 18 breaths/min",
+                "isHighlightable": false
+              },
+              {
+                "id": "H12",
+                "text": "Temp 36.8°C (98.2°F)",
+                "isHighlightable": false
+              },
+              {
+                "id": "H13",
+                "text": "SpO2 96% on room air",
+                "isHighlightable": false
+              },
+              {
+                "id": "H14",
+                "text": "Capillary refill <3 seconds",
+                "isHighlightable": false
+              },
+              {
+                "id": "H15",
+                "text": "skin turgor elastic",
+                "isHighlightable": false
+              },
+              {
+                "id": "H16",
+                "text": "Urine output adequate",
+                "isHighlightable": false
+              },
+              {
+                "id": "H17",
+                "text": "recently discharged from a skilled nursing facility (SNF) two days ago after a fall",
+                "isHighlightable": false
+              }
+            ]
+          },
+          "answerKey": {
+            "type": "highlight",
+            "correctIds": [
+              "H2",
+              "H3",
+              "H4",
+              "H5",
+              "H6",
+              "H7",
+              "H8"
+            ],
+            "correctSet": [
+              "H2",
+              "H3",
+              "H4",
+              "H5",
+              "H6",
+              "H7",
+              "H8"
+            ],
+            "maxScore": 7,
+            "scoring": "0/1"
+          },
+          "rationale": {
+            "core_concept": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+            "answer_analysis": "The patient's new onset of confusion, dizziness, increased hand tremor, disorientation, and unsteady gait are acute changes that are concerning. The daughter's report of him taking 'a lot of pills' suggests polypharmacy, which is a common cause of adverse drug reactions and cognitive changes in older adults. While his age and recent fall are important background information, the *new* symptoms are the most critical cues to recognize. His vital signs and hydration status appear stable, making them less concerning as primary causes for his acute neurological changes.",
+            "golden_rule": "Separate relevant abnormal cues from background noise.",
+            "trap": "Selecting normal findings as priority cues."
+          },
+          "mnemonic": {
+            "title": "Case Study Rule",
+            "content": "Carry forward earlier cues; later questions add data but keep the same client story."
+          }
+        },
+        {
+          "id": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-2-q-mp148wgn-haq2jt",
+          "caseId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a",
+          "caseSequence": 2,
+          "caseTotal": 6,
+          "caseType": "unfolding",
+          "validForPractice": true,
+          "responseFormat": "matrix-multiple-choice",
+          "format": "matrix-multiple-response",
+          "cjmm_step": "Analyze cues",
+          "difficulty": "Moderate",
+          "clinical_focus": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+          "client_needs": "Pharmacological and Parenteral Therapies, Reduction of Risk Potential, Safety and Infection Control",
+          "caseStem": "The nurse reviews Arthur's discharge medication list from the SNF, which includes: Lisinopril 10 mg daily, Furosemide 20 mg daily, Metoprolol 25 mg BID, Tamsulosin 0.4 mg daily, Alprazolam 0.5 mg TID PRN anxiety, and Acetaminophen 650 mg PRN pain. His daughter also mentions he takes an over-the-counter (OTC) sleep aid, Diphenhydramine, 'most nights.'",
+          "stem": "For each finding, indicate whether it supports or does not support the potential causes of Arthur's current symptoms.",
+          "prompt": "For each finding, indicate whether it supports or does not support the potential causes of Arthur's current symptoms.",
+          "patient": {
+            "name": "Arthur Jenkins",
+            "age_value": "82",
+            "age_unit": "years",
+            "gender": "M",
+            "location": "Emergency Department",
+            "allergies": "NKDA",
+            "code_status": "Full Code"
+          },
+          "source": "Gemini 2.5 Flash AI generator v24.3 advanced 100",
+          "topicPlanId": "T30-V5-medication-reconciliation-polypharmacy-in-older-adults",
+          "_domId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-2",
+          "structure": {
+            "type": "matrix-multiple-response",
+            "prompt": "For each finding, indicate whether it supports or does not support the potential causes of Arthur's current symptoms.",
+            "options": [],
+            "rows": [
+              {
+                "id": "R1",
+                "text": "Confusion and disorientation"
+              },
+              {
+                "id": "R2",
+                "text": "Dizziness and unsteady gait"
+              },
+              {
+                "id": "R3",
+                "text": "New onset hand tremor"
+              },
+              {
+                "id": "R4",
+                "text": "Multiple CNS depressants (Alprazolam, Diphenhydramine)"
+              }
+            ],
+            "columns": [
+              {
+                "id": "indicated",
+                "text": "Indicated"
+              },
+              {
+                "id": "not_indicated",
+                "text": "Not indicated"
+              },
+              {
+                "id": "priority",
+                "text": "Priority"
+              }
+            ]
+          },
+          "answerKey": {
+            "type": "matrix-multiple-response",
+            "correctIds": [],
+            "correctMap": {
+              "R1": "indicated",
+              "R2": "not_indicated",
+              "R3": "not_indicated",
+              "R4": "not_indicated"
+            },
+            "correctSet": [],
+            "maxScore": 4,
+            "scoring": "plusMinus"
+          },
+          "rationale": {
+            "core_concept": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+            "answer_analysis": "Confusion, disorientation, dizziness, unsteady gait, and new tremors are all common manifestations of adverse drug reactions, especially in older adults with polypharmacy. The combination of Alprazolam (a benzodiazepine) and Diphenhydramine (an antihistamine with anticholinergic and sedative effects) significantly increases the risk of CNS depression, confusion, and falls in the elderly. While dehydration can cause confusion and dizziness, Arthur's stable vital signs and adequate urine output make it less likely to be the primary cause. An underlying neurological condition is possible but less likely to manifest acutely with these specific symptoms in the context of recent medication changes and polypharmacy. Therefore, all listed findings strongly support polypharmacy/adverse drug reaction.",
+            "golden_rule": "Cluster cues into the most likely clinical meaning.",
+            "trap": "Naming a diagnosis without connecting it to the cues."
+          },
+          "mnemonic": {
+            "title": "Case Study Rule",
+            "content": "Carry forward earlier cues; later questions add data but keep the same client story."
+          },
+          "metadata": {
+            "nexusWave6MatrixAuthenticityReview": {
+              "version": "v111-wave6-authenticity-rewrite",
+              "reason": "Every row currently has a single keyed column; clinically valid but behaves more like Matrix Multiple Choice than true Matrix Multiple Response.",
+              "answerKeyChanged": false,
+              "status": "educator_review_needed"
+            }
+          }
+        },
+        {
+          "id": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-3-q-mp148wgn-xqnsc7",
+          "caseId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a",
+          "caseSequence": 3,
+          "caseTotal": 6,
+          "caseType": "unfolding",
+          "validForPractice": true,
+          "responseFormat": "cloze-dropdown",
+          "format": "cloze-dropdown",
+          "cjmm_step": "Prioritize hypotheses",
+          "difficulty": "Moderate",
+          "clinical_focus": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+          "client_needs": "Pharmacological and Parenteral Therapies, Reduction of Risk Potential, Safety and Infection Control",
+          "caseStem": "Based on the assessment findings and medication review, the nurse considers several potential causes for Arthur's acute changes.",
+          "stem": "The most likely primary cause of Arthur's current symptoms is [blank1].",
+          "prompt": "The most likely primary cause of Arthur's current symptoms is [blank1].",
+          "patient": {
+            "name": "Arthur Jenkins",
+            "age_value": "82",
+            "age_unit": "years",
+            "gender": "M",
+            "location": "Emergency Department",
+            "allergies": "NKDA",
+            "code_status": "Full Code"
+          },
+          "source": "Gemini 2.5 Flash AI generator v24.3 advanced 100",
+          "topicPlanId": "T30-V5-medication-reconciliation-polypharmacy-in-older-adults",
+          "_domId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-3",
+          "structure": {
+            "type": "cloze-dropdown",
+            "prompt": "The most likely primary cause of Arthur's current symptoms is [blank1].",
+            "options": [],
+            "template": "The most likely primary cause of Arthur's current symptoms is [blank1].",
+            "blanks": {
+              "blank1": {
+                "options": [
+                  {
+                    "id": "A",
+                    "text": "Immediate priority nursing action"
+                  },
+                  {
+                    "id": "B",
+                    "text": "Ongoing reassessment of objective findings"
+                  },
+                  {
+                    "id": "C",
+                    "text": "Delayed routine teaching"
+                  },
+                  {
+                    "id": "D",
+                    "text": "Nonurgent comfort intervention"
+                  }
+                ],
+                "correct": "A"
+              }
+            }
+          },
+          "answerKey": {
+            "type": "cloze-dropdown",
+            "correctIds": [],
+            "correctMap": {
+              "blank1": "A"
+            },
+            "correctSet": [],
+            "maxScore": 1,
+            "scoring": "0/1"
+          },
+          "rationale": {
+            "core_concept": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+            "answer_analysis": "Given Arthur's age, multiple medications (including CNS depressants like Alprazolam and Diphenhydramine), and the acute onset of confusion, dizziness, and tremor shortly after discharge with a complex medication regimen, an adverse drug reaction due to polypharmacy is the most likely primary cause. While acute infection, stroke, or electrolyte imbalance could cause similar symptoms, there are no specific cues (e.g., fever, focal neurological deficits, severe vomiting/diarrhea) to strongly support these as the primary cause at this time. The medication profile and symptom presentation align most closely with polypharmacy-related adverse effects.",
+            "golden_rule": "Address the most urgent threat to life, safety, or deterioration first.",
+            "trap": "Choosing the most familiar problem instead of the most urgent one."
+          },
+          "mnemonic": {
+            "title": "Case Study Rule",
+            "content": "Carry forward earlier cues; later questions add data but keep the same client story."
+          }
+        },
+        {
+          "id": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-4-q-mp148wgn-a1m3jo",
+          "caseId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a",
+          "caseSequence": 4,
+          "caseTotal": 6,
+          "caseType": "unfolding",
+          "validForPractice": true,
+          "responseFormat": "multiple-response-sata",
+          "format": "multiple-response-sata",
+          "cjmm_step": "Generate solutions",
+          "difficulty": "Moderate",
+          "clinical_focus": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+          "client_needs": "Pharmacological and Parenteral Therapies, Reduction of Risk Potential, Safety and Infection Control",
+          "caseStem": "The nurse has prioritized an adverse drug reaction due to polypharmacy as the most likely cause. The healthcare provider has been notified.",
+          "stem": "Which nursing interventions should be included in the plan of care for Arthur to address medication safety and reconciliation? Select all that apply.",
+          "prompt": "Which nursing interventions should be included in the plan of care for Arthur to address medication safety and reconciliation? Select all that apply.",
+          "patient": {
+            "name": "Arthur Jenkins",
+            "age_value": "82",
+            "age_unit": "years",
+            "gender": "M",
+            "location": "Emergency Department",
+            "allergies": "NKDA",
+            "code_status": "Full Code"
+          },
+          "source": "Gemini 2.5 Flash AI generator v24.3 advanced 100",
+          "topicPlanId": "T30-V5-medication-reconciliation-polypharmacy-in-older-adults",
+          "_domId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-4",
+          "structure": {
+            "type": "multiple-response-sata",
+            "prompt": "Which nursing interventions should be included in the plan of care for Arthur to address medication safety and reconciliation? Select all that apply.",
+            "options": [
+              {
+                "id": "O1",
+                "text": "Obtain a complete and accurate list of ALL medications, including OTCs, supplements, and herbal remedies, from the patient and daughter."
+              },
+              {
+                "id": "O2",
+                "text": "Administer all prescribed medications as ordered to maintain therapeutic levels."
+              },
+              {
+                "id": "O3",
+                "text": "Collaborate with the healthcare provider and pharmacist to review the medication regimen for potential interactions, duplications, or unnecessary medications."
+              },
+              {
+                "id": "O4",
+                "text": "Educate Arthur and his daughter on the purpose, dosage, side effects, and administration of each medication."
+              },
+              {
+                "id": "O5",
+                "text": "Assess for barriers to medication adherence, such as financial constraints, cognitive impairment, or complex regimens."
+              }
+            ]
+          },
+          "answerKey": {
+            "type": "multiple-response-sata",
+            "correctIds": [
+              "O1",
+              "O3",
+              "O4",
+              "O5"
+            ],
+            "correctSet": [
+              "O1",
+              "O3",
+              "O4",
+              "O5"
+            ],
+            "maxScore": 4,
+            "scoring": "plusMinus"
+          },
+          "rationale": {
+            "core_concept": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+            "answer_analysis": "For a patient with suspected polypharmacy and adverse drug reactions, a comprehensive medication reconciliation is crucial. This includes obtaining a complete medication list (O1), collaborating with the healthcare team to optimize the regimen (O3), providing thorough education (O4), and identifying adherence barriers (O5). Administering all prescribed medications as ordered (O2) without a thorough review could exacerbate the problem if some medications are contributing to the adverse reaction or are no longer appropriate. The goal is to ensure safe and effective medication use, not just adherence to a potentially problematic regimen.",
+            "golden_rule": "Choose interventions that directly address the priority hypothesis.",
+            "trap": "Picking generic comfort measures before stabilizing the client."
+          },
+          "mnemonic": {
+            "title": "Case Study Rule",
+            "content": "Carry forward earlier cues; later questions add data but keep the same client story."
+          }
+        },
+        {
+          "id": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-5-q-mp148wgn-m31ve3",
+          "caseId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a",
+          "caseSequence": 5,
+          "caseTotal": 6,
+          "caseType": "unfolding",
+          "validForPractice": true,
+          "responseFormat": "ordered-response",
+          "format": "ordered-response",
+          "cjmm_step": "Take action",
+          "difficulty": "Moderate",
+          "clinical_focus": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+          "client_needs": "Pharmacological and Parenteral Therapies, Reduction of Risk Potential, Safety and Infection Control",
+          "caseStem": "The healthcare provider has ordered a comprehensive medication reconciliation and review. The pharmacist has been consulted.",
+          "stem": "Place the following nursing actions in the correct order to ensure safe medication reconciliation and patient education.",
+          "prompt": "Place the following nursing actions in the correct order to ensure safe medication reconciliation and patient education.",
+          "patient": {
+            "name": "Arthur Jenkins",
+            "age_value": "82",
+            "age_unit": "years",
+            "gender": "M",
+            "location": "Emergency Department",
+            "allergies": "NKDA",
+            "code_status": "Full Code"
+          },
+          "source": "Gemini 2.5 Flash AI generator v24.3 advanced 100",
+          "topicPlanId": "T30-V5-medication-reconciliation-polypharmacy-in-older-adults",
+          "_domId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-5",
+          "structure": {
+            "type": "ordered-response",
+            "prompt": "Place the following nursing actions in the correct order to ensure safe medication reconciliation and patient education.",
+            "options": [
+              {
+                "id": "A",
+                "text": "Review the reconciled medication list with Arthur and his daughter, explaining any changes and new instructions."
+              },
+              {
+                "id": "B",
+                "text": "Compare the current home medication list (including OTCs) with the SNF discharge list and current hospital orders, identifying discrepancies."
+              },
+              {
+                "id": "C",
+                "text": "Collaborate with the pharmacist and healthcare provider to resolve identified discrepancies and optimize the medication regimen."
+              },
+              {
+                "id": "D",
+                "text": "Document the complete and reconciled medication list, patient education, and any remaining concerns."
+              }
+            ]
+          },
+          "answerKey": {
+            "type": "ordered-response",
+            "correctIds": [
+              "B",
+              "C",
+              "A",
+              "D"
+            ],
+            "correctOrder": [
+              "B",
+              "C",
+              "A",
+              "D"
+            ],
+            "correctSet": [
+              "B",
+              "C",
+              "A",
+              "D"
+            ],
+            "maxScore": 4,
+            "scoring": "position"
+          },
+          "rationale": {
+            "core_concept": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+            "answer_analysis": "The correct order for medication reconciliation involves first gathering all medication information and identifying discrepancies (B). Next, the nurse collaborates with the healthcare team to resolve these discrepancies and make necessary adjustments (C). Once the regimen is optimized, the nurse educates the patient and family on the updated plan (A). Finally, all actions, education, and the finalized medication list are documented (D).",
+            "golden_rule": "Take the safest, most immediate nursing action within scope.",
+            "trap": "Delaying escalation when deterioration is present."
+          },
+          "mnemonic": {
+            "title": "Case Study Rule",
+            "content": "Carry forward earlier cues; later questions add data but keep the same client story."
+          }
+        },
+        {
+          "id": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-6-q-mp148wgn-hnduho",
+          "caseId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a",
+          "caseSequence": 6,
+          "caseTotal": 6,
+          "caseType": "unfolding",
+          "validForPractice": true,
+          "responseFormat": "trend",
+          "format": "trend",
+          "cjmm_step": "Evaluate outcomes",
+          "difficulty": "Moderate",
+          "clinical_focus": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+          "client_needs": "Pharmacological and Parenteral Therapies, Reduction of Risk Potential, Safety and Infection Control",
+          "caseStem": "After the medication regimen was adjusted (Alprazolam discontinued, Diphenhydramine use discouraged, Tamsulosin dose reduced), Arthur's condition is reassessed over the next 24 hours.",
+          "stem": "Based on the trend data, what is the most appropriate interpretation of Arthur's condition?",
+          "prompt": "Based on the trend data, what is the most appropriate interpretation of Arthur's condition?",
+          "patient": {
+            "name": "Arthur Jenkins",
+            "age_value": "82",
+            "age_unit": "years",
+            "gender": "M",
+            "location": "Emergency Department",
+            "allergies": "NKDA",
+            "code_status": "Full Code"
+          },
+          "source": "Gemini 2.5 Flash AI generator v24.3 advanced 100",
+          "topicPlanId": "T30-V5-medication-reconciliation-polypharmacy-in-older-adults",
+          "_domId": "ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-6",
+          "structure": {
+            "type": "trend",
+            "prompt": "Based on the trend data, what is the most appropriate interpretation of Arthur's condition?",
+            "options": [
+              {
+                "id": "O1",
+                "text": "Arthur's symptoms are worsening, requiring further immediate intervention."
+              },
+              {
+                "id": "O2",
+                "text": "Arthur's condition is improving due to the medication adjustments."
+              },
+              {
+                "id": "O3",
+                "text": "Arthur is experiencing a new adverse drug reaction to the adjusted regimen."
+              },
+              {
+                "id": "O4",
+                "text": "Arthur requires a comprehensive neurological workup to determine the cause of his persistent symptoms."
+              }
+            ]
+          },
+          "answerKey": {
+            "type": "trend",
+            "correctIds": [
+              "O2"
+            ],
+            "correctSet": [
+              "O2"
+            ],
+            "maxScore": 1,
+            "scoring": "0/1"
+          },
+          "rationale": {
+            "core_concept": "Medication reconciliation, polypharmacy, adverse drug reactions, geriatric care",
+            "answer_analysis": "The trend data shows a clear improvement in Arthur's condition. His Confusion Assessment Method (CAM) score has transitioned from positive to negative, indicating resolution of delirium. His dizziness rating has significantly decreased from 8 to 2, and his tremor severity has reduced from 4 to 1. This positive trend directly correlates with the medication adjustments made to address polypharmacy and adverse drug reactions, indicating that the interventions were effective. There is no evidence of worsening symptoms or new adverse reactions, and with the significant improvement, a comprehensive neurological workup is not immediately indicated for persistent symptoms.",
+            "golden_rule": "Evaluate whether objective client data show improvement or worsening.",
+            "trap": "Evaluating by subjective improvement alone instead of objective outcomes."
+          },
+          "mnemonic": {
+            "title": "Case Study Rule",
+            "content": "Carry forward earlier cues; later questions add data but keep the same client story."
+          }
+        }
+      ],
+      "timeline": [
+        {
+          "seq": 1,
+          "step": "Recognize cues",
+          "text": "Arthur Jenkins, an 82-year-old male, is brought to the Emergency Department by his daughter. He was recently discharged from a skilled nursing facility (SNF) two days ago after a fall. His daughter reports, 'He's been more confused and dizzy since he came home, and I noticed his hands shaking more than usual.' She states he takes 'a lot of pills' for his heart, blood pressure, and 'to help him relax.' She provides a discharge medication list from the SNF. Vital signs: BP 108/62 mmHg, HR 68 bpm, RR 18 breaths/min, Temp 36.8°C (98.2°F), SpO2 96% on room air. Physical assessment reveals a fine tremor in both hands, unsteady gait, and disorientation to time and place. Capillary refill is <3 seconds, skin turgor is elastic. Urine output has been adequate according to his daughter."
+        },
+        {
+          "seq": 2,
+          "step": "Analyze cues",
+          "text": "The nurse reviews Arthur's discharge medication list from the SNF, which includes: Lisinopril 10 mg daily, Furosemide 20 mg daily, Metoprolol 25 mg BID, Tamsulosin 0.4 mg daily, Alprazolam 0.5 mg TID PRN anxiety, and Acetaminophen 650 mg PRN pain. His daughter also mentions he takes an over-the-counter (OTC) sleep aid, Diphenhydramine, 'most nights.'"
+        },
+        {
+          "seq": 3,
+          "step": "Prioritize hypotheses",
+          "text": "Based on the assessment findings and medication review, the nurse considers several potential causes for Arthur's acute changes."
+        },
+        {
+          "seq": 4,
+          "step": "Generate solutions",
+          "text": "The nurse has prioritized an adverse drug reaction due to polypharmacy as the most likely cause. The healthcare provider has been notified."
+        },
+        {
+          "seq": 5,
+          "step": "Take action",
+          "text": "The healthcare provider has ordered a comprehensive medication reconciliation and review. The pharmacist has been consulted."
+        },
+        {
+          "seq": 6,
+          "step": "Evaluate outcomes",
+          "text": "After the medication regimen was adjusted (Alprazolam discontinued, Diphenhydramine use discouraged, Tamsulosin dose reduced), Arthur's condition is reassessed over the next 24 hours."
+        }
+      ],
+      "formats": [
+        "Highlight",
+        "Matrix",
+        "Dropdown",
+        "SATA",
+        "Ordered",
+        "Trend"
+      ],
+      "steps": [
+        "Recognize cues",
+        "Analyze cues",
+        "Prioritize hypotheses",
+        "Generate solutions",
+        "Take action",
+        "Evaluate outcomes"
+      ],
+      "source": "Gemini 2.5 Flash AI generator v24.3 advanced 100",
+      "_isGenerated": true,
+      "legacyEmbeddedSource": "nexusrn-v24-ready-bank",
+      "contentTier": "legacy-generated"
+    }
+  ],
+  "freemiumCases": []
+}

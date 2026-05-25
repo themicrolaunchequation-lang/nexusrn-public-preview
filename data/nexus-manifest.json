@@ -1,0 +1,15 @@
+{
+  "version": "v138-hardening-1-slim-audit-modes-speed",
+  "canonicalDb": "data/questions-current.json",
+  "versionedDb": "data/questions-current.json",
+  "questions": 10744,
+  "cases": 448,
+  "importedIdealCases": 51,
+  "wave": "Verified runtime consolidation: v114 missing/deployment confusion corrected",
+  "releaseCandidate": false,
+  "mustContainScripts": [
+    "assets/js/modules/060-nexusrn-v115-verified-runtime-consolidation.js"
+  ],
+  "staleLoaderFix": "index.html now contains v115 script references; package verified before upload",
+  "productionHardening": "Fix 1 of 4: canonical DB only; duplicate historical DBs pruned from served package."
+}

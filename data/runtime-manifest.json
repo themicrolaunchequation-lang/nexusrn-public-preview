@@ -1,0 +1,36 @@
+{
+  "runtimeVersion": "v116-runtime-consolidation",
+  "canonicalDb": "data/questions-current.json",
+  "qaManifest": "data/qa-manifest.json",
+  "bundles": [
+    "assets/runtime/bootstrap.js",
+    "assets/runtime/runtime-core.js",
+    "assets/runtime/runtime-ui.js",
+    "assets/runtime/runtime-clinical.js",
+    "assets/runtime/runtime-decisionlab.js",
+    "assets/runtime/runtime-audit.js"
+  ],
+  "frozenMetrics": {
+    "standaloneQuestions": 10744,
+    "caseSets": 448,
+    "idealCases": 51,
+    "p0StillPracticeReady": 0
+  },
+  "packagedRuntime": {
+    "version": "v116-packaged-runtime-p1",
+    "packages": [
+      "assets/js/packages/pkg-00-manifest-guard.js",
+      "assets/js/packages/pkg-01-foundation-ui-training.js",
+      "assets/js/packages/pkg-02-clinical-safety-item-runtime.js",
+      "assets/js/packages/pkg-03-bank-runtime-feedback.js",
+      "assets/js/packages/pkg-04-generator-audit-idealcase.js",
+      "assets/js/packages/pkg-05-decisionlab-performance-hp.js",
+      "assets/js/packages/pkg-06-v115-v116-runtime-scaffold.js",
+      "assets/js/packages/pkg-99-package-audit.js"
+    ],
+    "originalScriptTags": 63,
+    "packagedScriptTags": 8,
+    "originalsRetained": true,
+    "questionDbMutated": false
+  }
+}

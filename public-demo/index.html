@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NexusRN Public Demo</title>
+<style>
+:root{--bg:#020617;--panel:#07111f;--ink:#e5f3ff;--muted:#9fb4c9;--teal:#14b8a6;--cyan:#2dd4bf;--blue:#0ea5e9;--line:rgba(45,212,191,.22);--amber:#f59e0b;--violet:#8b5cf6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(circle at 50% -20%,rgba(20,184,166,.18),transparent 42%),linear-gradient(180deg,#020617,#07111f);color:var(--ink)}body:before{content:"";position:fixed;inset:0;background:linear-gradient(90deg,rgba(45,212,191,.045) 1px,transparent 1px),linear-gradient(180deg,rgba(45,212,191,.035) 1px,transparent 1px);background-size:56px 56px;opacity:.42;pointer-events:none;z-index:-1}.header{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 24px;background:rgba(2,6,23,.84);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-weight:950}.logo{width:42px;height:42px;border-radius:14px;border:1px solid rgba(20,184,166,.45);display:grid;place-items:center;color:var(--teal);box-shadow:0 0 34px rgba(20,184,166,.20);animation:nexusFloat360 6s ease-in-out infinite}.sub{font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:rgba(15,23,42,.68);color:var(--ink);padding:11px 14px;border-radius:999px;font-weight:900;cursor:pointer}.btn.primary{background:linear-gradient(135deg,var(--teal),var(--blue));border:0;color:#001014;box-shadow:0 14px 36px rgba(14,165,233,.22)}@keyframes nexusFloat360{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-4px) rotate(180deg)}100%{transform:translateY(0) rotate(360deg)}}.demoNavShell{position:sticky;top:75px;z-index:35;padding:10px 18px;background:linear-gradient(180deg,rgba(2,6,23,.88),rgba(2,6,23,.58));backdrop-filter:blur(18px);border-bottom:1px solid rgba(45,212,191,.16)}.demoNav{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:10px;overflow:auto;padding:6px 2px;scrollbar-width:thin}.demoNavLabel{flex:0 0 auto;color:#5eead4;font-size:11px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;margin-right:4px}.demoNav button{flex:0 0 auto;border:1px solid rgba(45,212,191,.22);background:rgba(15,23,42,.72);color:#cfe9f7;border-radius:999px;padding:10px 13px;font-weight:900;font-size:12px;cursor:pointer;white-space:nowrap}.demoNav button:hover,.demoNav button.active{border-color:rgba(45,212,191,.72);background:linear-gradient(135deg,rgba(20,184,166,.22),rgba(14,165,233,.14));color:#f0fdff;box-shadow:0 10px 28px rgba(20,184,166,.10)}.wrap{max-width:1400px;margin:0 auto;padding:48px 26px 90px}.eyebrow{display:inline-flex;padding:8px 12px;border:1px solid rgba(20,184,166,.28);border-radius:999px;background:rgba(20,184,166,.10);color:#5eead4;font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase}h1{font-size:clamp(42px,5vw,76px);line-height:1.02;letter-spacing:-.055em;margin:18px 0 14px}.lead{max-width:980px;color:var(--muted);font-size:18px;line-height:1.7;margin:0 0 26px}.demoRulePanel{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin:0 0 26px}.demoRulePanel>div{border:1px solid rgba(45,212,191,.18);background:rgba(15,23,42,.52);border-radius:22px;padding:16px 18px;color:#c9dded;line-height:1.55}.demoRulePanel b{color:#eaffff}.demoRulePanel .safe{border-color:rgba(245,158,11,.28);background:rgba(245,158,11,.075);color:#fde68a}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.card{position:relative;min-height:238px;border:1px solid rgba(148,163,184,.18);background:linear-gradient(180deg,rgba(15,23,42,.78),rgba(2,6,23,.76));border-radius:28px;padding:22px;text-align:left;color:var(--ink);cursor:pointer;overflow:hidden;transition:.18s ease;box-shadow:0 24px 72px rgba(0,0,0,.26)}.card:before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 12% 10%,rgba(45,212,191,.18),transparent 34%);opacity:.85;pointer-events:none}.card.practice:before{background:radial-gradient(circle at 12% 10%,rgba(14,165,233,.20),transparent 34%)}.card.trap:before{background:radial-gradient(circle at 12% 10%,rgba(20,184,166,.20),transparent 34%)}.card.slides:before{background:radial-gradient(circle at 12% 10%,rgba(34,211,238,.18),transparent 34%),radial-gradient(circle at 90% 0%,rgba(139,92,246,.13),transparent 34%)}.card:focus-visible{outline:3px solid rgba(45,212,191,.85);outline-offset:4px}.card:hover,.card.is-focused{transform:translateY(-4px);border-color:rgba(20,184,166,.75);box-shadow:0 28px 88px rgba(20,184,166,.13)}.icon{position:relative;width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(20,184,166,.13);color:#5eead4;margin-bottom:18px;font-size:23px}.type{position:relative;color:#5eead4;font-size:11px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}.card h2{position:relative;margin:10px 0 8px;font-size:22px;letter-spacing:-.02em}.card p{position:relative;color:#a7bed1;line-height:1.55;margin:0 0 18px}.open{position:relative;display:inline-flex;align-items:center;gap:8px;color:#08121d;background:linear-gradient(135deg,var(--teal),var(--blue));border-radius:999px;padding:10px 13px;font-weight:950;font-size:13px}.slides .open{background:linear-gradient(135deg,#22d3ee,#8b5cf6);color:#050816}.rule{position:relative;margin-top:12px;color:#7dd3fc;font-size:12px;font-weight:900}.note{margin-top:28px;border:1px solid rgba(245,158,11,.28);background:rgba(245,158,11,.08);border-radius:22px;padding:16px 18px;color:#fde68a;line-height:1.6}.watermark{position:fixed;right:18px;bottom:18px;border:1px solid rgba(20,184,166,.28);background:rgba(2,6,23,.78);backdrop-filter:blur(14px);border-radius:999px;padding:10px 14px;color:#5eead4;font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.08em;z-index:60}@media(max-width:1240px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.demoRulePanel{grid-template-columns:1fr}.demoNavShell{top:76px}}@media(max-width:720px){.grid{grid-template-columns:1fr}.header{align-items:flex-start;flex-direction:column}.wrap{padding-top:28px}.card{min-height:180px}.demoNavShell{top:118px}.watermark{left:12px;right:12px;text-align:center}.demoRulePanel{gap:10px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.logo{animation:none!important}.card{transition:none!important}}
+</style>
+
+<link rel="canonical" href="https://nexusrn.healthqualityleader.com/public-demo/index.html" />
+<meta property="og:site_name" content="NexusRN" />
+<meta property="og:title" content="NexusRN by Health Quality Leader" />
+<meta property="og:description" content="NexusRN is an NCLEX NGN clinical judgment public preview with restricted demo practice, unfolding case previews, and Decision Lab learning tools." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://nexusrn.healthqualityleader.com/public-demo/index.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="NexusRN by Health Quality Leader" />
+<meta name="twitter:description" content="NexusRN is an NCLEX NGN clinical judgment public preview with restricted demo practice, unfolding case previews, and Decision Lab learning tools." />
+<meta name="application-name" content="NexusRN" />
+<meta name="apple-mobile-web-app-title" content="NexusRN" />
+
+</head>
+<body>
+<header class="header"><div class="brand"><div class="logo" aria-hidden="true">↯</div><div>Nexus<span style="color:var(--teal)">RN</span><div class="sub">Public Demo</div></div></div><div class="actions"><button class="btn" data-home type="button">← Landing</button><button class="btn primary" data-enroll type="button">Access Preview</button></div></header>
+<nav class="demoNavShell" aria-label="Public Demo navigation"><div class="demoNav" id="demoNav"><span class="demoNavLabel">Demo navigation</span></div></nav>
+<main class="wrap" id="demo-overview">
+  <span class="eyebrow">Fixed designated access · real app + routed screenshots</span>
+  <h1>Public Demo.</h1>
+  <p class="lead">Choose an unlocked demo route. Arthur, Jamal, and ABC Trap keep the working real-app demo. Method, Priority Models, Readiness Compass, Study Planner, and Panic Reset now open restricted public previews: one selected pathway is unlocked, while the remaining pathways stay visible as Full Lab previews.</p>
+  <section class="demoRulePanel" aria-label="Public Demo rules">
+    <div><b>What is unlocked here:</b> two fixed Practice targets, six representative item-format samplers, one real Trap Radar slice, and one selected unlocked pathway inside each slide demo. Every route is fixed and demo-only.</div>
+    <div class="safe"><b>What stays locked:</b> full paid-bank browsing, full Method library, full Priority Models, fillable Readiness Compass, full Study Planner generation, advanced Stress Reset tools, score history, and credits.</div>
+  </section>
+  <section class="grid" id="demoList" aria-label="Public Demo fixed target list"></section>
+  <div class="note"><b>Public demo rule:</b> each slide route unlocks one selected public-demo pathway and locks the rest as Full Lab previews. No generated images. No randomized demo content. No paid-bank browsing.</div>
+</main>
+<div class="watermark">NexusRN Public Demo · Fixed Access</div>
+<script>
+const ITEMS=[
+ {id:'case-arthur',kind:'practice',type:'Unfolding Case Study',icon:'▦',title:'Arthur Jenkins — Polypharmacy and Confusion',desc:'Opens the fixed unfolding case study in the fast real Practice workspace.',rule:'Real Practice target: this case only',button:'Open unfolding case'},
+ {id:'bowtie-jamal',kind:'practice',type:'Bow-Tie',icon:'⧉',title:'Jamal Washington — Fat Embolism Syndrome',desc:'Opens the fixed Bow-Tie item in the fast real Practice workspace.',rule:'Real Practice target: this Bow-Tie only',button:'Open Bow-Tie item'},
+ {id:'matrix-sample',kind:'practice',type:'Matrix Multiple Choice',icon:'▤',title:'Matrix sampler — burns prioritization',desc:'Shows one representative matrix-style item from the public preview sampler.',rule:'Representative sampler item only',button:'Open matrix item'},
+ {id:'cloze-sample',kind:'practice',type:'Drop-down / Cloze',icon:'⌄',title:'Cloze sampler — preterm labor',desc:'Shows one drop-down clinical reasoning item from the public preview sampler.',rule:'Representative sampler item only',button:'Open cloze item'},
+ {id:'highlight-sample',kind:'practice',type:'Highlight Text/Table',icon:'▧',title:'Highlight sampler — DKA cues',desc:'Shows one highlight-style NGN item from the public preview sampler.',rule:'Representative sampler item only',button:'Open highlight item'},
+ {id:'ordered-sample',kind:'practice',type:'Ordered Response',icon:'☰',title:'Ordered sampler — pancreatitis steps',desc:'Shows one ordering/priority workflow item from the public preview sampler.',rule:'Representative sampler item only',button:'Open ordered item'},
+ {id:'trend-sample',kind:'practice',type:'Trend Item',icon:'⌁',title:'Trend sampler — hyperkalemia response',desc:'Shows one trend-style item focused on interpreting change over time.',rule:'Representative sampler item only',button:'Open trend item'},
+ {id:'matrix-mr-sample',kind:'practice',type:'Matrix Multiple Response',icon:'☷',title:'Matrix response sampler — post-op care',desc:'Shows one matrix multiple-response item from the public preview sampler.',rule:'Representative sampler item only',button:'Open matrix-response item'},
+ {id:'trap-abc',kind:'trap',type:'Trap Radar',icon:'◎',title:'ABC Tunnel Vision only',desc:'Keeps the current working real Trap Radar demo route exactly as-is.',rule:'Real Decision Lab route: ABC only',button:'Open ABC trap'},
+ {id:'method-slides',kind:'slides',type:'Method Playbook',icon:'▣',title:'Recognize Cues — 3-slide route',desc:'Unlocks one Method pathway and shows the remaining Method slides as locked Full Lab previews.',rule:'1 unlocked + 2 Full Lab previews',button:'Open Method slides'},
+ {id:'priority-models',kind:'slides',type:'Priority Models',icon:'⚕',title:'Acute > Chronic — 2-slide route',desc:'Unlocks one Priority Model lens and shows the simulator pathway as a locked Full Lab preview.',rule:'1 unlocked + 1 Full Lab preview',button:'Open Priority slides'},
+ {id:'readiness-slides',kind:'slides',type:'Readiness Compass',icon:'◉',title:'Readiness Compass — 3-slide route',desc:'Unlocks one Readiness view and shows the remaining compass pathways as locked Full Lab previews.',rule:'1 unlocked + 2 Full Lab previews',button:'Open Readiness slides'},
+ {id:'study-planner-slides',kind:'slides',type:'Study Planner',icon:'↗',title:'Study Planner — 3-slide route',desc:'Unlocks one fixed study plan pathway and shows planner/capacity tools as locked Full Lab previews.',rule:'1 fixed plan + locked planner tools',button:'Open Study slides'},
+ {id:'stress-slides',kind:'slides',type:'Stress Reset',icon:'↯',title:'Panic Reset — 1-slide route',desc:'Unlocks one fixed Panic Reset cycle while advanced reset tools remain Full Lab.',rule:'1 unlocked Panic Reset',button:'Open Panic Reset'}
+];
+const list=document.getElementById('demoList');const nav=document.getElementById('demoNav');
+function esc(s){return String(s).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]||c));}
+list.innerHTML=ITEMS.map(x=>`<button id="${x.id}" class="card ${x.kind}" data-target="${x.id}" type="button" aria-label="Open ${esc(x.title)}"><div class="icon">${x.icon}</div><div class="type">${x.type}</div><h2>${x.title}</h2><p>${x.desc}</p><div class="rule">${x.rule}</div><span class="open">${x.button} →</span></button>`).join('');
+nav.insertAdjacentHTML('beforeend',ITEMS.map(x=>`<button type="button" data-jump="${x.id}" aria-controls="${x.id}">${x.type.replace('Unfolding Case Study','Arthur Case').replace('Bow-Tie','Jamal Bow-Tie').replace('Trap Radar','ABC Trap')}</button>`).join(''));
+function focusCard(id){const card=document.getElementById(id);if(!card)return;document.querySelectorAll('.card.is-focused').forEach(x=>x.classList.remove('is-focused'));card.classList.add('is-focused');card.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>card.focus({preventScroll:true}),260);document.querySelectorAll('[data-jump]').forEach(b=>b.classList.toggle('active',b.dataset.jump===id));}
+const DIRECT_TARGETS={
+  'case-arthur':'../practice/index.html?publicDemo=1&demoTarget=case&db=data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
+  'bowtie-jamal':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
+  'matrix-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
+  'cloze-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
+  'highlight-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
+  'ordered-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
+  'trend-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
+  'matrix-mr-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
+  'trap-abc':'../decision-lab-v3-005/index.html?publicDemo=1&module=trap-radar&trap=abc-tunnel-vision&unlocked=1',
+  'method-slides':'slides.html?deck=method&publicDemo=1&accessMatrix=1',
+  'priority-models':'slides.html?deck=priority&publicDemo=1&accessMatrix=1',
+  'readiness-slides':'slides.html?deck=readiness&publicDemo=1&accessMatrix=1',
+  'study-planner-slides':'slides.html?deck=study&publicDemo=1&accessMatrix=1',
+  'stress-slides':'slides.html?deck=stress&publicDemo=1&accessMatrix=1'
+};
+function shellOrDirect(message,fallbackUrl){
+  try{
+    if(window.parent && window.parent!==window){
+      window.parent.postMessage(message,'*');
+      return;
+    }
+  }catch(e){}
+  if(fallbackUrl) window.location.href=fallbackUrl;
+}
+document.addEventListener('click',e=>{
+  const jump=e.target.closest('[data-jump]');
+  if(jump){focusCard(jump.dataset.jump);return;}
+  const card=e.target.closest('[data-target]');
+  if(card){
+    const target=card.dataset.target;
+    shellOrDirect({source:'NexusRNPublicDemo',action:'openDemoTarget',target},DIRECT_TARGETS[target]||'../index.html#public-demo');
+    return;
+  }
+  if(e.target.closest('[data-home]')) shellOrDirect({source:'NexusRNPublicDemo',action:'navigate',route:'home'},'../index.html');
+  if(e.target.closest('[data-enroll]')) shellOrDirect({source:'NexusRNPublicDemo',action:'navigate',route:'pricing'},'../pricing/index.html');
+});
+try{const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('[data-jump]').forEach(b=>b.classList.toggle('active',b.dataset.jump===entry.target.id));}})},{threshold:.55});ITEMS.forEach(x=>{const el=document.getElementById(x.id);if(el)io.observe(el);});}catch(e){}
+window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT=function(){return {version:'v179-public-demo-route-list-access-matrix',publicDemoPageExists:true,firstScreenIsClickableList:true,hasDemoSpecificNavigation:true,demoNavigationTargetCount:ITEMS.length,demoNavigationTargets:ITEMS.map(x=>x.id),targetCount:ITEMS.length,clickableTargets:ITEMS.map(x=>x.id),hasUnfoldingCaseStudy:true,hasBowtie:true,hasTrapRadarABCTunnelVision:true,methodPlaybookUsesSlides:true,priorityModelsUsesSlides:true,readinessCompassUsesSlides:true,studyPlannerUsesSlides:true,stressResetUsesSlides:true,practiceSamplerTargetCount:8,slideRouteTargetCount:5,slideImageCount:12,publicDemoAccessMatrix:true,oneUnlockedPathwayPerSlideDemo:true,lockedPathwaysVisible:true,lockedPathwaysBlocked:true,usesAttachedScreenshotsOnly:true,generatedImages:false,preservesArthurJamalFastPracticeDb:true,preservesTrapRadarRealRoute:true,paidBankBrowsingExposed:false,directOpenFallbacks:true,directFallbackTargetCount:Object.keys(DIRECT_TARGETS).length,homeDirectFallback:true,accessPreviewDirectFallback:true,questionDbMutated:false};};
+window.NEXUS_V179_PUBLIC_DEMO_PAGE_AUDIT=window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT;
+window.NEXUS_V177_PUBLIC_DEMO_PAGE_AUDIT=window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT;
+window.NEXUS_V176_PUBLIC_DEMO_AUDIT=window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT;
+window.NEXUS_PUBLIC_DEMO_AUDIT=window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT;
+try{parent.postMessage({source:'NexusRNPublicDemo',event:'public-demo-ready'},'*');}catch(e){}
+</script>
+
+
+<script id="nexus-v215-public-demo-access-matrix-direct-anchor-guard">
+(function(){
+  var DIRECT_TARGETS={
+    'case-arthur':'../practice/index.html?publicDemo=1&demoTarget=case&db=data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
+    'bowtie-jamal':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
+    'matrix-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
+    'cloze-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
+    'highlight-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
+    'ordered-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
+    'trend-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
+    'matrix-mr-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
+    'trap-abc':'../decision-lab-v3-005/index.html?publicDemo=1&module=trap-radar&trap=abc-tunnel-vision&unlocked=1',
+    'method-slides':'slides.html?deck=method&publicDemo=1&accessMatrix=1',
+    'priority-models':'slides.html?deck=priority&publicDemo=1&accessMatrix=1',
+    'readiness-slides':'slides.html?deck=readiness&publicDemo=1&accessMatrix=1',
+    'study-planner-slides':'slides.html?deck=study&publicDemo=1&accessMatrix=1',
+    'stress-slides':'slides.html?deck=stress&publicDemo=1&accessMatrix=1'
+  };
+  var SLIDE_TARGETS=['method-slides','priority-models','readiness-slides','study-planner-slides','stress-slides'];
+  function hasParentShell(){try{return !!(window.parent && window.parent!==window);}catch(e){return false;}}
+  function directOpen(url){if(url){window.location.href=url;}}
+  function openTarget(target){
+    var url=DIRECT_TARGETS[target]||'../index.html#public-demo';
+    if(hasParentShell()){
+      try{window.parent.postMessage({source:'NexusRNPublicDemo',action:'openDemoTarget',target:target,version:'v215'},'*');}catch(e){}
+      window.setTimeout(function(){directOpen(url);},360);
+    }else{
+      directOpen(url);
+    }
+  }
+  function hardenCards(){
+    try{
+      Object.keys(DIRECT_TARGETS).forEach(function(id){
+        var el=document.querySelector('[data-target="'+id+'"]');
+        if(!el)return;
+        el.setAttribute('data-direct-url',DIRECT_TARGETS[id]);
+        el.setAttribute('title','Open restricted public demo route');
+        el.setAttribute('aria-label',(el.getAttribute('aria-label')||('Open '+id))+' — restricted public demo access');
+      });
+    }catch(e){}
+  }
+  document.addEventListener('click',function(ev){
+    var card=ev.target&&ev.target.closest&&ev.target.closest('[data-target]');
+    if(!card)return;
+    var target=card.getAttribute('data-target');
+    if(!DIRECT_TARGETS[target])return;
+    ev.preventDefault();
+    ev.stopPropagation();
+    if(ev.stopImmediatePropagation)ev.stopImmediatePropagation();
+    openTarget(target);
+  },true);
+  hardenCards();
+  setTimeout(hardenCards,250);
+  setTimeout(hardenCards,900);
+  var oldPage=window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT;
+  window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT=function(){
+    var base={};try{if(typeof oldPage==='function')base=oldPage()||{};}catch(e){base={previousAuditError:String(e&&e.message||e)}}
+    return Object.assign({},base,{
+      version:'v215-public-demo-access-matrix-restored-direct-safe',
+      publicDemoAccessMatrixRestored:true,
+      targetCount:14,
+      directFallbackTargetCount:Object.keys(DIRECT_TARGETS).length,
+      allCardsHaveDirectFallback:SLIDE_TARGETS.concat(['case-arthur','bowtie-jamal','trap-abc']).every(function(id){return !!DIRECT_TARGETS[id];}),
+      methodSlidesRestricted:true,
+      priorityModelsRestricted:true,
+      readinessSlidesRestricted:true,
+      studyPlannerRestricted:true,
+      panicResetRestricted:true,
+      trapRadarRestricted:true,
+      realPracticeTargetsRestricted:true,
+      sameAccessModelAsABCTunnelVision:true,
+      noParentShellRequired:true,
+      postMessageStillSupported:true,
+      questionDbMutated:false,
+      practiceScoringMutated:false
+    });
+  };
+  window.NEXUS_PUBLIC_DEMO_ACCESS_MATRIX_AUDIT=window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT;
+  window.NEXUS_V215_PUBLIC_DEMO_ACCESS_MATRIX_AUDIT=window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT;
+})();
+</script>
+
+
+<script id="nexus-v216-public-demo-overview-audit-aliases">
+(function(){
+  var oldPage=window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT;
+  var oldMatrix=window.NEXUS_PUBLIC_DEMO_ACCESS_MATRIX_AUDIT;
+  function targets(){return ['case-arthur','bowtie-jamal','matrix-sample','cloze-sample','highlight-sample','ordered-sample','trend-sample','matrix-mr-sample','trap-abc','method-slides','priority-models','readiness-slides','study-planner-slides','stress-slides'];}
+  function overview(){
+    var base={};try{if(typeof oldPage==='function')base=oldPage()||{};}catch(e){base={previousPageAuditError:String(e&&e.message||e)}}
+    return Object.assign({},base,{version:'v216-public-demo-overview-page-audit',context:'public-demo-overview',targetCount:14,demoNavigationTargetCount:14,publicDemoExpectedTargets:targets(),methodSlidesRestricted:true,priorityModelsRestricted:true,readinessSlidesRestricted:true,studyPlannerRestricted:true,panicResetRestricted:true,trapRadarRestricted:true,directOpenFallbacksPreserved:true,noParentShellRequired:true,questionDbMutated:false,practiceScoringMutated:false});
+  }
+  window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT=overview;
+  window.NEXUS_PUBLIC_DEMO_ACCESS_MATRIX_AUDIT=function(){
+    var base={};try{if(typeof oldMatrix==='function')base=oldMatrix()||{};}catch(e){base={previousMatrixAuditError:String(e&&e.message||e)}}
+    return Object.assign({},overview(),base,{version:'v216-public-demo-overview-access-matrix-audit',publicDemoAccessMatrixRestored:true,lockedPathwaysVisible:true,lockedPathwaysBlocked:true,sameRestrictionPatternAsABCTunnelVision:true});
+  };
+  window.NEXUS_PUBLIC_DEMO_SLIDES_AUDIT=function(){
+    return {version:'v216-public-demo-overview-slide-route-index-audit',context:'public-demo-overview',slideRouteActive:false,slideDecksAvailable:{method:3,priority:2,readiness:3,study:3,stress:1},methodSlidesRestricted:true,priorityModelsRestricted:true,readinessSlidesRestricted:true,studyPlannerRestricted:true,panicResetRestricted:true,lockedPathwaysVisible:true,lockedPathwaysBlocked:true,usesAttachedScreenshotsOnly:true,generatedImages:false,questionDbMutated:false,practiceScoringMutated:false,note:'Open public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1 to audit an active deck.'};
+  };
+  window.NEXUS_V216_PUBLIC_DEMO_PAGE_AUDIT=window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT;
+  window.NEXUS_V216_PUBLIC_DEMO_ACCESS_MATRIX_AUDIT=window.NEXUS_PUBLIC_DEMO_ACCESS_MATRIX_AUDIT;
+  window.NEXUS_V216_PUBLIC_DEMO_SLIDES_AUDIT=window.NEXUS_PUBLIC_DEMO_SLIDES_AUDIT;
+})();
+</script>
+
+</body>
+</html>

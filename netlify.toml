@@ -1,0 +1,19 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+
+[[redirects]]
+  from = "/demo"
+  to = "/public-demo/index.html"
+  status = 302
+
+[[redirects]]
+  from = "/access"
+  to = "/pricing/index.html"
+  status = 302

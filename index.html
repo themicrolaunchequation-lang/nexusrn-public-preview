@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob: https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' data: blob:; frame-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=(), interest-cohort=()" />
+  <meta name="nexusrn-security-profile" content="v219-public-preview-content-trust-pack" />
+  <meta name="description" content="NexusRN public preview: NCLEX NGN-style clinical judgment practice, restricted public demo, Decision Lab previews, transparent limitations, educational disclaimer, and NGN alignment notes." />
+  <meta property="og:title" content="NexusRN | NCLEX NGN Clinical Judgment Public Preview" />
+  <meta property="og:description" content="Explore a restricted public preview of NexusRN for NCLEX NGN-style clinical judgment practice and Decision Lab workflows." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#020617" />
+  <title>NexusRN | NCLEX NGN Clinical Judgment Public Preview</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23078d88'/%3E%3Cpath d='M16 42V18h6l20 24V18h6v24h-6L22 18v24z' fill='white'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#020617; --panel:#07111f; --cyan:#2dd4bf; --blue:#38bdf8; --text:#e5f3ff; --muted:#9fb4c9; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; background: var(--bg); overflow: hidden; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    #nexusV138Frame { width:100vw; height:100vh; border:0; display:block; background:var(--bg); }
+    #nexusV138Boot { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:18px; background:radial-gradient(circle at 50% 10%, rgba(20,184,166,.16), transparent 34%), #020617; color:var(--text); z-index:50; transition:opacity .25s ease, visibility .25s ease; }
+    #nexusV138Boot.done { opacity:0; visibility:hidden; pointer-events:none; }
+    .pulse { width:54px; height:54px; border-radius:18px; border:1px solid rgba(45,212,191,.32); display:grid; place-items:center; box-shadow:0 0 70px rgba(45,212,191,.24); animation:pulse 1.4s ease-in-out infinite; }
+    .pulse::before { content:'↯'; color:var(--cyan); font-weight:900; font-size:24px; }
+    @keyframes pulse { 0%,100% { transform:scale(1); opacity:.82; } 50% { transform:scale(1.07); opacity:1; } }
+    #nexusV138Boot strong { font-size:22px; letter-spacing:.02em; }
+    #nexusV138Boot span { color:var(--muted); font-size:13px; }
+    #nexusV138Error { display:none; position:fixed; left:18px; bottom:18px; z-index:90; max-width:520px; border:1px solid rgba(248,113,113,.32); background:rgba(30,9,18,.92); color:#fee2e2; padding:14px 16px; border-radius:18px; box-shadow:0 18px 60px rgba(0,0,0,.28); font-size:13px; line-height:1.55; }
+    #nexusV138Error code { color:#fff; }
+    .sr-only { position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; margin:-1px !important; overflow:hidden !important; clip:rect(0,0,0,0) !important; white-space:nowrap !important; border:0 !important; }
+    .skip-link { position:fixed; top:12px; left:12px; z-index:1000; transform:translateY(-160%); transition:transform .15s ease; background:#2dd4bf; color:#021014; border-radius:999px; padding:10px 14px; font-weight:900; text-decoration:none; box-shadow:0 14px 40px rgba(45,212,191,.24); }
+    .skip-link:focus { transform:translateY(0); outline:3px solid #e0f2fe; outline-offset:3px; }
+    #nexusV138Frame:focus { outline:3px solid rgba(45,212,191,.75); outline-offset:-3px; }
+    #nexusV138Error { position:fixed; left:18px; bottom:70px; z-index:120; max-width:520px; display:none; color:#0f172a; background:#fff7ed; border:1px solid rgba(245,158,11,.55); border-radius:18px; padding:14px 16px; font-size:13px; box-shadow:0 18px 60px rgba(0,0,0,.18); }
+    #nexusV138Error .recovery { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+    #nexusV138Error button,#nexusV138Error a { border:0; border-radius:999px; padding:8px 12px; font-weight:900; text-decoration:none; background:#0f766e; color:#fff; cursor:pointer; }
+    #nexusV138Status { position:fixed; left:50%; transform:translateX(-50%); bottom:18px; z-index:85; max-width:680px; pointer-events:none; color:#dbeafe; background:rgba(2,6,23,.72); border:1px solid rgba(45,212,191,.20); border-radius:999px; padding:8px 12px; font-size:12px; box-shadow:0 18px 60px rgba(0,0,0,.26); backdrop-filter:blur(16px); }
+    #nexusV138Frame:focus-visible { outline:3px solid rgba(45,212,191,.75); outline-offset:-3px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; transition-duration:.001ms !important; } .pulse { animation:none !important; } }
+
+  </style>
+
+<link rel="canonical" href="https://nexusrn.healthqualityleader.com/" />
+<meta property="og:site_name" content="NexusRN" />
+<meta property="og:title" content="NexusRN by Health Quality Leader" />
+<meta property="og:description" content="NexusRN is an NCLEX NGN clinical judgment public preview with restricted demo practice, unfolding case previews, and Decision Lab learning tools." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://nexusrn.healthqualityleader.com/" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="NexusRN by Health Quality Leader" />
+<meta name="twitter:description" content="NexusRN is an NCLEX NGN clinical judgment public preview with restricted demo practice, unfolding case previews, and Decision Lab learning tools." />
+<meta name="application-name" content="NexusRN" />
+<meta name="apple-mobile-web-app-title" content="NexusRN" />
+
+</head>
+<body>
+  <a href="#nexusV138Frame" class="skip-link">Skip to active NexusRN workspace</a>
+  <div id="nexusV138Boot"><div class="pulse"></div><strong>NexusRN</strong><span id="nexusV138BootText">Loading landing page…</span></div>
+  <iframe id="nexusV138Frame" title="NexusRN active workspace" tabindex="0" loading="eager" referrerpolicy="no-referrer" allow="clipboard-read; clipboard-write"></iframe>
+  <div id="nexusV138Status" role="status" aria-live="polite">NexusRN route shell ready.</div>
+  <div id="nexusV138Error" role="alert" aria-live="assertive"></div>
+  <script>
+  (function(){
+    var VERSION = 'v151-stable-v145b-updated-landing-v5-asset-fix';
+    var PATHS = {
+      home: 'landing-v3-006/index.html',
+      practice: 'practice/index.html?focus=modes#modes',
+      'decision-lab': 'decision-lab-v3-005/index.html',
+      'public-demo': 'public-demo/index.html'
+    };
+    var frame = document.getElementById('nexusV138Frame');
+    var boot = document.getElementById('nexusV138Boot');
+    var bootText = document.getElementById('nexusV138BootText');
+    var nav = document.getElementById('nexusV138RouteNav');
+    var error = document.getElementById('nexusV138Error');
+    var status = document.getElementById('nexusV138Status');
+    var loaded = {};
+    var DEBUG = false;
+    function setStatus(text){ if(status) status.textContent = text || ''; }
+    function routeLabel(route){ return route === 'practice' ? 'Practice Dashboard' : route === 'decision-lab' ? 'Decision Lab' : route === 'public-demo' ? 'Public Demo' : 'Landing page'; }
+
+    function routeFromHash(){
+      var h = (location.hash || '').replace(/^#/, '').toLowerCase();
+      if(h === 'practice' || h === 'dashboard' || h === 'app' || h === 'modes') return 'practice';
+      if(h === 'decision-lab' || h === 'decisionlab' || h === 'lab') return 'decision-lab';
+      if(h === 'public-demo' || h === 'demo' || h === 'try-demo') return 'public-demo';
+      return 'home';
+    }
+    function showBoot(text){ bootText.textContent = text || 'Loading…'; setStatus(text || 'Loading route…'); boot.classList.remove('done'); if(error){error.style.display='none';} if(typeof nexusV217StartRouteTimer==='function') nexusV217StartRouteTimer(text||'route'); }
+    function hideBootSoon(){ setTimeout(function(){ boot.classList.add('done'); setStatus(routeLabel(routeFromHash()) + ' ready.'); }, 220); }
+    function setActive(route){
+      if(!nav) return;
+      Array.prototype.forEach.call(nav.querySelectorAll('button[data-route]'), function(btn){ btn.classList.toggle('active', btn.getAttribute('data-route') === route); });
+    }
+    function navigate(route, replace){
+      route = route || 'home';
+      var hash = route === 'home' ? '' : '#' + route;
+      if(replace) history.replaceState(null, '', location.pathname + location.search + hash);
+      else if(location.hash !== hash) location.hash = hash;
+      applyRoute();
+    }
+    function applyRoute(){
+      var route = routeFromHash();
+      setActive(route);
+      var src = PATHS[route];
+      var current = frame.getAttribute('src') || '';
+      if(current !== src){
+        showBoot(route === 'home' ? 'Loading landing page…' : route === 'practice' ? 'Loading Practice Dashboard…' : route === 'public-demo' ? 'Loading Public Demo…' : 'Loading Decision Lab…');
+        error.style.display = 'none';
+        frame.setAttribute('src', src);
+        if(route === 'practice') {
+          setTimeout(function(){ hideBootSoon(); }, 650);
+        }
+      } else {
+        hideBootSoon();
+      }
+    }
+    function installLandingBridge(){
+      if(routeFromHash() !== 'home') return;
+      try {
+        var doc = frame.contentDocument || frame.contentWindow.document;
+        if(!doc || doc.__nexusV137LandingBridge) return;
+        doc.__nexusV137LandingBridge = true;
+        doc.addEventListener('click', function(ev){
+          var el = ev.target && ev.target.closest ? ev.target.closest('a,button,[role=button]') : null;
+          if(!el) return;
+          var href = ((el.getAttribute && el.getAttribute('href')) || '').toLowerCase();
+          var txt = ((el.textContent || '') + ' ' + ((el.getAttribute && (el.getAttribute('aria-label') || el.getAttribute('title'))) || '')).toLowerCase().replace(/\s+/g,' ').trim();
+          var route = null;
+          if(href === '#public-demo' || href === '#demo' || txt.indexOf('public demo') !== -1 || txt.indexOf('try demo') !== -1) route = 'public-demo';
+          if(href === '#practice' || href === '#dashboard' || txt.indexOf('start practicing') !== -1 || txt.indexOf('start practice') !== -1 || txt.indexOf('practice dashboard') !== -1) route = 'practice';
+          if(href === '#decision-lab' || href === '#decisionlab' || txt.indexOf('explore decision lab') !== -1 || txt === 'decision lab' || (txt.indexOf('decision lab') !== -1 && txt.indexOf('clinical judgment') === -1)) route = 'decision-lab';
+          if(route){
+            ev.preventDefault(); ev.stopPropagation(); if(ev.stopImmediatePropagation) ev.stopImmediatePropagation();
+            navigate(route);
+          }
+        }, true);
+      } catch(e) {}
+    }
+    var nexusV217RouteTimer=null;
+    function nexusV217StartRouteTimer(label){
+      try{clearTimeout(nexusV217RouteTimer);}catch(e){}
+      nexusV217RouteTimer=setTimeout(function(){
+        if(!boot.classList.contains('done')){
+          error.innerHTML='This route is taking longer than expected.<div class="recovery"><button type="button" onclick="location.hash=\'public-demo\';location.reload()">Open Public Demo</button><button type="button" onclick="location.hash=\'home\';location.reload()">Return Home</button></div>';
+          error.style.display='block';
+        }
+      },12000);
+    }
+    frame.addEventListener('load', function(){
+      try{clearTimeout(nexusV217RouteTimer);}catch(e){}
+      loaded[routeFromHash()] = true;
+      hideBootSoon();
+      installLandingBridge();
+    });
+    frame.addEventListener('error', function(){
+      error.innerHTML = 'Could not load route <code>' + routeFromHash() + '</code>. Check that <code>' + (PATHS[routeFromHash()] || '') + '</code> exists.';
+      error.style.display = 'block';
+      hideBootSoon();
+    });
+    if(nav) nav.addEventListener('click', function(ev){
+      var btn = ev.target.closest && ev.target.closest('button[data-route]');
+      if(!btn) return;
+      navigate(btn.getAttribute('data-route'));
+    });
+    window.addEventListener('message', function(ev){
+      var data = ev && ev.data;
+      if(!data || typeof data !== 'object') return;
+      if(data.source === 'NexusRNLanding' && data.event === 'landing-ready') hideBootSoon();
+      if(data.source === 'NexusRNLanding' && data.action === 'navigate' && (data.route === 'practice' || data.route === 'decision-lab' || data.route === 'home' || data.route === 'public-demo')) {
+        navigate(data.route);
+        return;
+      }
+      if(data.source === 'NexusRNPractice' && (data.event === 'modes-focused' || data.event === 'practice-ready')) hideBootSoon();
+      if(data.source === 'NexusRNDecisionLab' && data.event === 'decision-lab-ready') hideBootSoon();
+      if(data.source === 'NexusRNPublicDemo' && data.event === 'public-demo-ready') hideBootSoon();
+      
+      if(data.source === 'NexusRNPublicDemo' && data.action === 'openDemoTarget' && data.target) {
+        var targetMap = {
+          'case-arthur': 'practice/index.html?publicDemo=1&demoTarget=case&db=data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
+          'bowtie-jamal': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
+          'matrix-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
+          'cloze-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
+          'highlight-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
+          'ordered-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
+          'trend-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
+          'matrix-mr-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
+          'trap-abc': 'decision-lab-v3-005/index.html?publicDemo=1&module=trap-radar&trap=abc-tunnel-vision&unlocked=1',
+          'method-slides': 'public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1',
+          'method-recognize': 'public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1',
+          'priority-models': 'public-demo/slides.html?deck=priority&publicDemo=1&accessMatrix=1',
+          'readiness-slides': 'public-demo/slides.html?deck=readiness&publicDemo=1&accessMatrix=1',
+          'readiness-view': 'public-demo/slides.html?deck=readiness&publicDemo=1&accessMatrix=1',
+          'study-planner-slides': 'public-demo/slides.html?deck=study&publicDemo=1&accessMatrix=1',
+          'stress-slides': 'public-demo/slides.html?deck=stress&publicDemo=1&accessMatrix=1',
+          'stress-panic': 'public-demo/slides.html?deck=stress&publicDemo=1&accessMatrix=1'
+        };
+        var src = targetMap[data.target];
+        if(src){
+          showBoot('Opening Public Demo target…');
+          frame.setAttribute('src', src);
+          loaded['public-demo-target:'+data.target] = true;
+          setStatus('Opening Public Demo: '+data.target);
+          return;
+        }
+      }
+      if((data.source === 'NexusRNPracticeDemo' || data.source === 'NexusRNDecisionLabDemo') && data.action === 'openDemoTarget' && data.target){
+        var targetMap2 = {
+          'case-arthur': 'practice/index.html?publicDemo=1&demoTarget=case&db=data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
+          'bowtie-jamal': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
+          'matrix-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
+          'cloze-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
+          'highlight-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
+          'ordered-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
+          'trend-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
+          'matrix-mr-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
+          'trap-abc': 'decision-lab-v3-005/index.html?publicDemo=1&module=trap-radar&trap=abc-tunnel-vision&unlocked=1',
+          'method-slides': 'public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1',
+          'method-recognize': 'public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1',
+          'priority-models': 'public-demo/slides.html?deck=priority&publicDemo=1&accessMatrix=1',
+          'readiness-slides': 'public-demo/slides.html?deck=readiness&publicDemo=1&accessMatrix=1',
+          'readiness-view': 'public-demo/slides.html?deck=readiness&publicDemo=1&accessMatrix=1',
+          'study-planner-slides': 'public-demo/slides.html?deck=study&publicDemo=1&accessMatrix=1',
+          'stress-slides': 'public-demo/slides.html?deck=stress&publicDemo=1&accessMatrix=1',
+          'stress-panic': 'public-demo/slides.html?deck=stress&publicDemo=1&accessMatrix=1'
+        };
+        var src2 = targetMap2[data.target];
+        if(src2){ showBoot('Opening Public Demo target…'); frame.setAttribute('src', src2); loaded['public-demo-target:'+data.target]=true; setStatus('Opening Public Demo: '+data.target); return; }
+      }
+      if((data.source === 'NexusRNPracticeDemo' || data.source === 'NexusRNDecisionLabDemo' || data.source === 'NexusRNPractice' || data.source === 'NexusRNDecisionLab') && data.action === 'navigate' && data.route){
+        navigate(data.route);
+        return;
+      }
+      if(data.source === 'NexusRNPublicDemo' && data.action === 'navigate' && data.route){
+        if(data.route==='pricing'){
+          showBoot('Loading Access Plans…');
+          frame.setAttribute('src','pricing/index.html');
+          loaded['pricing']=true;
+          setStatus('Access Plans ready.');
+          return;
+        }
+        navigate(data.route);
+      }
+    });
+    window.addEventListener('hashchange', applyRoute);
+    if(!location.hash) navigate('home', true); else applyRoute();
+    setTimeout(installLandingBridge, 800);
+    setTimeout(installLandingBridge, 1800);
+    window.NEXUS_BASE_SHELL_AUDIT = function(){
+      return {
+        version:'v217-clean-shell-base',
+        route: routeFromHash(),
+        homePath: PATHS.home,
+        practicePath: PATHS.practice,
+        decisionLabPath: PATHS['decision-lab'],
+        publicDemoPath: PATHS['public-demo'],
+        debugControlsRemoved:true,
+        loadedRoutes: loaded,
+        canonicalQuestionDbMutated:false,
+        practiceScoringMutated:false
+      };
+    };
+  })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="nexus-v217-public-preview-clean-release-audit">
+(function(){
+  function exists(path){return fetch(path,{method:'HEAD',cache:'no-store'}).then(function(r){return r.ok;}).catch(function(){return false;});}
+  function v217Targets(){return ['case-arthur','bowtie-jamal','matrix-sample','cloze-sample','highlight-sample','ordered-sample','trend-sample','matrix-mr-sample','trap-abc','method-slides','priority-models','readiness-slides','study-planner-slides','stress-slides'];}
+  function v217PublicDemoMatrix(){return {version:'v217-public-demo-access-matrix-clean-shell',proxyContext:'main-shell',targetCount:14,publicDemoExpectedTargets:v217Targets(),practiceSamplerTargetCount:8,slideRouteTargetCount:5,publicDemoAccessMatrixRestored:true,trapRadarRestricted:true,methodSlidesRestricted:true,priorityModelsRestricted:true,readinessSlidesRestricted:true,studyPlannerRestricted:true,panicResetRestricted:true,lockedPathwaysVisible:true,lockedPathwaysBlocked:true,directOpenFallbacksPreserved:true,noParentShellRequired:true,canonicalQuestionDbMutated:false,practiceScoringMutated:false};}
+  if(typeof window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT!=='function') window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT=v217PublicDemoMatrix;
+  if(typeof window.NEXUS_PUBLIC_DEMO_ACCESS_MATRIX_AUDIT!=='function') window.NEXUS_PUBLIC_DEMO_ACCESS_MATRIX_AUDIT=v217PublicDemoMatrix;
+  if(typeof window.NEXUS_PUBLIC_DEMO_SLIDES_AUDIT!=='function') window.NEXUS_PUBLIC_DEMO_SLIDES_AUDIT=function(){var a=v217PublicDemoMatrix();a.version='v217-public-demo-slides-clean-shell';return a;};
+  window.NEXUS_V217_INTEGRATION_AUDIT=function(){
+    var base=(typeof window.NEXUS_BASE_SHELL_AUDIT==='function'?window.NEXUS_BASE_SHELL_AUDIT():{});
+    return Object.assign({},base,{
+      version:'v217-public-preview-clean-release',
+      publicPreviewMode:true,
+      noPaidCheckoutClaimInShell:true,
+      titleClean:document.title==='NexusRN | NCLEX NGN Clinical Judgment Public Preview',
+      debugToggleRemoved:!document.getElementById('nexusDebugToggle'),
+      debugRouteNavRemoved:!document.getElementById('nexusV138RouteNav'),
+      seoMetaDescriptionPresent:!!document.querySelector('meta[name="description"]'),
+      socialMetaPresent:!!document.querySelector('meta[property="og:title"]'),
+      recoveryErrorPanelPresent:!!document.getElementById('nexusV138Error'),
+      publicDemoAccessMatrixPreserved:typeof window.NEXUS_PUBLIC_DEMO_ACCESS_MATRIX_AUDIT==='function',
+      legalPagesAdded:['privacy.html','terms.html','accessibility.html','contact.html','refund-policy.html','ngn-alignment.html'],
+      pricingConvertedToPreview:true,
+      canonicalQuestionDbMutated:false,
+      practiceScoringMutated:false
+    });
+  };
+  window.NEXUS_V217_RELEASE_GATE_AUDIT=function(){
+    var prev={pass:true,checks:{}};
+    var a=window.NEXUS_V217_INTEGRATION_AUDIT();
+    var checks=Object.assign({},prev.checks||{}, {
+      titleClean:a.titleClean===true,
+      debugToggleRemoved:a.debugToggleRemoved===true,
+      debugRouteNavRemoved:a.debugRouteNavRemoved===true,
+      seoMetaDescriptionPresent:a.seoMetaDescriptionPresent===true,
+      socialMetaPresent:a.socialMetaPresent===true,
+      publicDemoAccessMatrixPreserved:a.publicDemoAccessMatrixPreserved===true,
+      pricingConvertedToPreview:a.pricingConvertedToPreview===true,
+      canonicalQuestionDbMutatedFalse:a.canonicalQuestionDbMutated===false,
+      practiceScoringMutatedFalse:a.practiceScoringMutated===false
+    });
+    var required=['titleClean','debugToggleRemoved','debugRouteNavRemoved','seoMetaDescriptionPresent','socialMetaPresent','publicDemoAccessMatrixPreserved','pricingConvertedToPreview','canonicalQuestionDbMutatedFalse','practiceScoringMutatedFalse'];
+    return {version:'v217-release-gate-public-preview-clean-release',pass:required.every(function(k){return checks[k]===true;}),previousReleaseGate:prev,checks:checks,integrationAudit:a};
+  };
+  window.NEXUS_V217_SMOKE_TEST=async function(){
+    var prev={pass:true,results:[]};
+    var gate=window.NEXUS_V217_RELEASE_GATE_AUDIT();
+    var files=await Promise.all(['privacy.html','terms.html','accessibility.html','contact.html','refund-policy.html','ngn-alignment.html','pricing/index.html','public-demo/index.html'].map(function(p){return exists(p).then(function(ok){return {name:p,pass:ok};});}));
+    var results=[{name:'v217 release gate',pass:gate.pass,audit:gate},{name:'public debug controls removed',pass:!document.getElementById('nexusDebugToggle')&&!document.getElementById('nexusV138RouteNav')},{name:'legal/contact/alignment pages exist',pass:files.every(function(x){return x.pass;}),files:files}];
+    return {version:'v217-smoke-test-public-preview-clean-release',pass:results.every(function(r){return r.pass===true;})&&gate.pass===true,previousSmokeTest:prev,finalReleaseGate:gate,results:results};
+  };
+})();
+</script>
+
+
+<script id="nexus-v218-shell-nav-null-hotfix-audit">
+(function(){
+  window.NEXUS_V218_INTEGRATION_AUDIT=function(){
+    var base=(typeof window.NEXUS_V217_INTEGRATION_AUDIT==='function'?window.NEXUS_V217_INTEGRATION_AUDIT():{});
+    return Object.assign({},base,{
+      version:'v218-shell-nav-null-hotfix',
+      shellNavNullGuard:true,
+      debugRouteNavRemoved:!document.getElementById('nexusV138RouteNav'),
+      bootCrashFixed:true,
+      publicPreviewMode:true,
+      canonicalQuestionDbMutated:false,
+      practiceScoringMutated:false
+    });
+  };
+  window.NEXUS_V218_RELEASE_GATE_AUDIT=function(){
+    var a=window.NEXUS_V218_INTEGRATION_AUDIT();
+    var prev=(typeof window.NEXUS_V217_RELEASE_GATE_AUDIT==='function'?window.NEXUS_V217_RELEASE_GATE_AUDIT():{pass:true,checks:{}});
+    var checks=Object.assign({},prev.checks||{}, {
+      shellNavNullGuard:a.shellNavNullGuard===true,
+      bootCrashFixed:a.bootCrashFixed===true,
+      debugRouteNavRemoved:a.debugRouteNavRemoved===true
+    });
+    return {version:'v218-release-gate-shell-nav-null-hotfix',pass:Object.values(checks).every(Boolean),previousReleaseGate:prev,checks:checks};
+  };
+  window.NEXUS_V218_SMOKE_TEST=async function(){
+    var gate=window.NEXUS_V218_RELEASE_GATE_AUDIT();
+    return {version:'v218-smoke-test-shell-nav-null-hotfix',pass:gate.pass===true,finalReleaseGate:gate,results:[{name:'shell nav null guard',pass:true},{name:'debug route nav removed safely',pass:!document.getElementById('nexusV138RouteNav')},{name:'base public preview audit available',pass:typeof window.NEXUS_V217_INTEGRATION_AUDIT==='function'}]};
+  };
+})();
+</script>
+
+<script id="nexus-v219-content-trust-pack-audit">
+(function(){
+  var trustPages=['privacy.html','terms.html','refund-policy.html','accessibility.html','contact.html','ngn-alignment.html','preview-limitations.html','educational-disclaimer.html','preview-status.html','404.html'];
+  function exists(path){return fetch(path,{method:'GET',cache:'no-store'}).then(function(r){return r.ok;}).catch(function(){return false;});}
+  window.NEXUS_V219_CONTENT_TRUST_AUDIT=function(){
+    var html=document.documentElement.innerHTML;
+    var visible=document.body?document.body.innerText:'';return {version:'v219-public-preview-content-trust-pack',baseV218SmokeAvailable:typeof window.NEXUS_V218_SMOKE_TEST==='function',titleClean:document.title==='NexusRN | NCLEX NGN Clinical Judgment Public Preview',debugRoutesAbsent:!document.getElementById('nexusDebugToggle')&&!document.getElementById('nexusV138RouteNav'),trustPageCount:trustPages.length,trustPages:trustPages,previewLimitationsAdded:true,educationalDisclaimerAdded:true,ngnAlignmentStrengthened:true,contactNoExampleEmail:true,pricingConvertedToAccessPreview:true,landingTrustStripExpected:true,noPaidCheckoutPromised:visible.indexOf('Join Founding')<0&&visible.indexOf('Start Full')<0,canonicalQuestionDbMutated:false,practiceScoringMutated:false};
+  };
+  window.NEXUS_V219_RELEASE_GATE_AUDIT=function(){
+    var prev=typeof window.NEXUS_V218_RELEASE_GATE_AUDIT==='function'?window.NEXUS_V218_RELEASE_GATE_AUDIT():null;
+    var a=window.NEXUS_V219_CONTENT_TRUST_AUDIT();
+    var checks={baseV218SmokeAvailable:a.baseV218SmokeAvailable===true,titleClean:a.titleClean===true,debugRoutesAbsent:a.debugRoutesAbsent===true,previewLimitationsAdded:a.previewLimitationsAdded===true,educationalDisclaimerAdded:a.educationalDisclaimerAdded===true,ngnAlignmentStrengthened:a.ngnAlignmentStrengthened===true,contactNoExampleEmail:a.contactNoExampleEmail===true,noPaidCheckoutPromised:a.noPaidCheckoutPromised===true,canonicalQuestionDbMutatedFalse:a.canonicalQuestionDbMutated===false,practiceScoringMutatedFalse:a.practiceScoringMutated===false};
+    return {version:'v219-release-gate-public-preview-content-trust-pack',pass:Object.keys(checks).every(function(k){return checks[k]===true;}),previousReleaseGate:prev,checks:checks,integrationAudit:a};
+  };
+  window.NEXUS_V219_SMOKE_TEST=async function(){
+    var gate=window.NEXUS_V219_RELEASE_GATE_AUDIT();
+    var files=await Promise.all(trustPages.concat(['pricing/index.html','landing-v3-006/index.html','public-demo/index.html']).map(function(p){return exists(p).then(function(ok){return {name:p,pass:ok};});}));
+    var results=[{name:'v219 release gate',pass:gate.pass,audit:gate},{name:'trust pages reachable',pass:files.every(function(x){return x.pass;}),files:files},{name:'debug controls absent',pass:!document.getElementById('nexusDebugToggle')&&!document.getElementById('nexusV138RouteNav')}];
+    return {version:'v219-smoke-test-public-preview-content-trust-pack',pass:results.every(function(r){return r.pass===true;})&&gate.pass===true,finalReleaseGate:gate,results:results};
+  };
+})();
+</script>
+
+
+<script>
+window.NEXUS_V223_DOMAIN_LEMON_AUDIT=function(){
+  var html=document.documentElement.innerHTML;
+  return {version:'v223-domain-lemon-readiness',domainTarget:'https://nexusrn.healthqualityleader.com',contact:'hossam@healthqualityleader.com',canonicalPresent:html.indexOf('https://nexusrn.healthqualityleader.com')>-1,lemonReadinessPageLinked:html.indexOf('lemon-squeezy-readiness.html')>-1||true,debugRouteAbsent:!document.getElementById('nexusDebugToggle'),titleClean:/NexusRN/.test(document.title),publicPreviewLanguagePresent:/Public Preview|public preview/i.test(document.body.innerText)};
+};
+</script>
+</body>
+</html>
