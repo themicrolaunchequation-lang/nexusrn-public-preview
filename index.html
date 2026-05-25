@@ -15,6 +15,18 @@
   <meta name="theme-color" content="#020617" />
   <title>NexusRN | NCLEX NGN Clinical Judgment Public Preview</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23078d88'/%3E%3Cpath d='M16 42V18h6l20 24V18h6v24h-6L22 18v24z' fill='white'/%3E%3C/svg%3E" />
+
+  <script id="nexus-v224-direct-public-demo-route-hotfix">
+  (function(){
+    try {
+      var h = String(location.hash || '').replace(/^#/, '').toLowerCase();
+      if (h === 'public-demo' || h === 'demo' || h === 'try-demo') {
+        location.replace('/public-demo/index.html');
+      }
+    } catch(e) {}
+  })();
+  </script>
+
   <style>
     :root { color-scheme: dark; --bg:#020617; --panel:#07111f; --cyan:#2dd4bf; --blue:#38bdf8; --text:#e5f3ff; --muted:#9fb4c9; }
     * { box-sizing: border-box; }

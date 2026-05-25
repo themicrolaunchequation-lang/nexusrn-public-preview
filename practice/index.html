@@ -1316,9 +1316,9 @@ input[type="range"]{cursor:pointer!important;accent-color:#14b8a6!important;}
       'stress-slides':'../public-demo/slides.html?deck=stress&publicDemo=1&accessMatrix=1'
     };
     if(action==='openDemoTarget' && targetMap[target]){ location.href=targetMap[target]; return; }
-    if(action==='navigate' && route==='public-demo'){ location.href='../public-demo/index.html'; return; }
-    if(action==='navigate' && route==='home' && payload.scrollTo==='pricing'){ location.href='../pricing/index.html'; return; }
-    if(action==='navigate' && route==='home'){ location.href='../index.html'; return; }
+    if(action==='navigate' && route==='public-demo'){ location.href='/public-demo/index.html'; return; }
+    if(action==='navigate' && route==='home' && payload.scrollTo==='pricing'){ location.href='/pricing/index.html'; return; }
+    if(action==='navigate' && route==='home'){ location.href='/'; return; }
   }
   function goPublicDemo(){post('navigate',{route:'public-demo'});}
   function openTarget(id){post('openDemoTarget',{target:id});}
@@ -1382,6 +1382,30 @@ input[type="range"]{cursor:pointer!important;accent-color:#14b8a6!important;}
   };
   window.NEXUS_V173_PUBLIC_DEMO_TARGET_AUDIT=window.NEXUS_V174_PUBLIC_DEMO_TARGET_AUDIT;
   window.NEXUS_V168_PUBLIC_DEMO_TARGET_AUDIT=window.NEXUS_V174_PUBLIC_DEMO_TARGET_AUDIT;
+})();
+</script>
+
+
+<script id="nexus-v224-public-demo-boot-unhang-guard">
+(function(){
+  var params=new URLSearchParams(location.search||'');
+  if(params.get('publicDemo')!=='1') return;
+  function forceShow(reason){
+    try{
+      var boot=document.getElementById('boot');
+      var app=document.getElementById('app');
+      if(app){app.style.display='block'; app.removeAttribute('hidden');}
+      if(boot){boot.classList.add('out'); boot.style.opacity='0'; boot.style.visibility='hidden'; boot.style.pointerEvents='none'; setTimeout(function(){try{boot.style.display='none';}catch(e){}},250);}
+      document.documentElement.classList.add('nexus-v224-public-demo-unhung');
+      try{parent.postMessage({source:'NexusRNPractice',event:'public-demo-unhung',version:'v224',reason:reason},'*');}catch(e){}
+    }catch(e){}
+  }
+  [1800,3200,5200,8500].forEach(function(ms){setTimeout(function(){forceShow('timer-'+ms);},ms);});
+  window.addEventListener('load',function(){setTimeout(function(){forceShow('window-load');},900);});
+  window.NEXUS_V224_PUBLIC_DEMO_BOOT_GUARD_AUDIT=function(){
+    var boot=document.getElementById('boot'), app=document.getElementById('app');
+    return {version:'v224-public-demo-boot-unhang-guard', publicDemo:true, bootDisplay:boot?getComputedStyle(boot).display:null, bootOpacity:boot?getComputedStyle(boot).opacity:null, appDisplay:app?getComputedStyle(app).display:null, qCount:Array.isArray(window.Q)?window.Q.length:null, caseCount:Array.isArray(window.CASESETS)?window.CASESETS.length:null, currentQuestionId:(window.current&&(window.current.id||window.current._domId))||null, currentCaseId:(window.currentCase&&(window.currentCase.caseId||window.currentCase.id))||null, url:location.href};
+  };
 })();
 </script>
 

@@ -60,29 +60,25 @@ list.innerHTML=ITEMS.map(x=>`<button id="${x.id}" class="card ${x.kind}" data-ta
 nav.insertAdjacentHTML('beforeend',ITEMS.map(x=>`<button type="button" data-jump="${x.id}" aria-controls="${x.id}">${x.type.replace('Unfolding Case Study','Arthur Case').replace('Bow-Tie','Jamal Bow-Tie').replace('Trap Radar','ABC Trap')}</button>`).join(''));
 function focusCard(id){const card=document.getElementById(id);if(!card)return;document.querySelectorAll('.card.is-focused').forEach(x=>x.classList.remove('is-focused'));card.classList.add('is-focused');card.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>card.focus({preventScroll:true}),260);document.querySelectorAll('[data-jump]').forEach(b=>b.classList.toggle('active',b.dataset.jump===id));}
 const DIRECT_TARGETS={
-  'case-arthur':'../practice/index.html?publicDemo=1&demoTarget=case&db=data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
-  'bowtie-jamal':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
-  'matrix-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
-  'cloze-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
-  'highlight-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
-  'ordered-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
-  'trend-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
-  'matrix-mr-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
-  'trap-abc':'../decision-lab-v3-005/index.html?publicDemo=1&module=trap-radar&trap=abc-tunnel-vision&unlocked=1',
-  'method-slides':'slides.html?deck=method&publicDemo=1&accessMatrix=1',
-  'priority-models':'slides.html?deck=priority&publicDemo=1&accessMatrix=1',
-  'readiness-slides':'slides.html?deck=readiness&publicDemo=1&accessMatrix=1',
-  'study-planner-slides':'slides.html?deck=study&publicDemo=1&accessMatrix=1',
-  'stress-slides':'slides.html?deck=stress&publicDemo=1&accessMatrix=1'
+  'case-arthur':'/practice/index.html?publicDemo=1&demoTarget=case&db=data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
+  'bowtie-jamal':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
+  'matrix-sample':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
+  'cloze-sample':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
+  'highlight-sample':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
+  'ordered-sample':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
+  'trend-sample':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
+  'matrix-mr-sample':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
+  'trap-abc':'/decision-lab-v3-005/index.html?publicDemo=1&module=trap-radar&trap=abc-tunnel-vision&unlocked=1',
+  'method-slides':'/public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1',
+  'priority-models':'/public-demo/slides.html?deck=priority&publicDemo=1&accessMatrix=1',
+  'readiness-slides':'/public-demo/slides.html?deck=readiness&publicDemo=1&accessMatrix=1',
+  'study-planner-slides':'/public-demo/slides.html?deck=study&publicDemo=1&accessMatrix=1',
+  'stress-slides':'/public-demo/slides.html?deck=stress&publicDemo=1&accessMatrix=1'
 };
 function shellOrDirect(message,fallbackUrl){
-  try{
-    if(window.parent && window.parent!==window){
-      window.parent.postMessage(message,'*');
-      return;
-    }
-  }catch(e){}
-  if(fallbackUrl) window.location.href=fallbackUrl;
+  /* v224 live-domain hotfix: direct navigation prevents shell iframe/demo route hang on Vercel. */
+  if(fallbackUrl){ window.location.href=fallbackUrl; return; }
+  try{ if(window.parent && window.parent!==window){ window.parent.postMessage(message,'*'); } }catch(e){}
 }
 document.addEventListener('click',e=>{
   const jump=e.target.closest('[data-jump]');
@@ -90,11 +86,11 @@ document.addEventListener('click',e=>{
   const card=e.target.closest('[data-target]');
   if(card){
     const target=card.dataset.target;
-    shellOrDirect({source:'NexusRNPublicDemo',action:'openDemoTarget',target},DIRECT_TARGETS[target]||'../index.html#public-demo');
+    shellOrDirect({source:'NexusRNPublicDemo',action:'openDemoTarget',target},DIRECT_TARGETS[target]||'/public-demo/index.html');
     return;
   }
-  if(e.target.closest('[data-home]')) shellOrDirect({source:'NexusRNPublicDemo',action:'navigate',route:'home'},'../index.html');
-  if(e.target.closest('[data-enroll]')) shellOrDirect({source:'NexusRNPublicDemo',action:'navigate',route:'pricing'},'../pricing/index.html');
+  if(e.target.closest('[data-home]')) shellOrDirect({source:'NexusRNPublicDemo',action:'navigate',route:'home'},'/');
+  if(e.target.closest('[data-enroll]')) shellOrDirect({source:'NexusRNPublicDemo',action:'navigate',route:'pricing'},'/pricing/index.html');
 });
 try{const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('[data-jump]').forEach(b=>b.classList.toggle('active',b.dataset.jump===entry.target.id));}})},{threshold:.55});ITEMS.forEach(x=>{const el=document.getElementById(x.id);if(el)io.observe(el);});}catch(e){}
 window.NEXUS_PUBLIC_DEMO_PAGE_AUDIT=function(){return {version:'v179-public-demo-route-list-access-matrix',publicDemoPageExists:true,firstScreenIsClickableList:true,hasDemoSpecificNavigation:true,demoNavigationTargetCount:ITEMS.length,demoNavigationTargets:ITEMS.map(x=>x.id),targetCount:ITEMS.length,clickableTargets:ITEMS.map(x=>x.id),hasUnfoldingCaseStudy:true,hasBowtie:true,hasTrapRadarABCTunnelVision:true,methodPlaybookUsesSlides:true,priorityModelsUsesSlides:true,readinessCompassUsesSlides:true,studyPlannerUsesSlides:true,stressResetUsesSlides:true,practiceSamplerTargetCount:8,slideRouteTargetCount:5,slideImageCount:12,publicDemoAccessMatrix:true,oneUnlockedPathwayPerSlideDemo:true,lockedPathwaysVisible:true,lockedPathwaysBlocked:true,usesAttachedScreenshotsOnly:true,generatedImages:false,preservesArthurJamalFastPracticeDb:true,preservesTrapRadarRealRoute:true,paidBankBrowsingExposed:false,directOpenFallbacks:true,directFallbackTargetCount:Object.keys(DIRECT_TARGETS).length,homeDirectFallback:true,accessPreviewDirectFallback:true,questionDbMutated:false};};
@@ -109,26 +105,26 @@ try{parent.postMessage({source:'NexusRNPublicDemo',event:'public-demo-ready'},'*
 <script id="nexus-v215-public-demo-access-matrix-direct-anchor-guard">
 (function(){
   var DIRECT_TARGETS={
-    'case-arthur':'../practice/index.html?publicDemo=1&demoTarget=case&db=data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
-    'bowtie-jamal':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
-    'matrix-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
-    'cloze-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
-    'highlight-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
-    'ordered-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
-    'trend-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
-    'matrix-mr-sample':'../practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
-    'trap-abc':'../decision-lab-v3-005/index.html?publicDemo=1&module=trap-radar&trap=abc-tunnel-vision&unlocked=1',
-    'method-slides':'slides.html?deck=method&publicDemo=1&accessMatrix=1',
-    'priority-models':'slides.html?deck=priority&publicDemo=1&accessMatrix=1',
-    'readiness-slides':'slides.html?deck=readiness&publicDemo=1&accessMatrix=1',
-    'study-planner-slides':'slides.html?deck=study&publicDemo=1&accessMatrix=1',
-    'stress-slides':'slides.html?deck=stress&publicDemo=1&accessMatrix=1'
+    'case-arthur':'/practice/index.html?publicDemo=1&demoTarget=case&db=data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
+    'bowtie-jamal':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
+    'matrix-sample':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
+    'cloze-sample':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
+    'highlight-sample':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
+    'ordered-sample':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
+    'trend-sample':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
+    'matrix-mr-sample':'/practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
+    'trap-abc':'/decision-lab-v3-005/index.html?publicDemo=1&module=trap-radar&trap=abc-tunnel-vision&unlocked=1',
+    'method-slides':'/public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1',
+    'priority-models':'/public-demo/slides.html?deck=priority&publicDemo=1&accessMatrix=1',
+    'readiness-slides':'/public-demo/slides.html?deck=readiness&publicDemo=1&accessMatrix=1',
+    'study-planner-slides':'/public-demo/slides.html?deck=study&publicDemo=1&accessMatrix=1',
+    'stress-slides':'/public-demo/slides.html?deck=stress&publicDemo=1&accessMatrix=1'
   };
   var SLIDE_TARGETS=['method-slides','priority-models','readiness-slides','study-planner-slides','stress-slides'];
   function hasParentShell(){try{return !!(window.parent && window.parent!==window);}catch(e){return false;}}
   function directOpen(url){if(url){window.location.href=url;}}
   function openTarget(target){
-    var url=DIRECT_TARGETS[target]||'../index.html#public-demo';
+    var url=DIRECT_TARGETS[target]||'/public-demo/index.html';
     if(hasParentShell()){
       try{window.parent.postMessage({source:'NexusRNPublicDemo',action:'openDemoTarget',target:target,version:'v215'},'*');}catch(e){}
       window.setTimeout(function(){directOpen(url);},360);
@@ -212,5 +208,13 @@ try{parent.postMessage({source:'NexusRNPublicDemo',event:'public-demo-ready'},'*
 })();
 </script>
 
+
+<script id="nexus-v224-live-public-demo-hotfix-audit">
+(function(){
+  window.NEXUS_V224_LIVE_PUBLIC_DEMO_HOTFIX_AUDIT=function(){
+    return {version:'v224-live-domain-public-demo-direct-route-hotfix', directPublicDemoNavigation:true, shellIframeBypassed:true, expectedCardCount:14, actualCardCount:document.querySelectorAll('.card[data-target]').length, url:location.href};
+  };
+})();
+</script>
 </body>
 </html>
