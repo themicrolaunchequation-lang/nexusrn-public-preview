@@ -16,17 +16,17 @@
   <title>NexusRN | NCLEX NGN Clinical Judgment Public Preview</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23078d88'/%3E%3Cpath d='M16 42V18h6l20 24V18h6v24h-6L22 18v24z' fill='white'/%3E%3C/svg%3E" />
   
-  <script id="nexus-v225-direct-route-stability">
+  <script id="nexus-v226-start-practice-direct-fix">
   (function(){
     try {
       var h = String(location.hash || '').replace(/^#/, '').toLowerCase();
       if (h === 'public-demo' || h === 'demo' || h === 'try-demo') {
-        location.replace('/public-demo/index.html?v225=1');
+        location.replace('/public-demo/index.html?v226=1');
         return;
       }
-      /* Public preview safety: Start Practicing Now must not open the heavy full-bank practice dashboard. */
+      /* v226: Start Practicing Now must open the Practice Dashboard, not Public Demo. */
       if (h === 'practice' || h === 'dashboard' || h === 'app' || h === 'modes') {
-        location.replace('/public-demo/index.html?v225=1');
+        location.replace('/practice/index.html?focus=modes#modes');
         return;
       }
     } catch(e) {}
@@ -84,7 +84,7 @@
     var VERSION = 'v151-stable-v145b-updated-landing-v5-asset-fix';
     var PATHS = {
       home: 'landing-v3-006/index.html',
-      practice: 'public-demo/index.html?v225=1',
+      practice: 'practice/index.html?focus=modes#modes',
       'decision-lab': 'decision-lab-v3-005/index.html',
       'public-demo': 'public-demo/index.html'
     };
@@ -97,7 +97,7 @@
     var loaded = {};
     var DEBUG = false;
     function setStatus(text){ if(status) status.textContent = text || ''; }
-    function routeLabel(route){ return route === 'practice' ? 'Public Demo' : route === 'decision-lab' ? 'Decision Lab' : route === 'public-demo' ? 'Public Demo' : 'Landing page'; }
+    function routeLabel(route){ return route === 'practice' ? 'Practice Dashboard' : route === 'decision-lab' ? 'Decision Lab' : route === 'public-demo' ? 'Public Demo' : 'Landing page'; }
 
     function routeFromHash(){
       var h = (location.hash || '').replace(/^#/, '').toLowerCase();
@@ -125,7 +125,7 @@
       var src = PATHS[route];
       var current = frame.getAttribute('src') || '';
       if(current !== src){
-        showBoot(route === 'home' ? 'Loading landing page…' : route === 'practice' ? 'Loading Public Demo…' : route === 'public-demo' ? 'Loading Public Demo…' : 'Loading Decision Lab…');
+        showBoot(route === 'home' ? 'Loading landing page…' : route === 'practice' ? 'Loading Practice Dashboard…' : route === 'public-demo' ? 'Loading Public Demo…' : 'Loading Decision Lab…');
         error.style.display = 'none';
         frame.setAttribute('src', src);
         if(route === 'practice') {
@@ -189,11 +189,11 @@
       if(data.source === 'NexusRNLanding' && data.event === 'landing-ready') hideBootSoon();
       if(data.source === 'NexusRNLanding' && data.action === 'navigate' && data.route === 'practice') {
         /* v225: public preview Start Practicing Now opens stable Public Demo list, not full-bank runtime. */
-        location.href = '/public-demo/index.html?v225=1';
+        location.href = '/practice/index.html?focus=modes#modes';
         return;
       }
       if(data.source === 'NexusRNLanding' && data.action === 'navigate' && (data.route === 'decision-lab' || data.route === 'home' || data.route === 'public-demo')) {
-        if(data.route === 'public-demo'){ location.href = '/public-demo/index.html?v225=1'; return; }
+        if(data.route === 'public-demo'){ location.href = '/public-demo/index.html?v226=1'; return; }
         navigate(data.route);
         return;
       }
@@ -440,10 +440,20 @@ window.NEXUS_V223_DOMAIN_LEMON_AUDIT=function(){
 };
 </script>
 
-<script id="nexus-v225-live-route-fix-audit">
+<script id="nexus-v226-start-practice-route-audit">
 (function(){
-  window.NEXUS_V225_LIVE_ROUTE_FIX_AUDIT=function(){
-    return {version:'v225-live-route-and-demo-stability', startPracticingRoutesToPublicDemo:true, publicDemoHashDirectRedirect:true, decisionLabIframeRoutePreserved:true, fullDbFileStillIncluded:true, canonicalQuestionDbMutated:false, targetDomain:'https://nexusrn.healthqualityleader.com'};
+  window.NEXUS_V226_START_PRACTICE_ROUTE_AUDIT=function(){
+    return {
+      version:'v226-start-practice-direct-to-practice',
+      startPracticingRoutesToPractice:true,
+      startPracticingRoutesToPublicDemo:false,
+      practicePath:'practice/index.html?focus=modes#modes',
+      tryPublicDemoPath:'public-demo/index.html',
+      decisionLabPath:'decision-lab-v3-005/index.html',
+      fullDbFileStillIncluded:true,
+      canonicalQuestionDbMutated:false,
+      targetDomain:'https://nexusrn.healthqualityleader.com'
+    };
   };
 })();
 </script>

@@ -332,7 +332,7 @@ Error generating stack: `+a.message+`
 </script>
 
 
-<script id="nexus-v225-landing-cta-direct-stability">
+<script id="nexus-v226-landing-cta-direct-stability">
 (function(){
   function textOf(el){return ((el&&el.textContent)||''+' '+((el&&el.getAttribute&&(el.getAttribute('aria-label')||el.getAttribute('title')||el.getAttribute('href')))||'')).toLowerCase().replace(/\s+/g,' ').trim();}
   function go(url,msg){
@@ -345,7 +345,7 @@ Error generating stack: `+a.message+`
     var txt=textOf(el), href=((el.getAttribute&&el.getAttribute('href'))||'').toLowerCase();
     if(txt.indexOf('start practicing')>=0 || txt.indexOf('start practice')>=0 || href==='#practice' || href==='#dashboard'){
       ev.preventDefault(); ev.stopPropagation(); if(ev.stopImmediatePropagation) ev.stopImmediatePropagation();
-      go('/public-demo/index.html?v225=1',{source:'NexusRNLanding',action:'navigate',route:'practice'});
+      go('/practice/index.html?focus=modes#modes',{source:'NexusRNLanding',action:'navigate',route:'practice'});
       return;
     }
     if(txt.indexOf('explore decision lab')>=0 || href==='#decision-lab' || href==='#decisionlab'){
@@ -355,10 +355,10 @@ Error generating stack: `+a.message+`
     }
     if(txt.indexOf('public demo')>=0 || txt.indexOf('try demo')>=0 || href==='#public-demo' || href==='#demo'){
       ev.preventDefault(); ev.stopPropagation(); if(ev.stopImmediatePropagation) ev.stopImmediatePropagation();
-      go('/public-demo/index.html?v225=1',{source:'NexusRNLanding',action:'navigate',route:'public-demo'});
+      go('/public-demo/index.html?v226=1',{source:'NexusRNLanding',action:'navigate',route:'public-demo'});
     }
   },true);
-  window.NEXUS_V225_LANDING_CTA_AUDIT=function(){return {version:'v225-landing-cta-direct-stability', startPracticingDirect:'/public-demo/index.html', exploreDecisionLabDirect:'/decision-lab-v3-005/index.html?publicDemo=1', publicDemoDirect:'/public-demo/index.html'};};
+  window.NEXUS_V225_LANDING_CTA_AUDIT=function(){return {version:'v226-landing-cta-direct-stability', startPracticingDirect:'/practice/index.html?focus=modes#modes', exploreDecisionLabDirect:'/decision-lab-v3-005/index.html?publicDemo=1', publicDemoDirect:'/public-demo/index.html'};};
 })();
 </script>
 </body>
