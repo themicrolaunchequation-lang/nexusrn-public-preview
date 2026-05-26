@@ -307,5 +307,35 @@ Error generating stack: `+l.message+`
 (function(){window.NEXUS_LANDING_V219_TRUST_AUDIT=function(){var html=document.documentElement.innerHTML;var visible=document.body?document.body.innerText:'';return{version:'v219-landing-trust-pack',trustStripPresent:!!document.getElementById('nexusrn-v219-trust-strip'),previewLimitationsLinked:html.indexOf('preview-limitations.html')>-1,educationalDisclaimerLinked:html.indexOf('educational-disclaimer.html')>-1,ngnAlignmentLinked:html.indexOf('ngn-alignment.html')>-1,noPaidCheckoutClaim:visible.indexOf('Join Founding')===-1&&visible.indexOf('Start Full')===-1,independentNcsbnDisclaimerPresent:/not affiliated with or endorsed by NCSBN/i.test(visible),questionDbMutated:false};};})();
 </script>
 
+
+<script id="nexus-v225-landing-cta-direct-stability">
+(function(){
+  function textOf(el){return ((el&&el.textContent)||''+' '+((el&&el.getAttribute&&(el.getAttribute('aria-label')||el.getAttribute('title')||el.getAttribute('href')))||'')).toLowerCase().replace(/\s+/g,' ').trim();}
+  function go(url,msg){
+    try{ if(window.parent && window.parent!==window){ window.parent.postMessage(msg,'*'); } }catch(e){}
+    setTimeout(function(){ try{ window.top.location.href=url; }catch(e){ location.href=url; } }, 80);
+  }
+  document.addEventListener('click',function(ev){
+    var el=ev.target&&ev.target.closest?ev.target.closest('a,button,[role=button]'):null;
+    if(!el) return;
+    var txt=textOf(el), href=((el.getAttribute&&el.getAttribute('href'))||'').toLowerCase();
+    if(txt.indexOf('start practicing')>=0 || txt.indexOf('start practice')>=0 || href==='#practice' || href==='#dashboard'){
+      ev.preventDefault(); ev.stopPropagation(); if(ev.stopImmediatePropagation) ev.stopImmediatePropagation();
+      go('/public-demo/index.html?v225=1',{source:'NexusRNLanding',action:'navigate',route:'practice'});
+      return;
+    }
+    if(txt.indexOf('explore decision lab')>=0 || href==='#decision-lab' || href==='#decisionlab'){
+      ev.preventDefault(); ev.stopPropagation(); if(ev.stopImmediatePropagation) ev.stopImmediatePropagation();
+      go('/decision-lab-v3-005/index.html?publicDemo=1',{source:'NexusRNLanding',action:'navigate',route:'decision-lab'});
+      return;
+    }
+    if(txt.indexOf('public demo')>=0 || txt.indexOf('try demo')>=0 || href==='#public-demo' || href==='#demo'){
+      ev.preventDefault(); ev.stopPropagation(); if(ev.stopImmediatePropagation) ev.stopImmediatePropagation();
+      go('/public-demo/index.html?v225=1',{source:'NexusRNLanding',action:'navigate',route:'public-demo'});
+    }
+  },true);
+  window.NEXUS_V225_LANDING_CTA_AUDIT=function(){return {version:'v225-landing-cta-direct-stability', startPracticingDirect:'/public-demo/index.html', exploreDecisionLabDirect:'/decision-lab-v3-005/index.html?publicDemo=1', publicDemoDirect:'/public-demo/index.html'};};
+})();
+</script>
 </body>
 </html>

@@ -131,7 +131,7 @@ body.light .btn-next, body.light .btn-skip{background:#ffffff!important;color:#1
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23078d88'/%3E%3Cpath d='M16 42V18h6l20 24V18h6v24h-6L22 18v24z' fill='white'/%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&amp;display=swap" rel="stylesheet"/>
-<link href="assets/css/nexusrn-v92.css" rel="stylesheet"/><link href="assets/css/nexusrn-v101-decisionlab-masterdetail.css" rel="stylesheet"/><meta content="v111-wave6-authenticity-rewrite; canonical DB data/questions-current.json; Wave 5A authenticity classification" name="nexusrn-build"/>
+<link href="/assets/css/nexusrn-v92.css" rel="stylesheet"/><link href="/assets/css/nexusrn-v101-decisionlab-masterdetail.css" rel="stylesheet"/><meta content="v111-wave6-authenticity-rewrite; canonical DB /data/questions-current.json; Wave 5A authenticity classification" name="nexusrn-build"/>
 <style id="nexusrn-v155-stable-item-typography-final">
 /* v155: final stable typography layer. Prevent item font blinking by making typography CSS-owned. */
 html.nexus-v155-stable-typography body,
@@ -255,6 +255,15 @@ body.light #qview .qstem[style]{
 <meta name="application-name" content="NexusRN" />
 <meta name="apple-mobile-web-app-title" content="NexusRN" />
 
+
+<script id="nexus-v225-practice-public-demo-early-unhang">
+(function(){try{if(new URLSearchParams(location.search||'').get('publicDemo')==='1'){document.documentElement.classList.add('nexus-public-demo-route','nexus-v225-public-demo-route');}}catch(e){}})();
+</script>
+<style id="nexus-v225-practice-public-demo-early-style">
+html.nexus-public-demo-route #boot{display:none!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;}
+html.nexus-public-demo-route #app{display:block!important;opacity:1!important;visibility:visible!important;}
+html.nexus-public-demo-route body{overflow:auto!important;}
+</style>
 </head>
 <body>
 <div id="boot">
@@ -540,12 +549,12 @@ body.light #qview .qstem[style]{
 window.NEXUS_LEGACY_DECISION_LAB_RUNTIME_DISABLED = true;
 window.NEXUS_PRACTICE_RUNTIME_TARGET = 'v142-metadata-first-db-performance';
 </script>
-<script id="nexusrn-v116-p2-preflight" src="assets/js/packages/nexus-preflight.pkg.js" defer></script><script src="assets/js/packages/nexus-app-runtime-v142-practice.pkg.js" defer></script><script src="assets/js/packages/nexus-runtime-scaffold.pkg.js" defer></script><script src="assets/js/packages/nexus-package-audit.pkg.js" defer></script>
-<script id="nexusrn-v117-governance" src="assets/js/packages/nexus-governance.pkg.js" defer></script>
-<script id="nexusrn-v118-observability" src="assets/js/packages/nexus-observability.pkg.js" defer></script>
-<script id="nexusrn-v119-educator-governance" src="assets/js/packages/nexus-educator-governance.pkg.js" defer></script>
-<script id="nexusrn-v120-master-audit" src="assets/js/packages/nexus-master-audit-v121c.pkg.js" defer></script>
-<script id="nexusrn-v121-release-candidate" src="assets/js/packages/nexus-release-candidate.pkg.js" defer></script>
+<script id="nexusrn-v116-p2-preflight" src="/assets/js/packages/nexus-preflight.pkg.js" defer></script><script src="/assets/js/packages/nexus-app-runtime-v142-practice.pkg.js" defer></script><script src="/assets/js/packages/nexus-runtime-scaffold.pkg.js" defer></script><script src="/assets/js/packages/nexus-package-audit.pkg.js" defer></script>
+<script id="nexusrn-v117-governance" src="/assets/js/packages/nexus-governance.pkg.js" defer></script>
+<script id="nexusrn-v118-observability" src="/assets/js/packages/nexus-observability.pkg.js" defer></script>
+<script id="nexusrn-v119-educator-governance" src="/assets/js/packages/nexus-educator-governance.pkg.js" defer></script>
+<script id="nexusrn-v120-master-audit" src="/assets/js/packages/nexus-master-audit-v121c.pkg.js" defer></script>
+<script id="nexusrn-v121-release-candidate" src="/assets/js/packages/nexus-release-candidate.pkg.js" defer></script>
 
 
 
@@ -917,7 +926,7 @@ window.NEXUS_PRACTICE_RUNTIME_TARGET = 'v142-metadata-first-db-performance';
       fullDbLoading: !!(perf && perf.fullDbLoading),
       initialPracticePayloadReduced: !!(perf && perf.initialPracticePayloadReduced),
       metadataPath: 'data/questions-metadata-v142.json',
-      canonicalDb: 'data/questions-current.json',
+      canonicalDb: '/data/questions-current.json',
       questionDbMutated: false,
       auditRecursionFixed: true,
       v142AuditAliasSafe: true,
@@ -1286,7 +1295,7 @@ input[type="range"]{cursor:pointer!important;accent-color:#14b8a6!important;}
   var qid=params.get('qid')||'';
   var caseId=params.get('caseId')||'';
   var casePos=Math.max(0,(parseInt(params.get('casePos')||'2',10)||2)-1);
-  var DEMO_DB='data/public-demo-v217-preview-db.json';
+  var DEMO_DB='/data/public-demo-v217-preview-db.json';
   var ARTHUR_CASE_ID='ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a';
   var ARTHUR_Q2_ID='ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a-2-q-mp148wgn-haq2jt';
   var JAMAL_QID='nexus_bow_fatembol_a7a6';
@@ -1300,14 +1309,14 @@ input[type="range"]{cursor:pointer!important;accent-color:#14b8a6!important;}
     }catch(e){}
     var route=payload.route||''; var target=payload.target||'';
     var targetMap={
-      'case-arthur':'index.html?publicDemo=1&demoTarget=case&db=data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
-      'bowtie-jamal':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
-      'matrix-sample':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
-      'cloze-sample':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
-      'highlight-sample':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
-      'ordered-sample':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
-      'trend-sample':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
-      'matrix-mr-sample':'index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
+      'case-arthur':'index.html?publicDemo=1&demoTarget=case&db=/data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
+      'bowtie-jamal':'index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
+      'matrix-sample':'index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
+      'cloze-sample':'index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
+      'highlight-sample':'index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
+      'ordered-sample':'index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
+      'trend-sample':'index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
+      'matrix-mr-sample':'index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
       'trap-abc':'../decision-lab-v3-005/index.html?publicDemo=1&module=trap-radar&trap=abc-tunnel-vision&unlocked=1',
       'method-slides':'../public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1',
       'priority-models':'../public-demo/slides.html?deck=priority&publicDemo=1&accessMatrix=1',
@@ -1316,9 +1325,9 @@ input[type="range"]{cursor:pointer!important;accent-color:#14b8a6!important;}
       'stress-slides':'../public-demo/slides.html?deck=stress&publicDemo=1&accessMatrix=1'
     };
     if(action==='openDemoTarget' && targetMap[target]){ location.href=targetMap[target]; return; }
-    if(action==='navigate' && route==='public-demo'){ location.href='/public-demo/index.html'; return; }
-    if(action==='navigate' && route==='home' && payload.scrollTo==='pricing'){ location.href='/pricing/index.html'; return; }
-    if(action==='navigate' && route==='home'){ location.href='/'; return; }
+    if(action==='navigate' && route==='public-demo'){ location.href='../public-demo/index.html'; return; }
+    if(action==='navigate' && route==='home' && payload.scrollTo==='pricing'){ location.href='../pricing/index.html'; return; }
+    if(action==='navigate' && route==='home'){ location.href='../index.html'; return; }
   }
   function goPublicDemo(){post('navigate',{route:'public-demo'});}
   function openTarget(id){post('openDemoTarget',{target:id});}
@@ -1378,34 +1387,10 @@ input[type="range"]{cursor:pointer!important;accent-color:#14b8a6!important;}
     var currentId=window.current&&(window.current.id||window.current._domId)||null;
     var currentCaseId=window.currentCase&&(window.currentCase.caseId||window.currentCase.id)||null;
     var exact=target==='case' ? (String(currentCaseId)===ARTHUR_CASE_ID && String(currentId)===ARTHUR_Q2_ID) : (target==='question' ? String(currentId)===JAMAL_QID : false);
-    return {version:'v174-public-demo-fast-fixed-practice-target', publicDemoMode:true, demoTarget:target, dbParam:params.get('db')||'', usesSmallFixedDemoDb:(params.get('db')===DEMO_DB), qCount:Array.isArray(window.Q)?window.Q.length:null, caseCount:Array.isArray(window.CASESETS)?window.CASESETS.length:null, qid:qid, caseId:caseId, requestedCasePos:casePos+1, currentQuestionId:currentId, currentCaseId:currentCaseId, exactTargetOpened:exact, arthurCaseQ2Opened:target==='case'?exact:null, requestedQuestionOpened:target==='question'?exact:null, demoSpecificNavPresent:!!document.getElementById('nexusV174PracticeDemoNav'), demoNavigationTargetCount:document.querySelectorAll('#nexusV174PracticeDemoNav [data-demo-target]').length, adminControlsHidden:visibleBad.length===0, visibleAdminControls:visibleBad, backEscapesToFullBank:false, fullPaidBankLoaded:false, paidBankBrowsingExposed:false, noScoreHistory:true, fixedDesignatedAccess:true, questionDbMutated:false};
+    return {version:'v174-public-demo-fast-fixed-practice-target', publicDemoMode:true, demoTarget:target, dbParam:params.get('db')||'', usesSmallFixedDemoDb:((params.get('db')||'')===DEMO_DB || (params.get('db')||'')==='data/public-demo-v217-preview-db.json'), qCount:Array.isArray(window.Q)?window.Q.length:null, caseCount:Array.isArray(window.CASESETS)?window.CASESETS.length:null, qid:qid, caseId:caseId, requestedCasePos:casePos+1, currentQuestionId:currentId, currentCaseId:currentCaseId, exactTargetOpened:exact, arthurCaseQ2Opened:target==='case'?exact:null, requestedQuestionOpened:target==='question'?exact:null, demoSpecificNavPresent:!!document.getElementById('nexusV174PracticeDemoNav'), demoNavigationTargetCount:document.querySelectorAll('#nexusV174PracticeDemoNav [data-demo-target]').length, adminControlsHidden:visibleBad.length===0, visibleAdminControls:visibleBad, backEscapesToFullBank:false, fullPaidBankLoaded:false, paidBankBrowsingExposed:false, noScoreHistory:true, fixedDesignatedAccess:true, questionDbMutated:false};
   };
   window.NEXUS_V173_PUBLIC_DEMO_TARGET_AUDIT=window.NEXUS_V174_PUBLIC_DEMO_TARGET_AUDIT;
   window.NEXUS_V168_PUBLIC_DEMO_TARGET_AUDIT=window.NEXUS_V174_PUBLIC_DEMO_TARGET_AUDIT;
-})();
-</script>
-
-
-<script id="nexus-v224-public-demo-boot-unhang-guard">
-(function(){
-  var params=new URLSearchParams(location.search||'');
-  if(params.get('publicDemo')!=='1') return;
-  function forceShow(reason){
-    try{
-      var boot=document.getElementById('boot');
-      var app=document.getElementById('app');
-      if(app){app.style.display='block'; app.removeAttribute('hidden');}
-      if(boot){boot.classList.add('out'); boot.style.opacity='0'; boot.style.visibility='hidden'; boot.style.pointerEvents='none'; setTimeout(function(){try{boot.style.display='none';}catch(e){}},250);}
-      document.documentElement.classList.add('nexus-v224-public-demo-unhung');
-      try{parent.postMessage({source:'NexusRNPractice',event:'public-demo-unhung',version:'v224',reason:reason},'*');}catch(e){}
-    }catch(e){}
-  }
-  [1800,3200,5200,8500].forEach(function(ms){setTimeout(function(){forceShow('timer-'+ms);},ms);});
-  window.addEventListener('load',function(){setTimeout(function(){forceShow('window-load');},900);});
-  window.NEXUS_V224_PUBLIC_DEMO_BOOT_GUARD_AUDIT=function(){
-    var boot=document.getElementById('boot'), app=document.getElementById('app');
-    return {version:'v224-public-demo-boot-unhang-guard', publicDemo:true, bootDisplay:boot?getComputedStyle(boot).display:null, bootOpacity:boot?getComputedStyle(boot).opacity:null, appDisplay:app?getComputedStyle(app).display:null, qCount:Array.isArray(window.Q)?window.Q.length:null, caseCount:Array.isArray(window.CASESETS)?window.CASESETS.length:null, currentQuestionId:(window.current&&(window.current.id||window.current._domId))||null, currentCaseId:(window.currentCase&&(window.currentCase.caseId||window.currentCase.id))||null, url:location.href};
-  };
 })();
 </script>
 
@@ -1823,5 +1808,70 @@ input[type="range"]{cursor:pointer!important;accent-color:#14b8a6!important;}
 })();
 </script>
 
+
+<script id="nexus-v225-practice-public-demo-safe-renderer">
+(function(){
+  var params=new URLSearchParams(location.search||'');
+  if(params.get('publicDemo')!=='1') return;
+  var qid=params.get('qid')||'';
+  var caseId=params.get('caseId')||'';
+  var demoTarget=params.get('demoTarget')||'';
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]||c;});}
+  function looksRendered(){
+    try{
+      var body=(document.body&&document.body.innerText||'').toLowerCase();
+      if(qid && body.indexOf('which action')>=0) return true;
+      if(body.indexOf('submit answer')>=0 || body.indexOf('rationale')>=0 || body.indexOf('patient clinical file')>=0) return true;
+      if(document.querySelector('#nexusV225SafeDemo')) return true;
+    }catch(e){}
+    return false;
+  }
+  function hideBoot(){try{var b=document.getElementById('boot'); if(b){b.style.setProperty('display','none','important');b.style.setProperty('opacity','0','important');b.style.setProperty('visibility','hidden','important');}}catch(e){}}
+  function optionTexts(q){
+    var s=q.structure||{}, out=[];
+    ['options','choices','targets','rows','actions','conditions','parameters'].forEach(function(k){
+      var v=s[k]; if(Array.isArray(v)) v.forEach(function(o){out.push(typeof o==='string'?o:(o&&((o.text||o.label||o.action||o.condition||o.parameter||o.value))))});
+    });
+    if(!out.length && Array.isArray(q.options)) out=q.options.map(function(o){return typeof o==='string'?o:(o.text||o.label||o.value)});
+    return out.filter(Boolean).slice(0,12);
+  }
+  function notesHtml(ehr){
+    if(!ehr) return '';
+    var parts=[];
+    ['notes','vitals','labs','medications','orders','providerOrders','diagnostics'].forEach(function(k){
+      var v=ehr[k];
+      if(Array.isArray(v)&&v.length){parts.push('<h4>'+esc(k)+'</h4>'+v.slice(0,5).map(function(x){return '<p>'+esc(typeof x==='string'?x:(x.note||x.text||x.name+': '+(x.value||'')||JSON.stringify(x)))+'</p>';}).join(''));}
+      else if(v && typeof v==='object'){parts.push('<h4>'+esc(k)+'</h4><p>'+esc(JSON.stringify(v).slice(0,500))+'</p>');}
+    });
+    return parts.join('');
+  }
+  function renderQuestion(q){
+    var patient=q.patient||{}; var opts=optionTexts(q);
+    var root=document.createElement('main'); root.id='nexusV225SafeDemo';
+    root.style.cssText='min-height:100vh;background:#f8fafc;color:#0f172a;font-family:Inter,system-ui,sans-serif;padding:92px 20px 40px;';
+    root.innerHTML='<nav style="position:fixed;top:0;left:0;right:0;z-index:9999;background:white;border-bottom:1px solid #dbeafe;padding:12px 16px;display:flex;gap:10px;align-items:center;overflow:auto"><b style="color:#0f766e;letter-spacing:.08em;text-transform:uppercase">Public Demo</b><a href="/public-demo/index.html?v225=1" style="border:1px solid #bae6fd;border-radius:999px;padding:8px 12px;text-decoration:none;color:#075985;font-weight:800">← Demo List</a><a href="/pricing/index.html" style="margin-left:auto;border:1px solid #f59e0b55;background:#fef3c7;border-radius:999px;padding:8px 12px;text-decoration:none;color:#78350f;font-weight:900">Access Preview</a></nav>'+
+      '<section style="max-width:1180px;margin:auto;display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:18px">'+
+      '<aside style="background:white;border:1px solid #dbeafe;border-radius:22px;padding:18px;box-shadow:0 20px 60px rgba(15,23,42,.08)"><h2 style="margin-top:0">Patient Clinical File</h2><p><b>'+esc(patient.name||'Demo Patient')+'</b><br>'+esc((patient.age_value||'')+' '+(patient.age_unit||''))+' '+esc(patient.gender||'')+'</p><p><b>Focus:</b> '+esc(q.clinical_focus||q.client_needs||'NCLEX NGN clinical judgment')+'</p>'+notesHtml(q.ehr)+'</aside>'+
+      '<article style="background:white;border:1px solid #dbeafe;border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(15,23,42,.08)"><div style="color:#0f766e;font-weight:950;letter-spacing:.08em;text-transform:uppercase">NGN Item Format: '+esc(q.format||q.responseFormat||'Demo Item')+'</div><h1 style="font-size:26px;line-height:1.25">'+esc(q.prompt||q.stem||q.question||'Demo question')+'</h1><div>'+opts.map(function(o,i){return '<label style="display:block;border:1px solid #cbd5e1;border-radius:16px;padding:14px 16px;margin:10px 0;background:#f8fafc"><input type="checkbox" style="margin-right:10px">'+esc(o)+'</label>';}).join('')+'</div><button type="button" onclick="document.getElementById('nexusV225Rat').style.display='block'" style="margin-top:16px;border:0;border-radius:16px;background:#14b8a6;color:#042f2e;padding:14px 18px;font-weight:950">Submit Answer</button><div id="nexusV225Rat" style="display:none;margin-top:18px;border:1px solid #99f6e4;background:#ecfeff;border-radius:18px;padding:16px"><h3>Core Rationale</h3><p>'+esc((q.rationale&& (q.rationale.summary||q.rationale.core||q.rationale.text)) || 'This public preview shows the item and patient context. Full scoring and adaptive history are available in paid access later.')+'</p></div></article></section>' ;
+    document.body.innerHTML=''; document.body.appendChild(root);
+  }
+  function renderCase(c){
+    var item=(c.items||[])[Math.max(0,(parseInt(params.get('casePos')||'2',10)||2)-1)] || (c.items||[])[0] || {};
+    renderQuestion(Object.assign({}, item, {patient:c.patient||item.patient, clinical_focus:c.clinical_focus||item.clinical_focus, prompt:item.prompt||item.caseStem||c.title, ehr:item.ehr||{notes:[{note:item.caseStem||c.title||'Unfolding case preview'}]}}));
+  }
+  async function safeRender(){
+    hideBoot();
+    if(looksRendered()) return;
+    try{
+      var r=await fetch('/data/public-demo-v217-preview-db.json',{cache:'no-store'}); var db=await r.json();
+      if(demoTarget==='case'){var c=(db.cases||[]).find(function(x){return String(x.caseId||x.id)===caseId;})||(db.cases||[])[0]; if(c) return renderCase(c);}
+      var q=(db.questions||[]).find(function(x){return String(x.id||x._domId)===qid;})||(db.questions||[])[0]; if(q) return renderQuestion(q);
+    }catch(e){console.error('[v225 safe demo renderer]',e);}
+  }
+  [2200,4500,7500,11000].forEach(function(ms){setTimeout(safeRender,ms);});
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){setTimeout(safeRender,1800);}); else setTimeout(safeRender,1800);
+  window.NEXUS_V225_PUBLIC_DEMO_SAFE_RENDER_AUDIT=function(){return {version:'v225-public-demo-safe-renderer', publicDemo:true, fallbackRendered:!!document.getElementById('nexusV225SafeDemo'), bootHidden:!document.getElementById('boot')||getComputedStyle(document.getElementById('boot')).display==='none', qCount:Array.isArray(window.Q)?window.Q.length:null, caseCount:Array.isArray(window.CASESETS)?window.CASESETS.length:null, url:location.href};};
+})();
+</script>
 </body>
 </html>

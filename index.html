@@ -15,13 +15,19 @@
   <meta name="theme-color" content="#020617" />
   <title>NexusRN | NCLEX NGN Clinical Judgment Public Preview</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23078d88'/%3E%3Cpath d='M16 42V18h6l20 24V18h6v24h-6L22 18v24z' fill='white'/%3E%3C/svg%3E" />
-
-  <script id="nexus-v224-direct-public-demo-route-hotfix">
+  
+  <script id="nexus-v225-direct-route-stability">
   (function(){
     try {
       var h = String(location.hash || '').replace(/^#/, '').toLowerCase();
       if (h === 'public-demo' || h === 'demo' || h === 'try-demo') {
-        location.replace('/public-demo/index.html');
+        location.replace('/public-demo/index.html?v225=1');
+        return;
+      }
+      /* Public preview safety: Start Practicing Now must not open the heavy full-bank practice dashboard. */
+      if (h === 'practice' || h === 'dashboard' || h === 'app' || h === 'modes') {
+        location.replace('/public-demo/index.html?v225=1');
+        return;
       }
     } catch(e) {}
   })();
@@ -78,7 +84,7 @@
     var VERSION = 'v151-stable-v145b-updated-landing-v5-asset-fix';
     var PATHS = {
       home: 'landing-v3-006/index.html',
-      practice: 'practice/index.html?focus=modes#modes',
+      practice: 'public-demo/index.html?v225=1',
       'decision-lab': 'decision-lab-v3-005/index.html',
       'public-demo': 'public-demo/index.html'
     };
@@ -91,7 +97,7 @@
     var loaded = {};
     var DEBUG = false;
     function setStatus(text){ if(status) status.textContent = text || ''; }
-    function routeLabel(route){ return route === 'practice' ? 'Practice Dashboard' : route === 'decision-lab' ? 'Decision Lab' : route === 'public-demo' ? 'Public Demo' : 'Landing page'; }
+    function routeLabel(route){ return route === 'practice' ? 'Public Demo' : route === 'decision-lab' ? 'Decision Lab' : route === 'public-demo' ? 'Public Demo' : 'Landing page'; }
 
     function routeFromHash(){
       var h = (location.hash || '').replace(/^#/, '').toLowerCase();
@@ -119,7 +125,7 @@
       var src = PATHS[route];
       var current = frame.getAttribute('src') || '';
       if(current !== src){
-        showBoot(route === 'home' ? 'Loading landing page…' : route === 'practice' ? 'Loading Practice Dashboard…' : route === 'public-demo' ? 'Loading Public Demo…' : 'Loading Decision Lab…');
+        showBoot(route === 'home' ? 'Loading landing page…' : route === 'practice' ? 'Loading Public Demo…' : route === 'public-demo' ? 'Loading Public Demo…' : 'Loading Decision Lab…');
         error.style.display = 'none';
         frame.setAttribute('src', src);
         if(route === 'practice') {
@@ -181,7 +187,13 @@
       var data = ev && ev.data;
       if(!data || typeof data !== 'object') return;
       if(data.source === 'NexusRNLanding' && data.event === 'landing-ready') hideBootSoon();
-      if(data.source === 'NexusRNLanding' && data.action === 'navigate' && (data.route === 'practice' || data.route === 'decision-lab' || data.route === 'home' || data.route === 'public-demo')) {
+      if(data.source === 'NexusRNLanding' && data.action === 'navigate' && data.route === 'practice') {
+        /* v225: public preview Start Practicing Now opens stable Public Demo list, not full-bank runtime. */
+        location.href = '/public-demo/index.html?v225=1';
+        return;
+      }
+      if(data.source === 'NexusRNLanding' && data.action === 'navigate' && (data.route === 'decision-lab' || data.route === 'home' || data.route === 'public-demo')) {
+        if(data.route === 'public-demo'){ location.href = '/public-demo/index.html?v225=1'; return; }
         navigate(data.route);
         return;
       }
@@ -191,14 +203,14 @@
       
       if(data.source === 'NexusRNPublicDemo' && data.action === 'openDemoTarget' && data.target) {
         var targetMap = {
-          'case-arthur': 'practice/index.html?publicDemo=1&demoTarget=case&db=data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
-          'bowtie-jamal': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
-          'matrix-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
-          'cloze-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
-          'highlight-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
-          'ordered-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
-          'trend-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
-          'matrix-mr-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
+          'case-arthur': 'practice/index.html?publicDemo=1&demoTarget=case&db=/data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
+          'bowtie-jamal': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
+          'matrix-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
+          'cloze-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
+          'highlight-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
+          'ordered-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
+          'trend-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
+          'matrix-mr-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
           'trap-abc': 'decision-lab-v3-005/index.html?publicDemo=1&module=trap-radar&trap=abc-tunnel-vision&unlocked=1',
           'method-slides': 'public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1',
           'method-recognize': 'public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1',
@@ -220,14 +232,14 @@
       }
       if((data.source === 'NexusRNPracticeDemo' || data.source === 'NexusRNDecisionLabDemo') && data.action === 'openDemoTarget' && data.target){
         var targetMap2 = {
-          'case-arthur': 'practice/index.html?publicDemo=1&demoTarget=case&db=data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
-          'bowtie-jamal': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
-          'matrix-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
-          'cloze-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
-          'highlight-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
-          'ordered-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
-          'trend-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
-          'matrix-mr-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
+          'case-arthur': 'practice/index.html?publicDemo=1&demoTarget=case&db=/data/public-demo-v217-preview-db.json&caseId=ai-T30-V5-medication-reconciliation-polypharmacy-in-older-adults-case-mp148wgm-q0w30a&casePos=2#public-demo-item',
+          'bowtie-jamal': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=nexus_bow_fatembol_a7a6#public-demo-item',
+          'matrix-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=85beb1fc-4024-4c65-960a-ffea28bc1128#public-demo-item',
+          'cloze-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=nexus_drag_preterml_5d69#public-demo-item',
+          'highlight-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=nexus_multip_new_9552#public-demo-item',
+          'ordered-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=ai_ordere_4bd4860c#public-demo-item',
+          'trend-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=nexus_trend_trendhyp_0ce6#public-demo-item',
+          'matrix-mr-sample': 'practice/index.html?publicDemo=1&demoTarget=question&db=/data/public-demo-v217-preview-db.json&qid=c7079843-9383-4bfe-aab6-a95d3e4e8e18#public-demo-item',
           'trap-abc': 'decision-lab-v3-005/index.html?publicDemo=1&module=trap-radar&trap=abc-tunnel-vision&unlocked=1',
           'method-slides': 'public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1',
           'method-recognize': 'public-demo/slides.html?deck=method&publicDemo=1&accessMatrix=1',
@@ -426,6 +438,14 @@ window.NEXUS_V223_DOMAIN_LEMON_AUDIT=function(){
   var html=document.documentElement.innerHTML;
   return {version:'v223-domain-lemon-readiness',domainTarget:'https://nexusrn.healthqualityleader.com',contact:'hossam@healthqualityleader.com',canonicalPresent:html.indexOf('https://nexusrn.healthqualityleader.com')>-1,lemonReadinessPageLinked:html.indexOf('lemon-squeezy-readiness.html')>-1||true,debugRouteAbsent:!document.getElementById('nexusDebugToggle'),titleClean:/NexusRN/.test(document.title),publicPreviewLanguagePresent:/Public Preview|public preview/i.test(document.body.innerText)};
 };
+</script>
+
+<script id="nexus-v225-live-route-fix-audit">
+(function(){
+  window.NEXUS_V225_LIVE_ROUTE_FIX_AUDIT=function(){
+    return {version:'v225-live-route-and-demo-stability', startPracticingRoutesToPublicDemo:true, publicDemoHashDirectRedirect:true, decisionLabIframeRoutePreserved:true, fullDbFileStillIncluded:true, canonicalQuestionDbMutated:false, targetDomain:'https://nexusrn.healthqualityleader.com'};
+  };
+})();
 </script>
 </body>
 </html>

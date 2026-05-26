@@ -7,6 +7,18 @@
     {
       "source": "/access",
       "destination": "/pricing/index.html"
+    },
+    {
+      "source": "/start",
+      "destination": "/public-demo/index.html"
+    },
+    {
+      "source": "/practice-demo",
+      "destination": "/public-demo/index.html"
+    },
+    {
+      "source": "/decision-lab",
+      "destination": "/decision-lab-v3-005/index.html"
     }
   ],
   "headers": [

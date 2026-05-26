@@ -331,5 +331,35 @@ Error generating stack: `+a.message+`
 })();
 </script>
 
+
+<script id="nexus-v225-landing-cta-direct-stability">
+(function(){
+  function textOf(el){return ((el&&el.textContent)||''+' '+((el&&el.getAttribute&&(el.getAttribute('aria-label')||el.getAttribute('title')||el.getAttribute('href')))||'')).toLowerCase().replace(/\s+/g,' ').trim();}
+  function go(url,msg){
+    try{ if(window.parent && window.parent!==window){ window.parent.postMessage(msg,'*'); } }catch(e){}
+    setTimeout(function(){ try{ window.top.location.href=url; }catch(e){ location.href=url; } }, 80);
+  }
+  document.addEventListener('click',function(ev){
+    var el=ev.target&&ev.target.closest?ev.target.closest('a,button,[role=button]'):null;
+    if(!el) return;
+    var txt=textOf(el), href=((el.getAttribute&&el.getAttribute('href'))||'').toLowerCase();
+    if(txt.indexOf('start practicing')>=0 || txt.indexOf('start practice')>=0 || href==='#practice' || href==='#dashboard'){
+      ev.preventDefault(); ev.stopPropagation(); if(ev.stopImmediatePropagation) ev.stopImmediatePropagation();
+      go('/public-demo/index.html?v225=1',{source:'NexusRNLanding',action:'navigate',route:'practice'});
+      return;
+    }
+    if(txt.indexOf('explore decision lab')>=0 || href==='#decision-lab' || href==='#decisionlab'){
+      ev.preventDefault(); ev.stopPropagation(); if(ev.stopImmediatePropagation) ev.stopImmediatePropagation();
+      go('/decision-lab-v3-005/index.html?publicDemo=1',{source:'NexusRNLanding',action:'navigate',route:'decision-lab'});
+      return;
+    }
+    if(txt.indexOf('public demo')>=0 || txt.indexOf('try demo')>=0 || href==='#public-demo' || href==='#demo'){
+      ev.preventDefault(); ev.stopPropagation(); if(ev.stopImmediatePropagation) ev.stopImmediatePropagation();
+      go('/public-demo/index.html?v225=1',{source:'NexusRNLanding',action:'navigate',route:'public-demo'});
+    }
+  },true);
+  window.NEXUS_V225_LANDING_CTA_AUDIT=function(){return {version:'v225-landing-cta-direct-stability', startPracticingDirect:'/public-demo/index.html', exploreDecisionLabDirect:'/decision-lab-v3-005/index.html?publicDemo=1', publicDemoDirect:'/public-demo/index.html'};};
+})();
+</script>
 </body>
 </html>
