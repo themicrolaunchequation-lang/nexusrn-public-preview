@@ -1809,7 +1809,7 @@ input[type="range"]{cursor:pointer!important;accent-color:#14b8a6!important;}
 </script>
 
 
-<script id="nexus-v225-practice-public-demo-safe-renderer">
+<script id="nexus-v227-practice-public-demo-safe-renderer">
 (function(){
   var params=new URLSearchParams(location.search||'');
   if(params.get('publicDemo')!=='1') return;
@@ -1822,7 +1822,7 @@ input[type="range"]{cursor:pointer!important;accent-color:#14b8a6!important;}
       var body=(document.body&&document.body.innerText||'').toLowerCase();
       if(qid && body.indexOf('which action')>=0) return true;
       if(body.indexOf('submit answer')>=0 || body.indexOf('rationale')>=0 || body.indexOf('patient clinical file')>=0) return true;
-      if(document.querySelector('#nexusV225SafeDemo')) return true;
+      if(document.querySelector('#nexusV227SafeDemo')) return true;
     }catch(e){}
     return false;
   }
@@ -1847,12 +1847,12 @@ input[type="range"]{cursor:pointer!important;accent-color:#14b8a6!important;}
   }
   function renderQuestion(q){
     var patient=q.patient||{}; var opts=optionTexts(q);
-    var root=document.createElement('main'); root.id='nexusV225SafeDemo';
+    var root=document.createElement('main'); root.id='nexusV227SafeDemo';
     root.style.cssText='min-height:100vh;background:#f8fafc;color:#0f172a;font-family:Inter,system-ui,sans-serif;padding:92px 20px 40px;';
     root.innerHTML='<nav style="position:fixed;top:0;left:0;right:0;z-index:9999;background:white;border-bottom:1px solid #dbeafe;padding:12px 16px;display:flex;gap:10px;align-items:center;overflow:auto"><b style="color:#0f766e;letter-spacing:.08em;text-transform:uppercase">Public Demo</b><a href="/public-demo/index.html?v225=1" style="border:1px solid #bae6fd;border-radius:999px;padding:8px 12px;text-decoration:none;color:#075985;font-weight:800">← Demo List</a><a href="/pricing/index.html" style="margin-left:auto;border:1px solid #f59e0b55;background:#fef3c7;border-radius:999px;padding:8px 12px;text-decoration:none;color:#78350f;font-weight:900">Access Preview</a></nav>'+
       '<section style="max-width:1180px;margin:auto;display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:18px">'+
       '<aside style="background:white;border:1px solid #dbeafe;border-radius:22px;padding:18px;box-shadow:0 20px 60px rgba(15,23,42,.08)"><h2 style="margin-top:0">Patient Clinical File</h2><p><b>'+esc(patient.name||'Demo Patient')+'</b><br>'+esc((patient.age_value||'')+' '+(patient.age_unit||''))+' '+esc(patient.gender||'')+'</p><p><b>Focus:</b> '+esc(q.clinical_focus||q.client_needs||'NCLEX NGN clinical judgment')+'</p>'+notesHtml(q.ehr)+'</aside>'+
-      '<article style="background:white;border:1px solid #dbeafe;border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(15,23,42,.08)"><div style="color:#0f766e;font-weight:950;letter-spacing:.08em;text-transform:uppercase">NGN Item Format: '+esc(q.format||q.responseFormat||'Demo Item')+'</div><h1 style="font-size:26px;line-height:1.25">'+esc(q.prompt||q.stem||q.question||'Demo question')+'</h1><div>'+opts.map(function(o,i){return '<label style="display:block;border:1px solid #cbd5e1;border-radius:16px;padding:14px 16px;margin:10px 0;background:#f8fafc"><input type="checkbox" style="margin-right:10px">'+esc(o)+'</label>';}).join('')+'</div><button type="button" onclick="document.getElementById('nexusV225Rat').style.display='block'" style="margin-top:16px;border:0;border-radius:16px;background:#14b8a6;color:#042f2e;padding:14px 18px;font-weight:950">Submit Answer</button><div id="nexusV225Rat" style="display:none;margin-top:18px;border:1px solid #99f6e4;background:#ecfeff;border-radius:18px;padding:16px"><h3>Core Rationale</h3><p>'+esc((q.rationale&& (q.rationale.summary||q.rationale.core||q.rationale.text)) || 'This public preview shows the item and patient context. Full scoring and adaptive history are available in paid access later.')+'</p></div></article></section>' ;
+      '<article style="background:white;border:1px solid #dbeafe;border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(15,23,42,.08)"><div style="color:#0f766e;font-weight:950;letter-spacing:.08em;text-transform:uppercase">NGN Item Format: '+esc(q.format||q.responseFormat||'Demo Item')+'</div><h1 style="font-size:26px;line-height:1.25">'+esc(q.prompt||q.stem||q.question||'Demo question')+'</h1><div>'+opts.map(function(o,i){return '<label style="display:block;border:1px solid #cbd5e1;border-radius:16px;padding:14px 16px;margin:10px 0;background:#f8fafc"><input type="checkbox" style="margin-right:10px">'+esc(o)+'</label>';}).join('')+'</div><button type="button" onclick="var el=document.getElementById(&quot;nexusV227Rat&quot;); if(el){el.style.display=&quot;block&quot;}" style="margin-top:16px;border:0;border-radius:16px;background:#14b8a6;color:#042f2e;padding:14px 18px;font-weight:950">Submit Answer</button><div id="nexusV227Rat" style="display:none;margin-top:18px;border:1px solid #99f6e4;background:#ecfeff;border-radius:18px;padding:16px"><h3>Core Rationale</h3><p>'+esc((q.rationale&& (q.rationale.summary||q.rationale.core||q.rationale.text)) || 'This public preview shows the item and patient context. Full scoring and adaptive history are available in paid access later.')+'</p></div></article></section>' ;
     document.body.innerHTML=''; document.body.appendChild(root);
   }
   function renderCase(c){
@@ -1866,12 +1866,27 @@ input[type="range"]{cursor:pointer!important;accent-color:#14b8a6!important;}
       var r=await fetch('/data/public-demo-v217-preview-db.json',{cache:'no-store'}); var db=await r.json();
       if(demoTarget==='case'){var c=(db.cases||[]).find(function(x){return String(x.caseId||x.id)===caseId;})||(db.cases||[])[0]; if(c) return renderCase(c);}
       var q=(db.questions||[]).find(function(x){return String(x.id||x._domId)===qid;})||(db.questions||[])[0]; if(q) return renderQuestion(q);
-    }catch(e){console.error('[v225 safe demo renderer]',e);}
+    }catch(e){console.error('[v227 safe demo renderer]',e);}
   }
   [2200,4500,7500,11000].forEach(function(ms){setTimeout(safeRender,ms);});
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){setTimeout(safeRender,1800);}); else setTimeout(safeRender,1800);
-  window.NEXUS_V225_PUBLIC_DEMO_SAFE_RENDER_AUDIT=function(){return {version:'v225-public-demo-safe-renderer', publicDemo:true, fallbackRendered:!!document.getElementById('nexusV225SafeDemo'), bootHidden:!document.getElementById('boot')||getComputedStyle(document.getElementById('boot')).display==='none', qCount:Array.isArray(window.Q)?window.Q.length:null, caseCount:Array.isArray(window.CASESETS)?window.CASESETS.length:null, url:location.href};};
+  window.NEXUS_V227_PUBLIC_DEMO_SAFE_RENDER_AUDIT=function(){return {version:'v227-public-demo-safe-renderer', publicDemo:true, fallbackRendered:!!document.getElementById('nexusV227SafeDemo'), bootHidden:!document.getElementById('boot')||getComputedStyle(document.getElementById('boot')).display==='none', qCount:Array.isArray(window.Q)?window.Q.length:null, caseCount:Array.isArray(window.CASESETS)?window.CASESETS.length:null, url:location.href};};
 })();
 </script>
+
+<script id="nexus-v227-practice-syntax-hotfix-audit">
+(function(){
+  window.NEXUS_V227_PRACTICE_SYNTAX_HOTFIX_AUDIT = function(){
+    return {
+      version: 'v227-practice-syntax-hotfix',
+      fixedUnexpectedIdentifierNexusV225Rat: true,
+      brokenInlineOnclickRemoved: true,
+      safeRendererAuditAvailable: typeof window.NEXUS_V227_PUBLIC_DEMO_SAFE_RENDER_AUDIT === 'function',
+      url: location.href
+    };
+  };
+})();
+</script>
+
 </body>
 </html>
