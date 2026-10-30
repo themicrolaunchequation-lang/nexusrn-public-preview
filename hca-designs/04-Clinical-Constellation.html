@@ -1,0 +1,131 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Healthcare Crown Academy concept homepage. Interactive design preview."><title>04 · Clinical Constellation | Healthcare Crown Academy</title><style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;
+
+:root{font-synthesis:none}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px}button,a{touch-action:manipulation}button{font:inherit;cursor:pointer}a{text-decoration:none;color:inherit}button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid #4edaca;outline-offset:5px}img{max-width:100%}::selection{background:#d0a963;color:#101827}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.preview-ribbon{position:fixed;bottom:16px;left:16px;font:600 10px/1.2 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase;z-index:80;border-radius:99px;padding:9px 13px;background:rgba(20,30,38,.82);color:#fff;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(15px);pointer-events:none}
+.demo-toast{position:fixed;right:24px;bottom:22px;z-index:100;padding:15px 21px;border-radius:14px;background:#13202e;color:white;font:500 13px system-ui,sans-serif;border:1px solid #687382;box-shadow:0 20px 75px #0005;transform:translateY(110px);opacity:0;transition:.4s;max-width:min(430px,calc(100vw - 36px))}.demo-toast.show{transform:translateY(0);opacity:1}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}.reveal{opacity:1;transform:none}}
+
+
+500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+:root{--bg:#071421;--teal:#8af6ce;--blue:#79cafb;--line:#ffffff1b;--muted:#92a6b7}body{background:var(--bg);color:#f2f9fc;font-family:'Space Grotesk',Arial,sans-serif;overflow-x:hidden}body:before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 65% 23%,#0c58704a,transparent 40%),radial-gradient(ellipse at 8% 68%,#20516d36,transparent 50%),linear-gradient(100deg,#08121f,#061825);pointer-events:none}.noise{pointer-events:none;position:fixed;inset:0;background-image:radial-gradient(#b1e4ec28 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(90deg,transparent,#000a,transparent);z-index:0}.site{max-width:1460px;margin:auto;padding:0 4.5%;position:relative}.top{height:93px;display:flex;align-items:center;justify-content:space-between;gap:22px;border-bottom:1px solid var(--line)}.mark{display:flex;gap:10px;align-items:center;font-size:17px;font-weight:700;letter-spacing:-.04em}.mark b{display:grid;place-items:center;width:43px;height:43px;background:#8af6ce18;color:var(--teal);border:1px solid #8af6ce55;border-radius:14px;font-size:25px}.mark small{font:500 9px 'IBM Plex Mono',monospace;display:block;letter-spacing:.2em;color:#91abba;margin-top:5px}.top nav{display:flex;gap:32px;font-size:12px;color:#bfccd6}.top nav a:hover{color:var(--teal)}.topcta{background:var(--teal);color:#071b22;border:0;border-radius:7px;padding:14px 21px;font-weight:700;font-size:12px}.topcta:hover{background:#baffea}.top-actions{display:flex;gap:10px}.menu{display:none}.hero{display:grid;grid-template-columns:.9fr 1.1fr;min-height:660px;gap:2%;align-items:center}.hero-left{z-index:3;position:relative;padding-bottom:26px}.chip{display:inline-flex;align-items:center;gap:10px;color:var(--teal);font:500 10px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.12em}.chip:before{content:'';width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 20px var(--teal);animation:blink 3s infinite}h1{font-size:clamp(56px,6vw,92px);line-height:1.01;letter-spacing:-.075em;margin:27px 0 21px;font-weight:600}h1 em{font-style:normal;color:var(--teal)}.hero-left>p{max-width:485px;font-size:15px;line-height:1.85;color:#a3b7c4}.btnrow{display:flex;gap:22px;align-items:center;margin-top:34px;flex-wrap:wrap}.primary{background:var(--teal);color:#082329;border:1px solid var(--teal);padding:16px 24px;font-weight:700;border-radius:6px;font-size:13px}.secondary{font-size:13px;border-bottom:1px solid var(--teal);padding:13px 4px;color:#e5f5f6}.metadata{display:flex;gap:28px;color:#9eb6c0;font:500 10px 'IBM Plex Mono',monospace;margin-top:62px;flex-wrap:wrap}.metadata span{display:flex;align-items:center;gap:9px}.metadata b{color:var(--teal);font-size:12px}.constellation{min-height:610px;position:relative;isolation:isolate}.constellation:before{content:'';position:absolute;top:12%;left:16%;width:68%;height:70%;background:radial-gradient(circle at 50% 50%,#246d8870,transparent 58%);filter:blur(25px)}.orbit{position:absolute;border:1px solid #70d2e930;border-radius:50%;left:50%;top:46%;transform:translate(-50%,-50%) rotate(-25deg) scaleY(.62);width:83%;aspect-ratio:1;pointer-events:none}.orbit.o2{width:62%;transform:translate(-50%,-50%) rotate(35deg) scaleX(.8);border-style:dashed;border-color:#8af6ce3a}.orbit.o3{width:42%;transform:translate(-50%,-50%);border-color:#e4f4e81a}.center{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:55%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#183f55ad,transparent 69%)}.center .crown-stage{position:absolute;inset:0}.center canvas{width:100%;height:100%}.center:after{content:'CORE  /  HCA';font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.2em;color:#83d4c4;position:absolute;left:50%;bottom:7%;transform:translateX(-50%);white-space:nowrap}.node{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;background:#0e2b3af2;border:1px solid #3b8192a8;border-radius:12px;color:#e9faff;padding:12px 16px;font:600 12px 'Space Grotesk',sans-serif;box-shadow:0 10px 30px #04121caa;transition:transform .25s,border-color .25s,background .25s}.node:before{content:'';width:6px;height:6px;border-radius:50%;background:#97f5d8;box-shadow:0 0 12px #87f8d8}.node:hover,.node.active{background:#1c4852;border-color:var(--teal);transform:scale(1.06)}.n1{top:10%;left:21%}.n2{top:18%;right:4%}.n3{top:48%;left:2%}.n4{top:57%;right:0}.n5{bottom:14%;left:19%}.n6{bottom:5%;right:24%}.detail{position:absolute;bottom:2%;left:0;background:linear-gradient(110deg,#102e3c,#0c2330);border:1px solid #7ddfcc5a;border-radius:12px;max-width:260px;padding:18px;z-index:3;box-shadow:0 18px 45px #010a17aa}.detail small{display:block;color:var(--teal);font:500 9px 'IBM Plex Mono',monospace;letter-spacing:.17em}.detail strong{font-size:19px;display:block;margin:9px 0 4px}.detail p{font-size:12px;line-height:1.6;color:#acc4ce;margin:0}.catalogue{border-top:1px solid var(--line);padding:65px 0 110px}.catalogue-head{display:flex;justify-content:space-between;align-items:end;gap:20px}.overline{font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.16em;color:var(--teal)}.catalogue h2{font-size:42px;letter-spacing:-.06em;margin:15px 0}.catalogue-head p{max-width:350px;color:#9aacba;line-height:1.7;font-size:13px}.search{display:flex;align-items:center;border:1px solid #49819670;border-radius:9px;background:#102637;padding:15px 20px;max-width:440px;margin:32px 0;gap:12px}.search input{font:500 13px 'Space Grotesk',sans-serif;background:transparent;border:0;color:white;outline:0;flex:1;min-width:0}.search:focus-within{border-color:var(--teal)}.search input::placeholder{color:#87a2b2}.catalogue-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.tool{position:relative;border:1px solid #ffffff20;border-radius:13px;padding:26px 23px;background:linear-gradient(125deg,#122a3bc0,#0c2130);min-height:203px;transition:border-color .25s,transform .25s}.tool:hover{border-color:#7feacf80;transform:translateY(-5px)}.tool .code{color:#7fcdbc;font:500 11px 'IBM Plex Mono',monospace}.tool .tool-icon{position:absolute;right:22px;top:23px;font-size:25px;color:#7ef5cf}.tool h3{font-size:23px;letter-spacing:-.05em;margin:24px 0 7px}.tool p{font-size:12px;color:#9eb3c1;line-height:1.7;margin:0}.tool[hidden]{display:none}.none{display:none;color:#bad0d8;padding:30px 0}.none.show{display:block}.ending{padding:35px 0 50px;border-top:1px solid var(--line);font:400 11px 'IBM Plex Mono',monospace;color:#a1b5bd;display:flex;justify-content:space-between;gap:20px}@keyframes blink{50%{opacity:.35;box-shadow:none}}
+@media(max-width:1050px){.hero{grid-template-columns:1fr 1fr}.constellation{min-height:540px}.detail{bottom:-35px}.node{font-size:10px;padding:10px}.n3{left:-4%}.n4{right:-5%}.metadata{margin-top:30px}}@media(max-width:780px){.site{padding:0 22px}.top{height:74px}.top nav{display:none;position:absolute;z-index:22;top:70px;left:0;right:0;background:#0b2635;border:1px solid #356a71;padding:20px;border-radius:12px}.top nav.open{display:flex;flex-direction:column;gap:18px}.menu{display:block;background:transparent;border:1px solid #356a71;color:white;padding:10px;border-radius:8px}.hero{display:flex;flex-direction:column;align-items:stretch}.hero-left{padding:64px 0 20px}.hero h1{font-size:clamp(53px,11vw,79px)}.constellation{min-height:510px;width:100%;max-width:550px;align-self:center}.metadata{gap:15px}.detail{bottom:0}.catalogue-head{display:block}.catalogue-grid{grid-template-columns:1fr 1fr}}@media(max-width:500px){.topcta{display:none}.constellation{min-height:370px}.center{width:60%}.node{font-size:9px;padding:8px}.n3{left:0}.n4{right:0}.n6{right:12%}.detail{bottom:-10px;left:5px;max-width:210px;padding:12px}.detail strong{font-size:15px}.detail p{font-size:10px}.orbit{width:90%}.catalogue-grid{grid-template-columns:1fr}.catalogue h2{font-size:34px}.ending{flex-wrap:wrap}}
+</style></head><body>
+<div class="noise"></div><div class="site"><header class="top"><a href="#start" class="mark"><b>♛</b><span>Healthcare Crown<small>ACADEMY / LEARNING SYSTEM</small></span></a><nav id="menu-clinical"><a href="#system">Learning system</a><a href="#catalogue">Explore tools</a><a href="#mission">Our mission</a></nav><div class="top-actions"><a href="#catalogue" class="topcta">Launch discovery ↗</a><button class="menu" data-menu-button aria-label="Toggle navigation" aria-expanded="false" aria-controls="menu-clinical">☰</button></div></header>
+<main id="start"><div class="hero" id="system"><section class="hero-left"><div class="chip">Healthcare learning • Reimagined</div><h1>Sharper minds.<br><em>Stronger care.</em></h1><p>Explore an interconnected system of learning apps: decode complex topics, rehearse clinical decisions, improve processes and develop your career.</p><div class="btnrow"><a class="primary" href="#catalogue">Explore the learning system ↗</a><a class="secondary" href="#mission">Why we built it →</a></div><div class="metadata"><span><b>06</b> LEARNING DESTINATIONS</span><span><b>01</b> CONNECTED ECOSYSTEM</span></div></section>
+<section class="constellation" aria-label="Interactive app constellation"><div class="orbit"></div><div class="orbit o2"></div><div class="orbit o3"></div><div class="center"><div class="crown-stage" data-drag="true"><canvas data-crown="true" data-tint="silver" role="img" aria-label="Spinning 3D crown"></canvas></div></div><button class="node active n1" data-node="medlex">MedLex</button><button class="node n2" data-node="lumen">Lumen</button><button class="node n3" data-node="snle">SNLE Studio</button><button class="node n4" data-node="serein">Serein</button><button class="node n5" data-node="lss">LSS Toolkit</button><button class="node n6" data-node="evinca">Evinca</button><div class="detail" aria-live="polite"><small>SELECTED MODULE · <span id="sys-id">01</span></small><strong id="sys-title">MedLex</strong><p id="sys-copy">Learn the language behind clinical understanding.</p></div></section></div>
+<section class="catalogue" id="catalogue"><div class="catalogue-head"><div><div class="overline">// DISCOVER THE TOOLKIT</div><h2>Find your next capability.</h2></div><p>Type a topic or an app name to filter the learning destinations below. Every card reflects a different point in your journey.</p></div><label class="search"><span aria-hidden="true">⌕</span><span class="sr-only">Search learning tools</span><input id="filter" type="search" placeholder="Search e.g. terminology, clinical, recognition" autocomplete="off"><span aria-hidden="true">↵</span></label><div class="catalogue-grid"><article class="tool" data-keywords="medlex terminology words foundations language"><div class="code">SYS / 01</div><div class="tool-icon">✳</div><h3>MedLex</h3><p>Medical terms, visual memory and active word-building.</p></article><article class="tool" data-keywords="lumen study memory notes recall learn"><div class="code">SYS / 02</div><div class="tool-icon">◈</div><h3>Lumen</h3><p>Make study more active and easier to revisit.</p></article><article class="tool" data-keywords="snle studio nursing clinical exam reasoning"><div class="code">SYS / 03</div><div class="tool-icon">⊕</div><h3>SNLE Studio</h3><p>Practice nursing reasoning and exam scenarios.</p></article><article class="tool" data-keywords="serein practice mindfulness focus wellbeing"><div class="code">SYS / 04</div><div class="tool-icon">✧</div><h3>Serein</h3><p>Make space for focus and reflective growth.</p></article><article class="tool" data-keywords="lss toolkit lean six sigma quality leadership process"><div class="code">SYS / 05</div><div class="tool-icon">↗</div><h3>LSS Toolkit</h3><p>Plan improvements with clearer methods and tools.</p></article><article class="tool" data-keywords="evinca recognition awards achievements professionals"><div class="code">SYS / 06</div><div class="tool-icon">✦</div><h3>Evinca</h3><p>Make verified professional achievements visible.</p></article></div><p class="none" id="none" role="status">No tools match that search. Try “clinical”, “learning” or “recognition”.</p></section></main><footer class="ending" id="mission"><span>HCA SYSTEM / THE FUTURE OF LEARNING IS PRACTICAL.</span><span>Homepage concept 04 / 05 · Non-production demo</span></footer></div><span class="preview-ribbon">Interactive design study · 04</span>
+<script>
+(function(){
+  let el=document.createElement('div');el.className='demo-toast';el.role='status';el.setAttribute('aria-live','polite');document.body.appendChild(el);let timer;
+  window.hcaToast=function(msg){el.textContent=msg;el.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>el.classList.remove('show'),3200)};
+  document.querySelectorAll('[data-demo]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();hcaToast('Concept preview only — this action is not connected to the live website.')}));
+  const io=new IntersectionObserver(entries=>entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.1});document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+  document.querySelectorAll('[data-tilt]').forEach(el=>{
+    el.addEventListener('pointermove',e=>{if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;const b=el.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;el.style.transform=`perspective(900px) rotateY(${x*5}deg) rotateX(${-y*5}deg) translateY(-4px)`});
+    el.addEventListener('pointerleave',()=>el.style.transform='');
+  });
+  document.querySelectorAll('[data-menu-button]').forEach(btn=>btn.addEventListener('click',()=>{const menu=document.getElementById(btn.getAttribute('aria-controls'));if(!menu)return;const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));menu.classList.toggle('open',!open)}));
+})();
+</script><script>
+/* Pure Canvas 3D: no library or downloaded model required. */
+(function(){
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const palettes={gold:[219,161,75],pearl:[226,177,95],ice:[130,213,247],silver:[172,209,231],coral:[253,147,94]};
+  function makeMesh(){
+    const faces=[]; const n=52, R=1.12;
+    function face(a,b,c,mat='gold',intensity=1){faces.push({v:[a,b,c],mat,intensity})}
+    function quad(a,b,c,d,mat='gold',intensity=1){face(a,b,c,mat,intensity);face(a,c,d,mat,intensity)}
+    // Dark inner cavity, polished gold cylindrical base and rails.
+    for(let j=0;j<n;j++){
+      let t=j/n*Math.PI*2,u=(j+1)/n*Math.PI*2;
+      const pt=(rad,y,a)=>[rad*Math.cos(a),y,rad*Math.sin(a)];
+      quad(pt(R,-.78,t),pt(R,-.78,u),pt(R,-.35,u),pt(R,-.35,t),'gold',.87);
+      quad(pt(R*.92,-.34,t),pt(R*.92,-.34,u),pt(R,-.34,u),pt(R,-.34,t),'gold',1.1);
+      quad(pt(R*.96,-.81,t),pt(R*.96,-.81,u),pt(R,-.81,u),pt(R,-.81,t),'gold',1.1);
+      // filigree horizontal ridges
+      for(const y of [-.77,-.45,-.31]){
+        const rr=R+.037;
+        quad(pt(rr,y,t),pt(rr,y,u),pt(rr,y+.04,u),pt(rr,y+.04,t),'gold',1.38);
+      }
+    }
+    // Ten raised fleur-de-lys-inspired points around the rim.
+    for(let j=0;j<10;j++){
+      const a=j*Math.PI*2/10;
+      const point=(r,y,off)=>[r*Math.cos(a+off),y,r*Math.sin(a+off)];
+      const h= j%2 ? .66 : 1.18;
+      const tip=point(1.18,h,0),mid=point(1.26,h*.39,.0);
+      const l=point(R,-.30,-.25),r=point(R,-.30,.25);
+      face(l,mid,tip,'gold',1.05);face(mid,r,tip,'gold',1.21);
+      face(l,r,mid,'gold',.78);
+      // collar where spike emerges
+      face(point(1.13,-.22,-.15),point(1.13,-.22,.15),mid,'gold',1.38);
+    }
+    return faces;
+  }
+  const faces=makeMesh();
+  class CrownScene {
+    constructor(canvas){
+      this.canvas=canvas;this.ctx=canvas.getContext('2d',{alpha:true});if(!this.ctx)return;
+      this.tint=canvas.dataset.tint||'gold'; this.orbit=0;this.target=0;this.xTarget=0;this.tilt=0;
+      this.stage=canvas.closest('.crown-stage')||canvas.parentElement;
+      this.resize=()=>{const rect=canvas.getBoundingClientRect();this.w=Math.max(1,rect.width);this.h=Math.max(1,rect.height);this.dpr=Math.min(devicePixelRatio||1,1.75); canvas.width=this.w*this.dpr;canvas.height=this.h*this.dpr;this.ctx.setTransform(this.dpr,0,0,this.dpr,0,0)};
+      this.resize();new ResizeObserver(this.resize).observe(canvas);
+      this.stage?.addEventListener('pointermove',(e)=>{let r=this.stage.getBoundingClientRect();this.target=((e.clientX-r.left)/r.width-.5)*.7;this.xTarget=((e.clientY-r.top)/r.height-.5)*-.3});
+      this.stage?.addEventListener('pointerleave',()=>{this.target=0;this.xTarget=0});
+      if(this.stage?.dataset.drag==='true'){
+        let lx=null; this.stage.addEventListener('pointerdown',e=>{lx=e.clientX;this.stage.setPointerCapture?.(e.pointerId)});
+        this.stage.addEventListener('pointermove',e=>{if(lx!==null){this.orbit+=(e.clientX-lx)*.012;lx=e.clientX}});
+        this.stage.addEventListener('pointerup',()=>lx=null);
+        this.stage.addEventListener('pointercancel',()=>lx=null);
+      }
+      if(reduce){this.draw(0)}else this.animate();
+    }
+    animate(){if(!document.hidden){this.orbit+=.0042;this.tilt+=(this.xTarget-this.tilt)*.045;this.draw(performance.now()*.001)}requestAnimationFrame(()=>this.animate())}
+    draw(t){
+      const c=this.ctx,w=this.w,h=this.h; c.clearRect(0,0,w,h);
+      const s=Math.min(w/3.9,h/3.6), cx=w*.5,cy=h*.55;
+      const a=this.orbit+this.target,rx=-.14+this.tilt;
+      const rot=p=>{let [x,y,z]=p;let xx=x*Math.cos(a)+z*Math.sin(a), zz=z*Math.cos(a)-x*Math.sin(a);let yy=y*Math.cos(rx)-zz*Math.sin(rx),z2=y*Math.sin(rx)+zz*Math.cos(rx);return [xx,yy,z2]};
+      const proj=p=>{let v=rot(p),persp=4.6/(4.6-v[2]);return [cx+v[0]*s*persp,cy-v[1]*s*persp,v[2]]};
+      // Surface glow, subtly lit ground shadow.
+      let glow=c.createRadialGradient(cx,cy,8,cx,cy,Math.max(w,h)*.43);
+      glow.addColorStop(0,this.tint==='ice'?'rgba(86,188,245,.12)':'rgba(229,170,71,.11)');glow.addColorStop(1,'rgba(0,0,0,0)');c.fillStyle=glow;c.fillRect(0,0,w,h);
+      c.save();c.translate(cx,cy+s*.95);c.scale(1,.18);let sh=c.createRadialGradient(0,0,0,0,0,s*1.35);sh.addColorStop(0,'rgba(5,8,24,.3)');sh.addColorStop(1,'rgba(5,8,24,0)');c.fillStyle=sh;c.beginPath();c.arc(0,0,s*1.35,0,Math.PI*2);c.fill();c.restore();
+      const base=palettes[this.tint]||palettes.gold;
+      const painted=faces.map(f=>{let v=f.v.map(rot),depth=(v[0][2]+v[1][2]+v[2][2])/3;
+        let ux=v[1][0]-v[0][0],uy=v[1][1]-v[0][1],uz=v[1][2]-v[0][2],vx=v[2][0]-v[0][0],vy=v[2][1]-v[0][1],vz=v[2][2]-v[0][2];let nx=uy*vz-uz*vy,ny=uz*vx-ux*vz,nz=ux*vy-uy*vx, len=Math.hypot(nx,ny,nz)||1;
+        let dot=(nx*.43+ny*.73+nz*.81)/len;let light=Math.max(.21,Math.min(1.7,.62+dot*.50))*f.intensity;
+        return {p:f.v.map(proj),depth,light};});
+      painted.sort((x,y)=>x.depth-y.depth);
+      c.lineJoin='round';
+      for(const f of painted){let [r,g,b]=base;let spec=Math.pow(Math.max(0,f.light-.70),2)*48;
+        c.fillStyle=`rgb(${Math.min(255,r*f.light+spec)|0},${Math.min(255,g*f.light+spec)|0},${Math.min(255,b*f.light+spec)|0})`;
+        c.strokeStyle=`rgba(255,235,172,${Math.max(.02,Math.min(.17,.09*f.light))})`;c.lineWidth=.55;
+        c.beginPath();c.moveTo(f.p[0][0],f.p[0][1]);c.lineTo(f.p[1][0],f.p[1][1]);c.lineTo(f.p[2][0],f.p[2][1]);c.closePath();c.fill();c.stroke();
+      }
+      // Gemstones, royal pearl finials; depth ordering to avoid visual flattening.
+      const jewel=[];for(let j=0;j<10;j++){
+        let angle=j*Math.PI*2/10;for(const [r,y,size,type] of [[1.15,-.53,.115,j%2?'ruby':'sapphire'],[1.18,j%2?.66:1.18,j%2?.082:.105,'pearl']]){
+          const pt=proj([r*Math.cos(angle),y,r*Math.sin(angle)]);jewel.push({...{pt,size:size*s*4.6/(4.6-pt[2]),type},depth:pt[2]});
+        }
+      }
+      jewel.sort((a,b)=>a.depth-b.depth);
+      for(let e of jewel){const [x,y]=e.pt,rad=Math.max(2,e.size);const colors=e.type==='ruby'?['#ffb1a5','#c33355','#460f31']:e.type==='sapphire'?['#e3f9ff','#247fb4','#062849']:['#fffbe6','#ecc77b','#986529'];let gg=c.createRadialGradient(x-rad*.4,y-rad*.45,1,x,y,rad);
+        gg.addColorStop(0,colors[0]);gg.addColorStop(.44,colors[1]);gg.addColorStop(1,colors[2]);c.beginPath();c.arc(x,y,rad,0,Math.PI*2);c.fillStyle=gg;c.fill();c.strokeStyle='rgba(255,230,155,.9)';c.lineWidth=Math.max(.9,rad*.16);c.stroke();
+        c.fillStyle='rgba(255,255,255,.7)';c.beginPath();c.arc(x-rad*.28,y-rad*.3,rad*.16,0,Math.PI*2);c.fill();
+      }
+      // Orbiting flecks (2D after perspective render)
+      for(let i=0;i<28;i++){let p=i*2.399963, rad=.9+(i%7)*.28, x=cx+Math.cos(p+t*.04)*rad*s,y=cy+Math.sin(p*1.7+t*.1)*rad*s*.7;
+        let rr=i%5===0?1.7:.8;c.globalAlpha=.16+(Math.sin(t+i)*.5+.5)*.25;c.fillStyle=this.tint==='ice'?'#c8f7ff':'#f7d185';c.beginPath();c.arc(x,y,rr,0,7);c.fill();}
+      c.globalAlpha=1;
+    }
+  }
+  document.querySelectorAll('canvas[data-crown]').forEach(node=>new CrownScene(node));
+})();
+</script><script>
+(function(){const m={medlex:['01','MedLex','Learn the language behind clinical understanding.'],lumen:['02','Lumen','Turn study into more active recall and practice.'],snle:['03','SNLE Studio','Strengthen nursing judgment through scenario-based practice.'],serein:['04','Serein','Pause, reset and develop a more intentional learning rhythm.'],lss:['05','LSS Toolkit','Structure better processes with practical improvement tools.'],evinca:['06','Evinca','Recognize professional achievement through evidence-based review.']};
+ document.querySelectorAll('[data-node]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-node]').forEach(x=>x.classList.remove('active'));b.classList.add('active');let x=m[b.dataset.node];document.getElementById('sys-id').textContent=x[0];document.getElementById('sys-title').textContent=x[1];document.getElementById('sys-copy').textContent=x[2]}));
+ document.getElementById('filter').addEventListener('input',e=>{let q=e.target.value.trim().toLowerCase(),matches=0;document.querySelectorAll('.tool').forEach(x=>{let ok=x.dataset.keywords.includes(q);x.hidden=!ok;if(ok)matches++});document.getElementById('none').classList.toggle('show',!matches)});
+})();
+</script></body></html>
